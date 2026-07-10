@@ -117,6 +117,9 @@
 - 無料枠で始められるため
 - PostgreSQLを使用できるため。
 
-## ケアバンク（MVP）画面遷移図URL
+## MVP画面遷移図URL
 
 https://www.figma.com/design/SuzPw5OwzBxNOxzr2h2NY8/%E3%82%B1%E3%82%A2%E3%83%90%E3%83%B3%E3%82%AF%E3%80%80%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?t=6tmouACnRYDtLS7U-0
+
+## MVPのER図URL
+https://app.diagrams.net/#G1L6Jo0ml6WxqW-ib4w1CQaGpZApQQRj_Z#%7B%22pageId%22%3A%22hqikJYfhwTl3j-m066MZ%22%7D
