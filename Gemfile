@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.3.7"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.2.3', '>= 7.2.3.1'
+gem "rails", "~> 7.2.3", ">= 7.2.3.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use postgresql as the database for Active Record
@@ -47,8 +47,8 @@ group :development, :test do
 
   # Audits gems for known security defects (use config/bundler-audit.yml to ignore issues)
   gem "bundler-audit", require: false
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false

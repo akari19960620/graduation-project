@@ -1,8 +1,10 @@
 services: 
   web:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
     command: bundle exec rails server -b 0.0.0.0
-    user: "1000:1000"
+#    user: "1000:1000"
     volumes:
       - .:/app
       - bundle_data:/usr/local/bundle

@@ -12,7 +12,7 @@ ARG RUBY_VERSION=3.3.7
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
 # Rails app lives here
-WORKDIR /rails
+WORKDIR /app
 
 # Install base packages
 RUN apt-get update -qq && \
@@ -45,7 +45,7 @@ RUN bundle config set frozen false && \
     bundle lock --add-platform x86_64-linux && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile -j 1 --gemfile
-    
+
 # Copy application code
 COPY . .
 
