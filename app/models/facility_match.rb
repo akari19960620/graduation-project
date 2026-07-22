@@ -1,0 +1,2 @@
+class FacilityMatch < ApplicationRecord
+end
