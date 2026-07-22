@@ -1,0 +1,7 @@
+      invoke  active_record
+      create    db/migrate/20260722115934_create_facilities.rb
+      create    app/models/facility.rb
+      invoke    rspec
+      create      spec/models/facility_spec.rb
+      invoke      factory_bot
+      create        spec/factories/facilities.rb
