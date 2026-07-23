@@ -1,0 +1,472 @@
+  [1m[35m (248.9ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35m (147.1ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-22 11:40:40.244012', '2026-07-22 11:40:40.244015') RETURNING "key" /*application='App'*/[0m
+Migrating to CreateDiagnosisQuestions (20260719070347)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260719070347') RETURNING "version" /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+Migrating to CreateFacilities (20260722115934)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260722115934') RETURNING "version" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mFacility Load (0.8ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (75.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development" /*application='App'*/[0m
+  [1m[35m (63.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='App'*/[0m
+  [1m[35m (207.1ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35m (122.0ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35mSQL (30.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_questions" CASCADE /*application='App'*/[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "facilities" CASCADE /*application='App'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260722115934) /*application='App'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260719070347); /*application='App'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-22 12:30:15.671029', '2026-07-22 12:30:15.671032') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'd407a810cf2c9aa3583e87ed84255262497bb234', '2026-07-22 12:30:15.679080', '2026-07-22 12:30:15.679135') RETURNING "key" /*application='App'*/[0m
+  [1m[35mSQL (21.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_questions" CASCADE /*application='App'*/[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "facilities" CASCADE /*application='App'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260722115934) /*application='App'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260719070347); /*application='App'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-22 12:30:15.750153', '2026-07-22 12:30:15.750156') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2026-07-22 12:30:15.753296' WHERE "ar_internal_metadata"."key" = 'environment' /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'd407a810cf2c9aa3583e87ed84255262497bb234', '2026-07-22 12:30:15.755783', '2026-07-22 12:30:15.755785') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mFacility Load (0.8ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mFacility Load (0.6ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (148.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_development" /*application='App'*/[0m
+  [1m[35m (62.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='App'*/[0m
+  [1m[35m (76.4ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35m (91.9ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35mSQL (32.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_questions" CASCADE /*application='App'*/[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "facilities" CASCADE /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260722115934) /*application='App'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260719070347); /*application='App'*/[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-22 12:34:05.805116', '2026-07-22 12:34:05.805119') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'd407a810cf2c9aa3583e87ed84255262497bb234', '2026-07-22 12:34:05.813424', '2026-07-22 12:34:05.813479') RETURNING "key" /*application='App'*/[0m
+  [1m[35mSQL (20.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_questions" CASCADE /*application='App'*/[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "facilities" CASCADE /*application='App'*/[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260722115934) /*application='App'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260719070347); /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-22 12:34:05.881455', '2026-07-22 12:34:05.881458') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2026-07-22 12:34:05.884333' WHERE "ar_internal_metadata"."key" = 'environment' /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'd407a810cf2c9aa3583e87ed84255262497bb234', '2026-07-22 12:34:05.886964', '2026-07-22 12:34:05.886966') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mFacility Load (0.6ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mFacility Load (0.7ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+Migrating to AddMissingColumnsToFacilities (20260722124210)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (4.4ms)[0m  [1m[35mALTER TABLE "facilities" ADD "name" character varying /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "facilities" ADD "facility_type" character varying /*application='App'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "facilities" ADD "address" character varying /*application='App'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "facilities" ADD "phone" character varying /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "facilities" ADD "website_url" character varying /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260722124210') RETURNING "version" /*application='App'*/[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mFacility Load (0.7ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mFacility Load (0.8ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (5.6ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (3, 16, 140, 'ユニット型個室', 0, '医療サービス、介護サービス、個別リハビリ等全般（詳細はホームページを参照ください）', '自然に恵まれた好環境、都心から近い好立地で居住エリアは10人単位のユニット。クラブ活動や季節ごとの行事の他、機能訓練や音楽・美術プログラムなど青葉ヒルズならではのアクティビティが日常生活の一部として定着している', '2026-07-22 13:02:45.363819', '2026-07-22 13:02:45.363819', '青葉ヒルズ', '特別養護老人ホーム', '神奈川県横浜市青葉区鴨志田町1260', '0037-630-21227', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (9.4ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (7, 8, 443, '個室', 0, '24時間看護師常駐で健康管理のお手伝いや、施設責任者やスタッフが生活全般のご相談に対応。', '所有権分譲方式の売却もでき、相続財産にもなる個人資産。アクセスの良い立地で栄養バランスの整った温かい食事、喫茶・大浴場・麻雀室など充実の共用施設もある。（入居時費用あり）', '2026-07-22 13:02:45.392843', '2026-07-22 13:02:45.392843', '中銀ライフケア横浜', 'シニア向け分譲マンション', '神奈川県横浜市都筑区新栄町14-1中銀ライフケア横浜（港北）', '0037-630-77625', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (4.3ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (25, 39, 0, '個室', 0, '医療サービス、介護サービス、個別リハビリ等全般（詳細はホームページを参照ください）', '豊かな緑に囲まれた環境と眺望を備えた居住空間で上質な暮らしを実現。また、国の基準を上回る2対1の手厚い介護体制と建物内にクリニックがあり看護師が24時間常駐している', '2026-07-22 13:02:45.448345', '2026-07-22 13:02:45.448345', 'すいとぴー本牧三渓園', '介護付き有料老人ホーム', '神奈川県横浜市中区本牧原1-11', '0037-630-53267', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (2.4ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (20, 57, 0, '個室', 0, '介護サービス、個別リハビリ等（協力医療機関病院隣接）', '当事業団が設置・運営する協力医療機関・聖隷横浜病院に隣接しており、医住近接の環境を実現。看護師24時間常駐。ご入居者の嚥下・咀嚼レベルに合わせた食事形態や治療食にも対応（入居時費用あり）', '2026-07-22 13:02:45.468423', '2026-07-22 13:02:45.468423', '横浜エデンの園', '介護付き有料老人ホーム', '神奈川県横浜市保土ケ谷区岩井町207', '0037-630-93158', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (5.8ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (21, 0, 0, '個室', 0, '要問合せ', '2026年2月新築オープン。館内Wi-Fi完備。プライバシーに配慮した見守りセンサーや介護記録システムを導入し、安全安心を最優先に、快適な住環境を提供している（入居時費用あり）', '2026-07-22 13:02:45.474486', '2026-07-22 13:02:45.474486', 'ALSOKケアホーム横浜港南台', '介護付き有料老人ホーム', '神奈川県横浜市港南区日野中央三丁目15番2号', '0037-630-83746', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (1.5ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (16, 0, 18, '個室', 0, '介護サービス、訪問診療、訪問歯科診療、訪問リハビリ等', 'ＡＬＳＯＫグループならではのコンテンツや独自の運動プログラムを積極的に導入し健康増進につとめています', '2026-07-22 13:02:45.485395', '2026-07-22 13:02:45.485395', 'ALSOKグループホーム横浜上飯田Ⅱ', 'グループホーム', '神奈川県横浜市泉区上飯田町3795-9', '0037-630-92331', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (5.2ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (15, 0, 0, '個室', 0, '介護サービス（自立支援）', '地域との関わりや屋外・外出イベント等の季節に合ったイベントを開催（入居時費用あり）', '2026-07-22 13:02:45.493034', '2026-07-22 13:02:45.493034', 'プレゼンス野庭', 'グループホーム', '神奈川県横浜市港南区野庭町675-20', '0037-630-01444', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (1.0ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (17, 22, 100, '個室', 0, '介護サービス、医療サービス（日中のみ看護師）、往診体制あり、保険外サービスあり', '完全個室ユニット型、２：１の手厚い介護人員配置、季節感を感じられる毎月のレクリエーションの実施（入居時費用あり）', '2026-07-22 13:02:45.502417', '2026-07-22 13:02:45.502417', 'フォーシーズンズヴィラそよかぜ', 'ケアハウス', '神奈川県横浜市緑区三保町880', '0037-630-65419', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (1.3ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (10, 15, 139, '個室', 0, '介護サービス、医療サービス', '一人一人の状態に合った形で包括的な介護サービスの提供を受けることが出来、季節ごとの行事や同施設内の学園祭にも自由に参加できる（入居時費用あり）', '2026-07-22 13:02:45.508877', '2026-07-22 13:02:45.508877', 'ケアハウスゆうあい', 'ケアハウス', '神奈川県横浜市戸塚区川上町84-1', '', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (4.3ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (0, 0, 80, '1人部屋、2人部屋、4人部屋', 0, '介護サービス、医療サービス', 'ご利用者の立場に立ち、自立した生活を営めるよう支援することを心がけ、サービス提供に努めている', '2026-07-22 13:02:45.512720', '2026-07-22 13:02:45.512720', 'やまゆりホーム', '特別養護老人ホーム', '神奈川県横浜市鶴見区獅子ケ谷2-15-18', '045-583-1833', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mFacility Count (4.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "facilities" /*application='App'*/[0m
+  [1m[36mFacility Load (0.7ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" ORDER BY "facilities"."id" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (71.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='App'*/[0m
+  [1m[35m (107.4ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35mSQL (32.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_questions" CASCADE /*application='App'*/[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "facilities" CASCADE /*application='App'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "facility_type" character varying, "address" character varying, "phone" character varying, "website_url" character varying) /*application='App'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260722124210) /*application='App'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260722115934),
+(20260719070347); /*application='App'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-22 13:05:02.533939', '2026-07-22 13:05:02.533941') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2026-07-22 13:05:02.540672' WHERE "ar_internal_metadata"."key" = 'environment' /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '02b5827a4144c0c2afa7f712bc0154fbbac4e266', '2026-07-22 13:05:02.544751', '2026-07-22 13:05:02.544755') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+Migrating to CreateDiagnosisAnsers (20260722140352)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+Migrating to CreateDiagnosisAnswers (20260722140352)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (23.9ms)[0m  [1m[35mCREATE TABLE "diagnosis_answers" ("id" bigserial primary key, "diagnosis_question_id" bigint NOT NULL, "diagnosis_result_id" bigint NOT NULL, "answer_value" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_97b543f803"
+FOREIGN KEY ("diagnosis_question_id")
+  REFERENCES "diagnosis_questions" ("id")
+, CONSTRAINT "fk_rails_54d0063ba9"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+) /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK /*application='App'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+Migrating to CreateDiagnosisResults (20260722140352)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "diagnosis_results" ("id" bigserial primary key, "cost_score" integer, "facility_score" integer, "care_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260722140352') RETURNING "version" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+Migrating to CreateDiagnosisAnswers (20260722143859)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "diagnosis_answers" ("id" bigserial primary key, "diagnosis_question_id" bigint NOT NULL, "diagnosis_result_id" bigint NOT NULL, "answer_value" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_97b543f803"
+FOREIGN KEY ("diagnosis_question_id")
+  REFERENCES "diagnosis_questions" ("id")
+, CONSTRAINT "fk_rails_54d0063ba9"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+) /*application='App'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_question_id" ON "diagnosis_answers" ("diagnosis_question_id") /*application='App'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_result_id" ON "diagnosis_answers" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260722143859') RETURNING "version" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+Migrating to CreateFacilityMatches (20260722144113)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "facility_matches" ("id" bigserial primary key, "diagnosis_result_id" bigint NOT NULL, "facility_id" bigint NOT NULL, "match_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_4d7d67f64d"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+, CONSTRAINT "fk_rails_7673f576d8"
+FOREIGN KEY ("facility_id")
+  REFERENCES "facilities" ("id")
+) /*application='App'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_diagnosis_result_id" ON "facility_matches" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_facility_id" ON "facility_matches" ("facility_id") /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260722144113') RETURNING "version" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (93.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='App'*/[0m
+  [1m[35m (229.9ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35mSQL (44.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_answers" CASCADE /*application='App'*/[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "diagnosis_answers" ("id" bigserial primary key, "diagnosis_question_id" bigint NOT NULL, "diagnosis_result_id" bigint NOT NULL, "answer_value" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_question_id" ON "diagnosis_answers" ("diagnosis_question_id") /*application='App'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_result_id" ON "diagnosis_answers" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_questions" CASCADE /*application='App'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_results" CASCADE /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "diagnosis_results" ("id" bigserial primary key, "cost_score" integer, "facility_score" integer, "care_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "facilities" CASCADE /*application='App'*/[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "facility_type" character varying, "address" character varying, "phone" character varying, "website_url" character varying) /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "facility_matches" CASCADE /*application='App'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "facility_matches" ("id" bigserial primary key, "diagnosis_result_id" bigint NOT NULL, "facility_id" bigint NOT NULL, "match_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_diagnosis_result_id" ON "facility_matches" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_facility_id" ON "facility_matches" ("facility_id") /*application='App'*/[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_97b543f803"
+FOREIGN KEY ("diagnosis_question_id")
+  REFERENCES "diagnosis_questions" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_54d0063ba9"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "facility_matches" ADD CONSTRAINT "fk_rails_4d7d67f64d"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "facility_matches" ADD CONSTRAINT "fk_rails_7673f576d8"
+FOREIGN KEY ("facility_id")
+  REFERENCES "facilities" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260722144113) /*application='App'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260722143859),
+(20260722140352),
+(20260722124210),
+(20260722115934),
+(20260719070347); /*application='App'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-22 15:33:50.793111', '2026-07-22 15:33:50.793114') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.8ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2026-07-22 15:33:50.814686' WHERE "ar_internal_metadata"."key" = 'environment' /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '840d80dbc8c6e94bf9310cb862aafd50bebdf58b', '2026-07-22 15:33:50.818450', '2026-07-22 15:33:50.818453') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (63.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='App'*/[0m
+  [1m[35m (73.9ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35mSQL (30.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_answers" CASCADE /*application='App'*/[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "diagnosis_answers" ("id" bigserial primary key, "diagnosis_question_id" bigint NOT NULL, "diagnosis_result_id" bigint NOT NULL, "answer_value" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_question_id" ON "diagnosis_answers" ("diagnosis_question_id") /*application='App'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_result_id" ON "diagnosis_answers" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_questions" CASCADE /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_results" CASCADE /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "diagnosis_results" ("id" bigserial primary key, "cost_score" integer, "facility_score" integer, "care_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "facilities" CASCADE /*application='App'*/[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "facility_type" character varying, "address" character varying, "phone" character varying, "website_url" character varying) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "facility_matches" CASCADE /*application='App'*/[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "facility_matches" ("id" bigserial primary key, "diagnosis_result_id" bigint NOT NULL, "facility_id" bigint NOT NULL, "match_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_diagnosis_result_id" ON "facility_matches" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_facility_id" ON "facility_matches" ("facility_id") /*application='App'*/[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_97b543f803"
+FOREIGN KEY ("diagnosis_question_id")
+  REFERENCES "diagnosis_questions" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_54d0063ba9"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "facility_matches" ADD CONSTRAINT "fk_rails_4d7d67f64d"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "facility_matches" ADD CONSTRAINT "fk_rails_7673f576d8"
+FOREIGN KEY ("facility_id")
+  REFERENCES "facilities" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260722144113) /*application='App'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260722143859),
+(20260722140352),
+(20260722124210),
+(20260722115934),
+(20260719070347); /*application='App'*/[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-22 15:37:59.799036', '2026-07-22 15:37:59.799039') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2026-07-22 15:37:59.819824' WHERE "ar_internal_metadata"."key" = 'environment' /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '840d80dbc8c6e94bf9310cb862aafd50bebdf58b', '2026-07-22 15:37:59.823104', '2026-07-22 15:37:59.823106') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+Started GET "/" for 172.18.0.1 at 2026-07-23 14:17:17 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (8.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  
+ActionController::RoutingError (uninitialized constant StaticPageController):
+
+Causes:
+ActionDispatch::MissingController (uninitialized constant StaticPageController)
+NameError (uninitialized constant StaticPageController)
+  
+Started GET "/favicon.ico" for 172.18.0.1 at 2026-07-23 14:17:18 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 172.18.0.1 at 2026-07-23 14:23:51 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+NameError (undefined local variable or method `applicationController' for main):
+  
+app/controllers/static_pages_controller.rb:1:in `<main>'
+Started GET "/" for 172.18.0.1 at 2026-07-23 14:26:34 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#top as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (Duration: 9.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 53.4ms | GC: 0.0ms)
+Completed 200 OK in 149ms (Views: 58.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (9.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (186.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='App'*/[0m
+  [1m[35m (367.9ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35mSQL (53.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application='App'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_answers" CASCADE /*application='App'*/[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "diagnosis_answers" ("id" bigserial primary key, "diagnosis_question_id" bigint NOT NULL, "diagnosis_result_id" bigint NOT NULL, "answer_value" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_question_id" ON "diagnosis_answers" ("diagnosis_question_id") /*application='App'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_result_id" ON "diagnosis_answers" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_questions" CASCADE /*application='App'*/[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_results" CASCADE /*application='App'*/[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "diagnosis_results" ("id" bigserial primary key, "cost_score" integer, "facility_score" integer, "care_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "facilities" CASCADE /*application='App'*/[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "facility_type" character varying, "address" character varying, "phone" character varying, "website_url" character varying) /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "facility_matches" CASCADE /*application='App'*/[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "facility_matches" ("id" bigserial primary key, "diagnosis_result_id" bigint NOT NULL, "facility_id" bigint NOT NULL, "match_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_diagnosis_result_id" ON "facility_matches" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_facility_id" ON "facility_matches" ("facility_id") /*application='App'*/[0m
+  [1m[35m (5.0ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_97b543f803"
+FOREIGN KEY ("diagnosis_question_id")
+  REFERENCES "diagnosis_questions" ("id")
+ /*application='App'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_54d0063ba9"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "facility_matches" ADD CONSTRAINT "fk_rails_4d7d67f64d"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "facility_matches" ADD CONSTRAINT "fk_rails_7673f576d8"
+FOREIGN KEY ("facility_id")
+  REFERENCES "facilities" ("id")
+ /*application='App'*/[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260722144113) /*application='App'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260722143859),
+(20260722140352),
+(20260722124210),
+(20260722115934),
+(20260719070347); /*application='App'*/[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-23 14:29:14.273567', '2026-07-23 14:29:14.273571') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (2.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2026-07-23 14:29:14.301856' WHERE "ar_internal_metadata"."key" = 'environment' /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '840d80dbc8c6e94bf9310cb862aafd50bebdf58b', '2026-07-23 14:29:14.307532', '2026-07-23 14:29:14.307535') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
