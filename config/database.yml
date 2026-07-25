@@ -111,12 +111,8 @@ test:
 production:
   primary:
     <<: *default
-    database: myapp_production
-    username: <%= ENV.fetch("DATABASE_USERNAME", "postgres") %>
-    password: <%= ENV["DATABASE_PASSWORD"] %>
+    url: <%= ENV['DATABASE_URL'] %>
   queue:
     <<: *default
-    database: myapp_production
-    username: <%= ENV.fetch("DATABASE_USERNAME", "postgres") %>
-    password: <%= ENV["DATABASE_PASSWORD"] %>
+    url: <%= ENV['DATABASE_URL'] %>
     migrations_paths: db/queue_migrate
