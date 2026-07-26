@@ -27,15 +27,7 @@ development:
   primary:
     <<: *default
     database: myapp_development
-  queue:
-    <<: *default
-    database: myapp_development
-    migrations_paths: db/queue_migrate
-  cache:
-    <<: *default
-    database: myapp_development
-    migrations_paths: db/cache_migrate
-
+  
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
@@ -70,14 +62,7 @@ test:
   primary:
     <<: *default
     database: myapp_test
-  queue:
-    <<: *default
-    database: myapp_test
-    migrations_paths: db/queue_migrate
-  cache:
-    <<: *default
-    database: myapp_test
-    migrations_paths: db/cache_migrate
+  
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -108,11 +93,4 @@ production:
   primary:
     <<: *default
     url: <%= ENV['DATABASE_URL'] %>
-  queue:
-    <<: *default
-    url: <%= ENV['DATABASE_URL'] %>
-    migrations_paths: db/queue_migrate
-  cache:
-    <<: *default
-    url: <%= ENV['DATABASE_URL'] %>
-    migrations_paths: db/cache_migrate
+  
