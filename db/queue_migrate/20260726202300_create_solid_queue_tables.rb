@@ -16,7 +16,7 @@ class CreateSolidQueueTables < ActiveRecord::Migration[7.2]
       t.index :queue_name
       t.index :priority
       t.index :scheduled_at
-      t.index [:finished_at, :finished_with]
+      t.index [ :finished_at, :finished_with ]
     end
 
     create_table :solid_queue_scheduled_executions do |t|
@@ -44,7 +44,7 @@ class CreateSolidQueueTables < ActiveRecord::Migration[7.2]
 
       t.timestamps
 
-      t.index [:process_id, :claimed_at]
+      t.index [ :process_id, :claimed_at ]
     end
 
     create_table :solid_queue_blocked_executions do |t|
@@ -80,7 +80,7 @@ class CreateSolidQueueTables < ActiveRecord::Migration[7.2]
 
       t.timestamps
 
-      t.index [:last_heartbeat_at, :supervisor_id]
+      t.index [ :last_heartbeat_at, :supervisor_id ]
     end
 
     create_table :solid_queue_semaphores do |t|
