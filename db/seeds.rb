@@ -7,10 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-# 既存のデータを削除する（開発環境のみ）
+
+# 既存のデータを削除する（開発環境のみ）※削除の順番に注意！
 if Rails.env.development?
-  Facility.destroy_all
+  DiagnosisOption.destroy_all  # 子テーブル削除
+  DiagnosisQuestion.destroy_all  # 親テーブル削除
+  Facility.destroy_all  # 施設データ削除
 end
+
 
 # 施設データの投入
 Facility.create!(
@@ -152,3 +156,76 @@ Facility.create!(
   services: "介護サービス、医療サービス",
   features: "ご利用者の立場に立ち、自立した生活を営めるよう支援することを心がけ、サービス提供に努めている"
 )
+
+
+# 診断質問の初期データ投入
+
+# 質問１
+question1 = DiagnosisQuestion.create!(
+  question_text: '駅近で家族が訪問しやすいが料金が高い施設と、郊外で料金が安い施設、どちらを選びますか？',
+  question_type: 'choice',
+  weight_category: 'cost_vs_facility',
+  display_order: 1
+)
+
+question1.diagnosis_options.create!([
+  { option_text: '駅近で家族が訪問しやすい方を重視する', weight_value: 3, weight_category: 'facility', display_order: 1 },
+  { option_text: '料金が安い方を重視する', weight_value: 3, weight_category: 'cost', display_order: 2 }
+])
+
+
+# 質問２
+question2 = DiagnosisQuestion.create!(
+  question_text: '設備が新しくきれいだが料金が高い施設と、設備は古いが料金が安い施設どちらを選びますか？',
+  question_type: 'choice',
+  weight_category: 'facility_vs_cost',
+  display_order: 2
+)
+
+question2.diagnosis_options.create!([
+  { option_text: '設備が新しい方を重視する', weight_value: 3, weight_category: 'facility', display_order: 1 },
+  { option_text: '料金が安い方を重視する', weight_value: 3, weight_category: 'cost', display_order: 2 }
+])
+
+# 質問３
+question3 = DiagnosisQuestion.create!(
+  question_text: '庭園や散歩スペースが広く自然豊かな施設と、庭園は狭いが医療機関が隣接している施設、どちらを選びますか？',
+  question_type: 'choice',
+  weight_category: 'facility_vs_medical',
+  display_order: 3
+)
+
+question3.diagnosis_options.create!([
+  { option_text: '自然豊かな施設を重視する', weight_value: 3, weight_category: 'facility', display_order: 1 },
+  { option_text: '医療機関が隣接している施設を重視する', weight_value: 3, weight_category: 'medical', display_order: 2 }
+])
+
+# 質問４
+question4 = DiagnosisQuestion.create!(
+  question_text: '看護師が24時間常駐しているが料金が高い施設と、看護師は日中のみだが料金が安い施設、どちらを選びますか？',
+  question_type: 'choice',
+  weight_category: 'medical_vs_cost',
+  display_order: 4
+)
+
+question4.diagnosis_options.create!([
+  { option_text: '看護師が24時間常駐している方を重視する', weight_value: 3, weight_category: 'medical', display_order: 1 },
+  { option_text: '料金が安い方を重視する', weight_value: 3, weight_category: 'cost', display_order: 2 }
+])
+
+# 質問５
+question5 = DiagnosisQuestion.create!(
+  question_text: '娯楽設備が充実している施設と、娯楽設備は少ないが看取りケアや終末期医療に対応している施設、どちらを選びますか？',
+  question_type: 'choice',
+  weight_category: 'facility_vs_medical',
+  display_order: 5
+)
+
+question5.diagnosis_options.create!([
+  { option_text: '娯楽施設が充実している施設を重視する', weight_value: 3, weight_category: 'facility', display_order: 1 },
+  { option_text: '看取りケアや終末期に対応している施設を重視する', weight_value: 3, weight_category: 'medical', display_order: 2 }
+])
+
+puts "診断質問データを作成しました！"
+puts "質問数: #{DiagnosisQuestion.count}"
+puts "選択肢数: #{DiagnosisOption.count}"
