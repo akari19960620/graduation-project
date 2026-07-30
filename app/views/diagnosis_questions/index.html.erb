@@ -1,0 +1,18 @@
+<h1>診断質問</h1>
+
+<%= form_with url: result_diagnosis_questions_path, method: :post, local: true do |f| %>
+  <% @diagnosis_questions.each do |question| %>
+    <div class="question">
+      <h2><%= question.question_text %></h2>
+
+      <% question.diagnosis_options.order(:display_order).each do |option| %>
+        <div class="option">
+          <%= f.radio_button "question_#{question.id}", option.id %>
+          <%= f.label "question_#{question.id}", option.option_text %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= f.submit '診断結果を表示' %>
+<% end %>
