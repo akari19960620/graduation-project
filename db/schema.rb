@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_07_29_182053) do
+ActiveRecord::Schema[7.2].define(version: 2026_07_31_131438) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "diagnosis_answers", force: :cascade do |t|
     t.bigint "diagnosis_question_id", null: false
-    t.bigint "diagnosis_result_id", null: false
-    t.integer "answer_value"
+    t.bigint "diagnosis_option_id", null: false
+    t.string "session_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["diagnosis_option_id"], name: "index_diagnosis_answers_on_diagnosis_option_id"
     t.index ["diagnosis_question_id"], name: "index_diagnosis_answers_on_diagnosis_question_id"
-    t.index ["diagnosis_result_id"], name: "index_diagnosis_answers_on_diagnosis_result_id"
+    t.index ["session_id", "diagnosis_question_id"], name: "idx_on_session_id_diagnosis_question_id_2d63da7b8b", unique: true
   end
 
   create_table "diagnosis_options", force: :cascade do |t|
@@ -45,11 +46,11 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_29_182053) do
   end
 
   create_table "diagnosis_results", force: :cascade do |t|
-    t.integer "cost_score"
-    t.integer "facility_score"
-    t.integer "care_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
+    t.string "result_title"
+    t.text "result_description"
   end
 
   create_table "facilities", force: :cascade do |t|
@@ -179,8 +180,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_29_182053) do
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
   end
 
+  add_foreign_key "diagnosis_answers", "diagnosis_options"
   add_foreign_key "diagnosis_answers", "diagnosis_questions"
-  add_foreign_key "diagnosis_answers", "diagnosis_results"
   add_foreign_key "diagnosis_options", "diagnosis_questions"
   add_foreign_key "facility_matches", "diagnosis_results"
   add_foreign_key "facility_matches", "facilities"

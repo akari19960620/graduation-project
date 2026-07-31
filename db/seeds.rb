@@ -229,3 +229,24 @@ question5.diagnosis_options.create!([
 puts "診断質問データを作成しました！"
 puts "質問数: #{DiagnosisQuestion.count}"
 puts "選択肢数: #{DiagnosisOption.count}"
+
+# 診断結果を作成
+DiagnosisResult.create!([
+  {
+    category: 'cost',
+    result_title: 'コスト重視タイプ',
+    result_description: 'あなたは費用を重視するタイプです。経済的な負担を抑えることを優先する傾向があります。施設選びでは、まず費用面を確認し、予算内で最適な選択肢を探すことをおすすめします。'
+  },
+  {
+    category: 'facility',
+    result_title: '施設重視タイプ',
+    result_description: 'あなたは施設の充実度を重視するタイプです。快適な環境で過ごすことを優先する傾向があります。施設の設備や雰囲気、アクセスの良さなどを重視して選ぶと良いでしょう。'
+  },
+  {
+    category: 'care',
+    result_title: '医療・ケア重視タイプ',
+    result_description: 'あなたは医療・ケアの質を重視するタイプです。専門的なサポートを受けることを優先する傾向があります。医療体制やスタッフの質、ケア内容の充実度を重視して選ぶことをおすすめします。'
+  }
+])
+
+puts "診断結果のシードデータを作成しました！"

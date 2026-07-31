@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 root "static_pages#top"
 
-resources :diagnosis_questions, only: [ :index ] do
+resources :diagnoses, only: [ :new, :create ] do
   collection do
     post :result
   end
