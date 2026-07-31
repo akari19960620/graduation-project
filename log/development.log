@@ -10496,3 +10496,615 @@ Completed 200 OK in 119ms (Views: 35.3ms | ActiveRecord: 7.1ms (1 query, 0 cache
 
 
   [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK /*application='App'*/[0m
+Started GET "/diagnoses" for 172.18.0.1 at 2026-07-31 07:28:25 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20260726202301_add_weight_category_and_display_order_to_diagnosis_questions.rb
+
+
+):
+  
+activerecord (7.2.3.2) lib/active_record/migration.rb:756:in `check_pending_migrations'
+activerecord (7.2.3.2) lib/active_record/migration.rb:663:in `block (2 levels) in call'
+activesupport (7.2.3.2) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.2.3.2) lib/active_record/migration.rb:668:in `block in call'
+activerecord (7.2.3.2) lib/active_record/migration.rb:660:in `synchronize'
+activerecord (7.2.3.2) lib/active_record/migration.rb:660:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (7.2.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (7.2.3.2) lib/rails/rack/logger.rb:41:in `call_app'
+railties (7.2.3.2) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.2) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/request_id.rb:33:in `call'
+rack (3.2.6) lib/rack/method_override.rb:28:in `call'
+rack (3.2.6) lib/rack/runtime.rb:24:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+propshaft (1.3.2) lib/propshaft/server.rb:37:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.6) lib/rack/sendfile.rb:131:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (7.2.3.2) lib/rails/engine.rb:535:in `call'
+puma (8.0.2) lib/puma/configuration.rb:305:in `call'
+puma (8.0.2) lib/puma/response.rb:79:in `block in handle_request'
+puma (8.0.2) lib/puma/thread_pool.rb:434:in `with_force_shutdown'
+puma (8.0.2) lib/puma/response.rb:78:in `handle_request'
+puma (8.0.2) lib/puma/server.rb:508:in `process_client'
+puma (8.0.2) lib/puma/server.rb:263:in `block in run'
+puma (8.0.2) lib/puma/thread_pool.rb:246:in `block in spawn_thread'
+Started GET "/favicon.ico" for 172.18.0.1 at 2026-07-31 07:28:26 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20260726202301_add_weight_category_and_display_order_to_diagnosis_questions.rb
+
+
+):
+  
+activerecord (7.2.3.2) lib/active_record/migration.rb:756:in `check_pending_migrations'
+activerecord (7.2.3.2) lib/active_record/migration.rb:663:in `block (2 levels) in call'
+activesupport (7.2.3.2) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.2.3.2) lib/active_record/migration.rb:668:in `block in call'
+activerecord (7.2.3.2) lib/active_record/migration.rb:660:in `synchronize'
+activerecord (7.2.3.2) lib/active_record/migration.rb:660:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (7.2.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (7.2.3.2) lib/rails/rack/logger.rb:41:in `call_app'
+railties (7.2.3.2) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.2) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/request_id.rb:33:in `call'
+rack (3.2.6) lib/rack/method_override.rb:28:in `call'
+rack (3.2.6) lib/rack/runtime.rb:24:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+propshaft (1.3.2) lib/propshaft/server.rb:37:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.6) lib/rack/sendfile.rb:131:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (7.2.3.2) lib/rails/engine.rb:535:in `call'
+puma (8.0.2) lib/puma/configuration.rb:305:in `call'
+puma (8.0.2) lib/puma/response.rb:79:in `block in handle_request'
+puma (8.0.2) lib/puma/thread_pool.rb:434:in `with_force_shutdown'
+puma (8.0.2) lib/puma/response.rb:78:in `handle_request'
+puma (8.0.2) lib/puma/server.rb:508:in `process_client'
+puma (8.0.2) lib/puma/server.rb:263:in `block in run'
+puma (8.0.2) lib/puma/thread_pool.rb:246:in `block in spawn_thread'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+Migrating to AddWeightCategoryAndDisplayOrderToDiagnosisQuestions (20260726202301)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (11.2ms)[0m  [1m[35mALTER TABLE "diagnosis_questions" ADD "weight_category" character varying /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK /*application='App'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (44.0ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20260726 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (43.5ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20260726202301') /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+Started GET "/diagnoses" for 172.18.0.1 at 2026-07-31 07:35:34 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+Processing by DiagnosesController#index as HTML
+Completed 406 Not Acceptable in 85ms (ActiveRecord: 10.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::MissingExactTemplate (DiagnosesController#index is missing a template for request formats: text/html):
+  
+actionpack (7.2.3.2) lib/action_controller/metal/implicit_render.rb:49:in `default_render'
+actionpack (7.2.3.2) lib/action_controller/metal/basic_implicit_render.rb:9:in `send_action'
+actionpack (7.2.3.2) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.2.3.2) lib/action_controller/metal/rendering.rb:193:in `process_action'
+actionpack (7.2.3.2) lib/abstract_controller/callbacks.rb:261:in `block in process_action'
+activesupport (7.2.3.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.23) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.23) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.2.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.2.3.2) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (7.2.3.2) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (7.2.3.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.2.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.2.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.2.3.2) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (7.2.3.2) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (7.2.3.2) lib/action_controller/metal/instrumentation.rb:77:in `block in process_action'
+activesupport (7.2.3.2) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (7.2.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.2.3.2) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (7.2.3.2) lib/action_controller/metal/instrumentation.rb:76:in `process_action'
+actionpack (7.2.3.2) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.2.3.2) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (7.2.3.2) lib/abstract_controller/base.rb:152:in `process'
+actionview (7.2.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.2.3.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (7.2.3.2) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (7.2.3.2) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (7.2.3.2) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (7.2.3.2) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (7.2.3.2) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (7.2.3.2) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (7.2.3.2) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (7.2.3.2) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (7.2.3.2) lib/action_dispatch/routing/route_set.rb:896:in `call'
+rack (3.2.6) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.2.6) lib/rack/etag.rb:29:in `call'
+rack (3.2.6) lib/rack/conditional_get.rb:31:in `call'
+rack (3.2.6) lib/rack/head.rb:15:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.2.3.2) lib/active_record/migration.rb:674:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (7.2.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (7.2.3.2) lib/rails/rack/logger.rb:41:in `call_app'
+railties (7.2.3.2) lib/rails/rack/logger.rb:29:in `call'
+propshaft (1.3.2) lib/propshaft/quiet_assets.rb:11:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/request_id.rb:33:in `call'
+rack (3.2.6) lib/rack/method_override.rb:28:in `call'
+rack (3.2.6) lib/rack/runtime.rb:24:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/executor.rb:16:in `call'
+propshaft (1.3.2) lib/propshaft/server.rb:37:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.2.6) lib/rack/sendfile.rb:131:in `call'
+actionpack (7.2.3.2) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (7.2.3.2) lib/rails/engine.rb:535:in `call'
+puma (8.0.2) lib/puma/configuration.rb:305:in `call'
+puma (8.0.2) lib/puma/response.rb:79:in `block in handle_request'
+puma (8.0.2) lib/puma/thread_pool.rb:434:in `with_force_shutdown'
+puma (8.0.2) lib/puma/response.rb:78:in `handle_request'
+puma (8.0.2) lib/puma/server.rb:508:in `process_client'
+puma (8.0.2) lib/puma/server.rb:263:in `block in run'
+puma (8.0.2) lib/puma/thread_pool.rb:246:in `block in spawn_thread'
+Started GET "/favicon.ico" for 172.18.0.1 at 2026-07-31 07:35:35 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/diagnoses" for 172.18.0.1 at 2026-07-31 07:40:47 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/index.html.erb within layouts/application
+  Rendered diagnoses/index.html.erb within layouts/application (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 4.1ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+
+Causes:
+NoMethodError (undefined method `each' for nil)
+    1: <h1>診断質問</h1>
+    2: 
+    3: <%= form_with url: result_diagnoses_path, method: :post, local: true do |f| %>
+    4:   <% @diagnoses.each do |question| %>
+    5:     <div class="question">
+    6:       <h2><%= question.question_text %></h2>
+    7: 
+  
+app/views/diagnoses/index.html.erb:4
+app/views/diagnoses/index.html.erb:3
+Started GET "/diagnoses" for 172.18.0.1 at 2026-07-31 07:50:23 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/index.html.erb within layouts/application
+  Rendered diagnoses/index.html.erb within layouts/application (Duration: 5.1ms | GC: 3.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | GC: 3.5ms)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 9.9ms (0 queries, 0 cached) | GC: 25.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+
+Causes:
+NoMethodError (undefined method `each' for nil)
+    1: <h1>診断質問</h1>
+    2: 
+    3: <%= form_with url: result_diagnoses_path, method: :post, local: true do |f| %>
+    4:   <% @diagnoses.each do |question| %>
+    5:     <div class="question">
+    6:       <h2><%= question.question_text %></h2>
+    7: 
+  
+app/views/diagnoses/index.html.erb:4
+app/views/diagnoses/index.html.erb:3
+Started GET "/diagnoses" for 172.18.0.1 at 2026-07-31 07:51:51 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/index.html.erb within layouts/application
+  [1m[36mDiagnosisQuestion Load (2.5ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" ORDER BY "diagnosis_questions"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:4
+  Rendered diagnoses/index.html.erb within layouts/application (Duration: 7.2ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | GC: 0.6ms)
+Completed 200 OK in 55ms (Views: 24.1ms | ActiveRecord: 5.8ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/diagnoses" for 172.18.0.1 at 2026-07-31 07:53:41 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/index.html.erb within layouts/application
+  [1m[36mDiagnosisQuestion Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" ORDER BY "diagnosis_questions"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:4
+  Rendered diagnoses/index.html.erb within layouts/application (Duration: 20.3ms | GC: 6.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | GC: 10.2ms)
+Completed 200 OK in 70ms (Views: 34.3ms | ActiveRecord: 3.5ms (1 query, 0 cached) | GC: 19.2ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mDiagnosisOption Load (2.1ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" /*application='App'*/[0m
+  [1m[36mDiagnosisQuestion Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" /*application='App'*/[0m
+  [1m[36mFacility Load (1.2ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (8.2ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (3, 16, 140, 'ユニット型個室', 0, '医療サービス、介護サービス、個別リハビリ等全般（詳細はホームページを参照ください）', '自然に恵まれた好環境、都心から近い好立地で居住エリアは10人単位のユニット。クラブ活動や季節ごとの行事の他、機能訓練や音楽・美術プログラムなど青葉ヒルズならではのアクティビティが日常生活の一部として定着している', '2026-07-31 07:58:01.368832', '2026-07-31 07:58:01.368832', '青葉ヒルズ', '特別養護老人ホーム', '神奈川県横浜市青葉区鴨志田町1260', '0037-630-21227', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (2.9ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (7, 8, 443, '個室', 0, '24時間看護師常駐で健康管理のお手伝いや、施設責任者やスタッフが生活全般のご相談に対応。', '所有権分譲方式の売却もでき、相続財産にもなる個人資産。アクセスの良い立地で栄養バランスの整った温かい食事、喫茶・大浴場・麻雀室など充実の共用施設もある。（入居時費用あり）', '2026-07-31 07:58:01.403517', '2026-07-31 07:58:01.403517', '中銀ライフケア横浜', 'シニア向け分譲マンション', '神奈川県横浜市都筑区新栄町14-1中銀ライフケア横浜（港北）', '0037-630-77625', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (4.6ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (25, 39, 0, '個室', 0, '医療サービス、介護サービス、個別リハビリ等全般（詳細はホームページを参照ください）', '豊かな緑に囲まれた環境と眺望を備えた居住空間で上質な暮らしを実現。また、国の基準を上回る2対1の手厚い介護体制と建物内にクリニックがあり看護師が24時間常駐している', '2026-07-31 07:58:01.436650', '2026-07-31 07:58:01.436650', 'すいとぴー本牧三渓園', '介護付き有料老人ホーム', '神奈川県横浜市中区本牧原1-11', '0037-630-53267', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (1.9ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (20, 57, 0, '個室', 0, '介護サービス、個別リハビリ等（協力医療機関病院隣接）', '当事業団が設置・運営する協力医療機関・聖隷横浜病院に隣接しており、医住近接の環境を実現。看護師24時間常駐。ご入居者の嚥下・咀嚼レベルに合わせた食事形態や治療食にも対応（入居時費用あり）', '2026-07-31 07:58:01.450779', '2026-07-31 07:58:01.450779', '横浜エデンの園', '介護付き有料老人ホーム', '神奈川県横浜市保土ケ谷区岩井町207', '0037-630-93158', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (2.9ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (21, 0, 0, '個室', 0, '要問合せ', '2026年2月新築オープン。館内Wi-Fi完備。プライバシーに配慮した見守りセンサーや介護記録システムを導入し、安全安心を最優先に、快適な住環境を提供している（入居時費用あり）', '2026-07-31 07:58:01.470633', '2026-07-31 07:58:01.470633', 'ALSOKケアホーム横浜港南台', '介護付き有料老人ホーム', '神奈川県横浜市港南区日野中央三丁目15番2号', '0037-630-83746', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (1.7ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (16, 0, 18, '個室', 0, '介護サービス、訪問診療、訪問歯科診療、訪問リハビリ等', 'ＡＬＳＯＫグループならではのコンテンツや独自の運動プログラムを積極的に導入し健康増進につとめています', '2026-07-31 07:58:01.482850', '2026-07-31 07:58:01.482850', 'ALSOKグループホーム横浜上飯田Ⅱ', 'グループホーム', '神奈川県横浜市泉区上飯田町3795-9', '0037-630-92331', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (1.5ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (15, 0, 0, '個室', 0, '介護サービス（自立支援）', '地域との関わりや屋外・外出イベント等の季節に合ったイベントを開催（入居時費用あり）', '2026-07-31 07:58:01.493996', '2026-07-31 07:58:01.493996', 'プレゼンス野庭', 'グループホーム', '神奈川県横浜市港南区野庭町675-20', '0037-630-01444', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (1.8ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (17, 22, 100, '個室', 0, '介護サービス、医療サービス（日中のみ看護師）、往診体制あり、保険外サービスあり', '完全個室ユニット型、２：１の手厚い介護人員配置、季節感を感じられる毎月のレクリエーションの実施（入居時費用あり）', '2026-07-31 07:58:01.514684', '2026-07-31 07:58:01.514684', 'フォーシーズンズヴィラそよかぜ', 'ケアハウス', '神奈川県横浜市緑区三保町880', '0037-630-65419', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (1.5ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (10, 15, 139, '個室', 0, '介護サービス、医療サービス', '一人一人の状態に合った形で包括的な介護サービスの提供を受けることが出来、季節ごとの行事や同施設内の学園祭にも自由に参加できる（入居時費用あり）', '2026-07-31 07:58:01.523104', '2026-07-31 07:58:01.523104', 'ケアハウスゆうあい', 'ケアハウス', '神奈川県横浜市戸塚区川上町84-1', '', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mFacility Create (1.3ms)[0m  [1m[32mINSERT INTO "facilities" ("monthly_fee_min", "monthly_fee_max", "capacity", "room_type", "care_level", "services", "features", "created_at", "updated_at", "name", "facility_type", "address", "phone", "website_url") VALUES (0, 0, 80, '1人部屋、2人部屋、4人部屋', 0, '介護サービス、医療サービス', 'ご利用者の立場に立ち、自立した生活を営めるよう支援することを心がけ、サービス提供に努めている', '2026-07-31 07:58:01.532531', '2026-07-31 07:58:01.532531', 'やまゆりホーム', '特別養護老人ホーム', '神奈川県横浜市鶴見区獅子ケ谷2-15-18', '045-583-1833', NULL) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisQuestion Create (3.4ms)[0m  [1m[32mINSERT INTO "diagnosis_questions" ("question_text", "question_type", "created_at", "updated_at", "weight_category", "display_order") VALUES ('駅近で家族が訪問しやすいが料金が高い施設と、郊外で料金が安い施設、どちらを選びますか？', 0, '2026-07-31 07:58:01.565678', '2026-07-31 07:58:01.565678', 'cost_vs_facility', 1) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisOption Create (3.7ms)[0m  [1m[32mINSERT INTO "diagnosis_options" ("diagnosis_question_id", "option_text", "weight_value", "display_order", "created_at", "updated_at", "weight_category") VALUES (1, '駅近で家族が訪問しやすい方を重視する', 3, 1, '2026-07-31 07:58:01.625633', '2026-07-31 07:58:01.625633', 'facility') RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisOption Create (1.4ms)[0m  [1m[32mINSERT INTO "diagnosis_options" ("diagnosis_question_id", "option_text", "weight_value", "display_order", "created_at", "updated_at", "weight_category") VALUES (1, '料金が安い方を重視する', 3, 2, '2026-07-31 07:58:01.640526', '2026-07-31 07:58:01.640526', 'cost') RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisQuestion Create (2.0ms)[0m  [1m[32mINSERT INTO "diagnosis_questions" ("question_text", "question_type", "created_at", "updated_at", "weight_category", "display_order") VALUES ('設備が新しくきれいだが料金が高い施設と、設備は古いが料金が安い施設どちらを選びますか？', 0, '2026-07-31 07:58:01.647016', '2026-07-31 07:58:01.647016', 'facility_vs_cost', 2) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisOption Create (1.6ms)[0m  [1m[32mINSERT INTO "diagnosis_options" ("diagnosis_question_id", "option_text", "weight_value", "display_order", "created_at", "updated_at", "weight_category") VALUES (2, '設備が新しい方を重視する', 3, 1, '2026-07-31 07:58:01.658217', '2026-07-31 07:58:01.658217', 'facility') RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisOption Create (1.8ms)[0m  [1m[32mINSERT INTO "diagnosis_options" ("diagnosis_question_id", "option_text", "weight_value", "display_order", "created_at", "updated_at", "weight_category") VALUES (2, '料金が安い方を重視する', 3, 2, '2026-07-31 07:58:01.678326', '2026-07-31 07:58:01.678326', 'cost') RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisQuestion Create (1.5ms)[0m  [1m[32mINSERT INTO "diagnosis_questions" ("question_text", "question_type", "created_at", "updated_at", "weight_category", "display_order") VALUES ('庭園や散歩スペースが広く自然豊かな施設と、庭園は狭いが医療機関が隣接している施設、どちらを選びますか？', 0, '2026-07-31 07:58:01.703433', '2026-07-31 07:58:01.703433', 'facility_vs_medical', 3) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisOption Create (1.8ms)[0m  [1m[32mINSERT INTO "diagnosis_options" ("diagnosis_question_id", "option_text", "weight_value", "display_order", "created_at", "updated_at", "weight_category") VALUES (3, '自然豊かな施設を重視する', 3, 1, '2026-07-31 07:58:01.713075', '2026-07-31 07:58:01.713075', 'facility') RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisOption Create (1.5ms)[0m  [1m[32mINSERT INTO "diagnosis_options" ("diagnosis_question_id", "option_text", "weight_value", "display_order", "created_at", "updated_at", "weight_category") VALUES (3, '医療機関が隣接している施設を重視する', 3, 2, '2026-07-31 07:58:01.720226', '2026-07-31 07:58:01.720226', 'medical') RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisQuestion Create (1.0ms)[0m  [1m[32mINSERT INTO "diagnosis_questions" ("question_text", "question_type", "created_at", "updated_at", "weight_category", "display_order") VALUES ('看護師が24時間常駐しているが料金が高い施設と、看護師は日中のみだが料金が安い施設、どちらを選びますか？', 0, '2026-07-31 07:58:01.724646', '2026-07-31 07:58:01.724646', 'medical_vs_cost', 4) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisOption Create (2.0ms)[0m  [1m[32mINSERT INTO "diagnosis_options" ("diagnosis_question_id", "option_text", "weight_value", "display_order", "created_at", "updated_at", "weight_category") VALUES (4, '看護師が24時間常駐している方を重視する', 3, 1, '2026-07-31 07:58:01.730014', '2026-07-31 07:58:01.730014', 'medical') RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisOption Create (1.9ms)[0m  [1m[32mINSERT INTO "diagnosis_options" ("diagnosis_question_id", "option_text", "weight_value", "display_order", "created_at", "updated_at", "weight_category") VALUES (4, '料金が安い方を重視する', 3, 2, '2026-07-31 07:58:01.738351', '2026-07-31 07:58:01.738351', 'cost') RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisQuestion Create (1.7ms)[0m  [1m[32mINSERT INTO "diagnosis_questions" ("question_text", "question_type", "created_at", "updated_at", "weight_category", "display_order") VALUES ('娯楽設備が充実している施設と、娯楽設備は少ないが看取りケアや終末期医療に対応している施設、どちらを選びますか？', 0, '2026-07-31 07:58:01.745587', '2026-07-31 07:58:01.745587', 'facility_vs_medical', 5) RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisOption Create (1.4ms)[0m  [1m[32mINSERT INTO "diagnosis_options" ("diagnosis_question_id", "option_text", "weight_value", "display_order", "created_at", "updated_at", "weight_category") VALUES (5, '娯楽施設が充実している施設を重視する', 3, 1, '2026-07-31 07:58:01.752958', '2026-07-31 07:58:01.752958', 'facility') RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mDiagnosisOption Create (1.7ms)[0m  [1m[32mINSERT INTO "diagnosis_options" ("diagnosis_question_id", "option_text", "weight_value", "display_order", "created_at", "updated_at", "weight_category") VALUES (5, '看取りケアや終末期に対応している施設を重視する', 3, 2, '2026-07-31 07:58:01.760104', '2026-07-31 07:58:01.760104', 'medical') RETURNING "id" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[36mDiagnosisQuestion Count (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "diagnosis_questions" /*application='App'*/[0m
+  [1m[36mDiagnosisOption Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "diagnosis_options" /*application='App'*/[0m
+Started GET "/diagnoses" for 172.18.0.1 at 2026-07-31 07:58:08 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/index.html.erb within layouts/application
+  [1m[36mDiagnosisQuestion Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" ORDER BY "diagnosis_questions"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:4
+  [1m[36mDiagnosisOption Load (1.0ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" IN (1, 2, 3, 4, 5) /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:4
+  [1m[36mDiagnosisOption Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 1 ORDER BY "diagnosis_options"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:8
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 2 ORDER BY "diagnosis_options"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:8
+  [1m[36mDiagnosisOption Load (0.9ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 3 ORDER BY "diagnosis_options"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:8
+  [1m[36mDiagnosisOption Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 4 ORDER BY "diagnosis_options"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:8
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 5 ORDER BY "diagnosis_options"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:8
+  Rendered diagnoses/index.html.erb within layouts/application (Duration: 135.0ms | GC: 7.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 137.0ms | GC: 7.0ms)
+Completed 200 OK in 150ms (Views: 128.1ms | ActiveRecord: 10.9ms (7 queries, 0 cached) | GC: 7.4ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (112.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='App'*/[0m
+  [1m[35m (205.6ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35mSQL (33.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_answers" CASCADE /*application='App'*/[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "diagnosis_answers" ("id" bigserial primary key, "diagnosis_question_id" bigint NOT NULL, "diagnosis_result_id" bigint NOT NULL, "answer_value" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_question_id" ON "diagnosis_answers" ("diagnosis_question_id") /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_result_id" ON "diagnosis_answers" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_options" CASCADE /*application='App'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "diagnosis_options" ("id" bigserial primary key, "diagnosis_question_id" bigint NOT NULL, "option_text" character varying NOT NULL, "weight_value" integer NOT NULL, "display_order" integer DEFAULT 0 NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "weight_category" character varying) /*application='App'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_options_on_diagnosis_question_id" ON "diagnosis_options" ("diagnosis_question_id") /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_questions" CASCADE /*application='App'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "weight_category" character varying, "display_order" integer DEFAULT 0 NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_results" CASCADE /*application='App'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "diagnosis_results" ("id" bigserial primary key, "cost_score" integer, "facility_score" integer, "care_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "facilities" CASCADE /*application='App'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "facility_type" character varying, "address" character varying, "phone" character varying, "website_url" character varying) /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "facility_matches" CASCADE /*application='App'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "facility_matches" ("id" bigserial primary key, "diagnosis_result_id" bigint NOT NULL, "facility_id" bigint NOT NULL, "match_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_diagnosis_result_id" ON "facility_matches" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_facility_id" ON "facility_matches" ("facility_id") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_cache_entries" CASCADE /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "solid_cache_entries" ("id" bigserial primary key, "key" bytea NOT NULL, "value" bytea NOT NULL, "created_at" timestamp(6) NOT NULL, "key_hash" bigint NOT NULL, "byte_size" integer NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_solid_cache_entries_on_byte_size" ON "solid_cache_entries" ("byte_size") /*application='App'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_solid_cache_entries_on_created_at" ON "solid_cache_entries" ("created_at") /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_cache_entries_on_key_hash" ON "solid_cache_entries" ("key_hash") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_blocked_executions" CASCADE /*application='App'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "solid_queue_blocked_executions" ("id" bigserial primary key, "job_id" bigint NOT NULL, "queue_name" character varying NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_on_concurrency_key" ON "solid_queue_blocked_executions" ("concurrency_key") /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_on_job_id" ON "solid_queue_blocked_executions" ("job_id") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_claimed_executions" CASCADE /*application='App'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "solid_queue_claimed_executions" ("id" bigserial primary key, "job_id" bigint NOT NULL, "process_id" bigint, "claimed_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_claimed_executions_on_job_id" ON "solid_queue_claimed_executions" ("job_id") /*application='App'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "idx_on_process_id_claimed_at_c7452699b3" ON "solid_queue_claimed_executions" ("process_id", "claimed_at") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_failed_executions" CASCADE /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "solid_queue_failed_executions" ("id" bigserial primary key, "job_id" bigint NOT NULL, "error" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_failed_executions_on_job_id" ON "solid_queue_failed_executions" ("job_id") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_jobs" CASCADE /*application='App'*/[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_jobs" ("id" bigserial primary key, "queue_name" character varying NOT NULL, "class_name" character varying NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" character varying, "scheduled_at" timestamp(6), "finished_at" timestamp(6), "finished_with" character varying, "error" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_finished_at_and_finished_with" ON "solid_queue_jobs" ("finished_at", "finished_with") /*application='App'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_priority" ON "solid_queue_jobs" ("priority") /*application='App'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_queue_name" ON "solid_queue_jobs" ("queue_name") /*application='App'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_scheduled_at" ON "solid_queue_jobs" ("scheduled_at") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_pauses" CASCADE /*application='App'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "solid_queue_pauses" ("id" bigserial primary key, "queue_name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_pauses_on_queue_name" ON "solid_queue_pauses" ("queue_name") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_processes" CASCADE /*application='App'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "solid_queue_processes" ("id" bigserial primary key, "kind" character varying NOT NULL, "last_heartbeat_at" timestamp(6) NOT NULL, "supervisor_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "idx_on_last_heartbeat_at_supervisor_id_401ff53e96" ON "solid_queue_processes" ("last_heartbeat_at", "supervisor_id") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_ready_executions" CASCADE /*application='App'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "solid_queue_ready_executions" ("id" bigserial primary key, "job_id" bigint NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_ready_executions_on_job_id" ON "solid_queue_ready_executions" ("job_id") /*application='App'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_ready_executions_on_priority" ON "solid_queue_ready_executions" ("priority") /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_scheduled_executions" CASCADE /*application='App'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "solid_queue_scheduled_executions" ("id" bigserial primary key, "job_id" bigint NOT NULL, "scheduled_at" timestamp(6) NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_scheduled_executions_on_job_id" ON "solid_queue_scheduled_executions" ("job_id") /*application='App'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_scheduled_executions_on_scheduled_at" ON "solid_queue_scheduled_executions" ("scheduled_at") /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_semaphores" CASCADE /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "solid_queue_semaphores" ("id" bigserial primary key, "key" character varying NOT NULL, "value" integer DEFAULT 1 NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_semaphores_on_key" ON "solid_queue_semaphores" ("key") /*application='App'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_97b543f803"
+FOREIGN KEY ("diagnosis_question_id")
+  REFERENCES "diagnosis_questions" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_54d0063ba9"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "diagnosis_options" ADD CONSTRAINT "fk_rails_0ecab4c3e8"
+FOREIGN KEY ("diagnosis_question_id")
+  REFERENCES "diagnosis_questions" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "facility_matches" ADD CONSTRAINT "fk_rails_4d7d67f64d"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "facility_matches" ADD CONSTRAINT "fk_rails_7673f576d8"
+FOREIGN KEY ("facility_id")
+  REFERENCES "facilities" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "solid_queue_blocked_executions" ADD CONSTRAINT "fk_rails_4cd34e2228"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "solid_queue_claimed_executions" ADD CONSTRAINT "fk_rails_9cfe4d4944"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "solid_queue_failed_executions" ADD CONSTRAINT "fk_rails_39bbc7a631"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "solid_queue_ready_executions" ADD CONSTRAINT "fk_rails_81fcbd66af"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ /*application='App'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "solid_queue_scheduled_executions" ADD CONSTRAINT "fk_rails_c4316f352d"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260729182053) /*application='App'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260728130340),
+(20260726202301),
+(20260726202300),
+(20260726202200),
+(20260722144113),
+(20260722143859),
+(20260722140352),
+(20260722124210),
+(20260722115934),
+(20260719070347); /*application='App'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-07-31 08:08:41.409353', '2026-07-31 08:08:41.409356') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2026-07-31 08:08:41.416909' WHERE "ar_internal_metadata"."key" = 'environment' /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'be587f25ff9d457a76423fd73ae1c4db37fa6747', '2026-07-31 08:08:41.420350', '2026-07-31 08:08:41.420353') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+Started GET "/diagnoses" for 127.0.0.1 at 2026-07-31 08:08:41 +0000
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+Processing by DiagnosesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/index.html.erb within layouts/application
+  [1m[36mDiagnosisQuestion Load (0.9ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" ORDER BY "diagnosis_questions"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:4
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" IN (1, 2, 3, 4, 5) /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:4
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 1 ORDER BY "diagnosis_options"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:8
+  [1m[36mDiagnosisOption Load (0.3ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 2 ORDER BY "diagnosis_options"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:8
+  [1m[36mDiagnosisOption Load (0.3ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 3 ORDER BY "diagnosis_options"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:8
+  [1m[36mDiagnosisOption Load (0.3ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 4 ORDER BY "diagnosis_options"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:8
+  [1m[36mDiagnosisOption Load (0.4ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 5 ORDER BY "diagnosis_options"."display_order" ASC /*action='index',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/index.html.erb:8
+  Rendered diagnoses/index.html.erb within layouts/application (Duration: 55.1ms | GC: 3.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 63.2ms | GC: 3.9ms)
+Completed 200 OK in 100ms (Views: 59.5ms | ActiveRecord: 11.7ms (7 queries, 0 cached) | GC: 6.0ms)
+
+
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+Reverting AddWeightCategoryToDiagnosisOptions (20260729182053)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (14.4ms)[0m  [1m[35mALTER TABLE "diagnosis_options" DROP COLUMN "weight_category" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (2.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20260729182053' /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+Migrating to AddWeightCategoryToDiagnosisOptions (20260729182053)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (7.8ms)[0m  [1m[35mALTER TABLE "diagnosis_options" ADD "weight_category" character varying /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260729182053') RETURNING "version" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+Reverting CreateDiagnosisAnswers (20260722143859)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (13.2ms)[0m  [1m[35mDROP TABLE "diagnosis_answers" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20260722143859' /*application='App'*/[0m
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+Migrating to CreateDiagnosisAnswers (20260722143859)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "diagnosis_answers" ("id" bigserial primary key, "diagnosis_question_id" bigint NOT NULL, "diagnosis_option_id" bigint NOT NULL, "session_id" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_97b543f803"
+FOREIGN KEY ("diagnosis_question_id")
+  REFERENCES "diagnosis_questions" ("id")
+, CONSTRAINT "fk_rails_9f6f478df8"
+FOREIGN KEY ("diagnosis_option_id")
+  REFERENCES "diagnosis_options" ("id")
+) /*application='App'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_question_id" ON "diagnosis_answers" ("diagnosis_question_id") /*application='App'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_option_id" ON "diagnosis_answers" ("diagnosis_option_id") /*application='App'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "idx_on_session_id_diagnosis_question_id_2d63da7b8b" ON "diagnosis_answers" ("session_id", "diagnosis_question_id") /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260722143859') RETURNING "version" /*application='App'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
