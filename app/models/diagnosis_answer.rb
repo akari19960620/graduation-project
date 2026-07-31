@@ -1,2 +1,3 @@
 class DiagnosisAnswer < ApplicationRecord
+  
 end
