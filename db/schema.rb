@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_07_26_202300) do
+ActiveRecord::Schema[7.2].define(version: 2026_07_29_182053) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,11 +24,24 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_26_202300) do
     t.index ["diagnosis_result_id"], name: "index_diagnosis_answers_on_diagnosis_result_id"
   end
 
+  create_table "diagnosis_options", force: :cascade do |t|
+    t.bigint "diagnosis_question_id", null: false
+    t.string "option_text", null: false
+    t.integer "weight_value", null: false
+    t.integer "display_order", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "weight_category"
+    t.index ["diagnosis_question_id"], name: "index_diagnosis_options_on_diagnosis_question_id"
+  end
+
   create_table "diagnosis_questions", force: :cascade do |t|
     t.text "question_text", null: false
     t.integer "question_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "weight_category"
+    t.integer "display_order", default: 0, null: false
   end
 
   create_table "diagnosis_results", force: :cascade do |t|
@@ -168,6 +181,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_26_202300) do
 
   add_foreign_key "diagnosis_answers", "diagnosis_questions"
   add_foreign_key "diagnosis_answers", "diagnosis_results"
+  add_foreign_key "diagnosis_options", "diagnosis_questions"
   add_foreign_key "facility_matches", "diagnosis_results"
   add_foreign_key "facility_matches", "facilities"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id"
