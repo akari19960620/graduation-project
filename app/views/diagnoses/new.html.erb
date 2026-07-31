@@ -1,7 +1,7 @@
 <h1>診断質問</h1>
 
-<%= form_with url: result_diagnoses_path, method: :post, local: true do |f| %>
-  <% @diagnoses.each do |question| %>
+<%= form_with url: diagnoses_path, method: :post, local: true do |f| %>
+  <% @questions.each do |question| %>
     <div class="question">
       <h2><%= question.question_text %></h2>
 

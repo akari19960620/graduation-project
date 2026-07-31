@@ -7,6 +7,6 @@ class CreateDiagnosisAnswers < ActiveRecord::Migration[7.2]
       t.timestamps
     end
 
-    add_index :diagnosis_answers, [:session_id, :diagnosis_question_id], unique: true
+    add_index :diagnosis_answers, [ :session_id, :diagnosis_question_id ], unique: true
   end
 end

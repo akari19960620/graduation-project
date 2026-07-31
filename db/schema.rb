@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_07_29_182053) do
+ActiveRecord::Schema[7.2].define(version: 2026_07_31_131438) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,11 +46,11 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_29_182053) do
   end
 
   create_table "diagnosis_results", force: :cascade do |t|
-    t.integer "cost_score"
-    t.integer "facility_score"
-    t.integer "care_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
+    t.string "result_title"
+    t.text "result_description"
   end
 
   create_table "facilities", force: :cascade do |t|
