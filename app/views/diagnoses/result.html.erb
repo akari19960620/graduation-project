@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-sm mt-5">
+        <div class="card-body">
+          <!-- 診断結果のタイトル -->
+          <h2 class="card-title text-center mb-4">
+            診断結果
+          </h2>
+
+          <!-- 判定されたカテゴリの結果 -->
+          <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading"><%= @diagnosis_result.result_title %></h4>
+            <p class="mb-0"><%= @diagnosis_result.result_description %></p>
+          </div>
+
+          <!-- スコアの表示 -->
+          <div class="mt-4">
+            <h5>各カテゴリのスコア</h5>
+            <ul class="list-group">
+              <% @scores.each do |category, score| %>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <%= category_name(category) %>
+                  <span class="badge bg-primary rounded-pill"><%= score %></span>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+
+          <!-- おすすめ施設の表示 -->
+          <div class="mt-5">
+            <h5 class="mb-3">あなたにおすすめの施設</h5>
+            <div class="row">
+              <% @recommended_facilities.each do |facility| %>
+                <div class="col-md-4 mb-3">
+                  <div class="card h-100">
+                    <!-- 施設の画像があれば表示 -->
+                    <% if facility.image.present? %>
+                      <%= image_tag facility.image, class: "card-img-top", alt: facility.name %>
+                    <% else %>
+                      <img src="https://via.placeholder.com/300x200?text=No+Image" class="card-img-top" alt="施設画像なし">
+                    <% end %>
+
+                    <div class="card-body">
+                      <h5 class="card-title"><%= facility.name %></h5>
+                      <p class="card-text text-muted small">
+                        <%= truncate(facility.features, length: 150) %>
+                      </p>
+
+                      <!-- 施設の基本情報 -->
+                      <ul class="list-unstyled small">
+                        <li><i class="bi bi-geo-alt"></i> <%= facility.address %></li>
+                        <li><i class="bi bi-currency-yen"></i> 月額: <%= number_to_currency(facility.monthly_fee_min, unit: "￥", precision: 0) %>
+                        ～ <%= number_to_currency(facility.monthly_fee_max, unit: "￥", precision: 0) %></li>
+                      </ul>
+
+                      <%= link_to '詳細を見る', diagnoses_path, class: "btn btn-outline-primary btn-sm w-100" %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+          <!-- 再診断ボタン -->
+          <div class="text-center mt-4">
+            <%=link_to '再診断', new_diagnosis_path, class: 'btn btn-primary btn-lg' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

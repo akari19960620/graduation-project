@@ -4,7 +4,7 @@ root "static_pages#top"
 
 resources :diagnoses, only: [ :new, :create ] do
   collection do
-    post :result
+    get :result
   end
 end
 
