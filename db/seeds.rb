@@ -10,6 +10,7 @@
 
 # 既存のデータを削除する（開発環境のみ）※削除の順番に注意！
 if Rails.env.development?
+  FacilityMatch.destroy_all  # 中間テーブル削除を追加
   DiagnosisOption.destroy_all  # 子テーブル削除
   DiagnosisQuestion.destroy_all  # 親テーブル削除
   DiagnosisResult.destroy_all # 診断結果削除
@@ -302,3 +303,23 @@ DiagnosisResult.create!([
 
 puts "診断結果のシードデータを作成しました！"
 puts "診断結果テンプレート数: #{DiagnosisResult.count}"
+
+# 診断結果を取得
+cost_result = DiagnosisResult.find_by!(category: 'cost')
+facility_result = DiagnosisResult.find_by!(category: 'facility')
+medical_result = DiagnosisResult.find_by!(category: 'medical')
+
+# コスト重視タイプ: cost_score が高い施設を紐付け
+cost_facilities = Facility.where.not(cost_score: nil).order(cost_score: :desc).limit(5)
+cost_result.facilities << cost_facilities
+
+# 施設重視タイプ: facility_score が高い施設を紐付け
+facility_facilities = Facility.where.not(facility_score: nil).order(facility_score: :desc).limit(5)
+facility_result.facilities << facility_facilities
+
+# 医療・ケア重視タイプ: medical_score が高い施設を紐付け
+medical_facilities = Facility.where.not(medical_score: nil).order(medical_score: :desc).limit(5)
+medical_result.facilities << medical_facilities
+
+puts "中間テーブルのデータを作成しました！"
+puts "紐付け数: #{FacilityMatch.count}"

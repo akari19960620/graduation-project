@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_08_02_085803) do
+ActiveRecord::Schema[7.2].define(version: 2026_08_02_132822) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,9 +77,9 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_02_085803) do
   create_table "facility_matches", force: :cascade do |t|
     t.bigint "diagnosis_result_id", null: false
     t.bigint "facility_id", null: false
-    t.integer "match_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["diagnosis_result_id", "facility_id"], name: "index_facility_matches_on_diagnosis_result_id_and_facility_id", unique: true
     t.index ["diagnosis_result_id"], name: "index_facility_matches_on_diagnosis_result_id"
     t.index ["facility_id"], name: "index_facility_matches_on_facility_id"
   end

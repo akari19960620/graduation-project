@@ -1,0 +1,123 @@
+<div class="facility-detail-page">
+  <!-- パンくずリスト -->
+  <nav class="breadcrumb">
+    <%= link_to 'トップ', root_path %>
+    <span class="separator">></span>
+    <span class="current"><%= @facility.name %></span>
+  </nav>
+
+  <article class="facility-detail">
+    <!-- 施設のメイン情報 -->
+    <header class="facility-header">
+      <h1 class="facility-name"><%= @facility.name %></h1>
+      <div class="facility-meta">
+        <span class="badge badge-primary"><%= @facility.facility_type %></span>
+      </div>
+    </header>
+
+    <!-- 施設画像 -->
+    <% if @facility.image.present? %>
+      <div class="facility-main-image">
+        <%= image_tag @facility.image, alt: @facility.name, class: 'img-fluid' %>
+      </div>
+    <% end %>
+
+    <!-- 基本情報セクション -->
+    <section class="facility-section">
+      <h2 class="section-title">基本情報</h2>
+      <dl class="facility-info-list">
+        <div class="info-item">
+          <dt class="info-label">住所</dt>
+          <dd class="info-value">
+            <i class="icon-location"></i>
+            <%= @facility.address %>
+          </dd>
+        </div>
+
+        <% if @facility.phone.present? %>
+          <div class="info-item">
+            <dt class="info-label">電話番号</dt>
+            <dd class="info-value">
+              <i class="icon-phone"></i>
+              <%= @facility.phone %>
+            </dd>
+          </div>
+        <% end %>
+      </dl>
+    </section>
+
+    <!-- 料金情報セクション -->
+    <% if @facility.monthly_fee_min.present? %>
+      <section class="facility-section">
+        <h2 class="section-title">料金情報</h2>
+        <dl class="facility-info-list">
+          <div class="info-item">
+            <dt class="info-label">月額費用</dt>
+            <dd class="info-value">
+              <%= number_to_currency(@facility.monthly_fee_min, unit: "¥", precision: 0) %>
+              <% if @facility.monthly_fee_max.present? %>
+                〜 <%= number_to_currency(@facility.monthly_fee_max, unit: "¥", precision: 0) %>
+              <% end %>
+            </dd>
+          </div>
+        </dl>
+        <p class="text-sm text-gray-600 mt-3">
+          ※ 別途初期費用が掛かる場合があります。
+          <% if @facility.website_url.present? %>
+            詳しくは<%= link_to '公式サイト', @facility.website_url, target: '_blank', rel: 'noopener noreferrer', class: 'text-blue-500 underline' %>をご確認ください。
+          <% else %>
+            詳しくは施設にお問い合わせください。
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+
+    <!-- 施設詳細セクション -->
+    <section class="facility-section">
+      <h2 class="section-title">施設詳細</h2>
+      <dl class="facility-info-list">
+        <% if @facility.capacity.present? %>
+          <div class="info-item">
+            <dt class="info-label">定員</dt>
+            <dd class="info-value"><%= @facility.capacity %></dd>
+          </div>
+        <% end %>
+
+        <% if @facility.room_type.present? %>
+          <div class="info-item">
+            <dt class="info-label">部屋タイプ</dt>
+            <dd class="info-value"><%= @facility.room_type %></dd>
+          </div>
+        <% end %>
+
+        <% if @facility.care_level.present? %>
+          <div class="info-item">
+            <dt class="info-label">対応可能な介護度</dt>
+            <dd class="info-value"><%= @facility.care_level %></dd>
+          </div>
+        <% end %>
+      </dl>
+    </section>
+
+    <!-- サービス内容セクション -->
+    <% if @facility.services.present? %>
+      <section class="facility-section">
+        <h2 class="section-title">提供サービス</h2>
+        <p class="facility-description"><%= @facility.services %></p>
+      </section>
+    <% end %>
+
+    <!-- 施設の特徴セクション -->
+    <% if @facility.features.present? %>
+      <section class="facility-section">
+        <h2 class="section-title">施設の特徴</h2>
+        <p class="facility-description"><%= @facility.features %></p>
+      </section>
+    <% end %>
+
+    <!-- アクションボタン -->
+    <div class="facility-actions">
+      <%= link_to '一覧に戻る', diagnoses_path, class: 'btn btn-secondary' %>
+    </div>
+  </article>
+</div>
