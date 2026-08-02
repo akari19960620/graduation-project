@@ -1,4 +1,7 @@
 class DiagnosesController < ApplicationController
+  # レコードが見つからない場合のエラーハンドリング
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   def new
     @questions = DiagnosisQuestion.includes(:diagnosis_options).order(:display_order)
   end
@@ -18,10 +21,7 @@ class DiagnosesController < ApplicationController
     # 現在のセッションの回答を取得
     @answers = DiagnosisAnswer.includes(:diagnosis_option, :diagnosis_question).where(session_id: current_session_id)
     # 回答がない場合の処理
-    if @answers.empty?
-      flash[:alert] = "診断を受けてください"
-      redirect_to new_diagnosis_path and return
-    end
+    return redirect_to new_diagnosis_path, alert: "診断を受けてください" if @answers.empty?
     # スコアを計算
     @scores = calculate_scores(@answers)
     # 最も高いスコアのカテゴリを判定
@@ -29,15 +29,17 @@ class DiagnosesController < ApplicationController
     # 該当の診断結果を取得
     @diagnosis_result = DiagnosisResult.find_by!(category: @result_category)
     # おすすめの施設を取得
-    @recommended_facilities = recommend_facilities(@result_category)
-
-  rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "診断結果が見つかりませんでした"
-    redirect_to diagnoses_path
+    @recommended_facilities = @diagnosis_result.facilities.limit(3)
   end
 
 
+
   private
+
+  def record_not_found
+    flash[:alert] = "診断結果が見つかりませんでした"
+    redirect_to diagnoses_path
+  end
 
   def calculate_scores(answers)
     # 各カテゴリのスコアを初期化
@@ -63,23 +65,6 @@ class DiagnosesController < ApplicationController
 
     # 最大スコアを持つカテゴリを優先順位に従って選択
     priority_order.find { |category| scores[category] == max_score }
-  end
-
-  # おすすめの施設を取得するメソッドを追加
-  def recommend_facilities(category)
-    case category
-    when "cost"
-      Facility.order(cost_score: :desc).limit(3)
-    when "medical"
-      Facility.order(medical_score: :desc).limit(3)
-    when "facility"
-      Facility.order(facility_score: :desc).limit(3)
-    else
-      # デフォルト: 総合評価が高い順（全スコアの平均）
-      Facility.all.sort_by do |f|
-        (f.cost_score + f.medical_score + f.facility_score) /3.0
-      end.reverse.first(3)
-    end
   end
 
   # セッション ID の取得

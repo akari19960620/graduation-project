@@ -54,7 +54,7 @@
                         ～ <%= number_to_currency(facility.monthly_fee_max, unit: "￥", precision: 0) %></li>
                       </ul>
 
-                      <%= link_to '詳細を見る', diagnoses_path, class: "btn btn-outline-primary btn-sm w-100" %>
+                      <%= link_to '詳細を見る', facility_path(facility), class: "btn btn-outline-primary btn-sm w-100" %>
                     </div>
                   </div>
                 </div>
