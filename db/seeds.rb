@@ -221,8 +221,8 @@ question1 = DiagnosisQuestion.create!(
 )
 
 question1.diagnosis_options.create!([
-  { option_text: '駅近で家族が訪問しやすい方を重視する', weight_value: 3, weight_category: 'facility', display_order: 1 },
-  { option_text: '料金が安い方を重視する', weight_value: 3, weight_category: 'cost', display_order: 2 }
+  { option_text: '駅近で家族が訪問しやすい方を重視する', weight_value: 20, weight_category: 'facility', display_order: 1 },
+  { option_text: '料金が安い方を重視する', weight_value: 20, weight_category: 'cost', display_order: 2 }
 ])
 
 
@@ -235,8 +235,8 @@ question2 = DiagnosisQuestion.create!(
 )
 
 question2.diagnosis_options.create!([
-  { option_text: '設備が新しい方を重視する', weight_value: 3, weight_category: 'facility', display_order: 1 },
-  { option_text: '料金が安い方を重視する', weight_value: 3, weight_category: 'cost', display_order: 2 }
+  { option_text: '設備が新しい方を重視する', weight_value: 20, weight_category: 'facility', display_order: 1 },
+  { option_text: '料金が安い方を重視する', weight_value: 20, weight_category: 'cost', display_order: 2 }
 ])
 
 # 質問３
@@ -248,8 +248,8 @@ question3 = DiagnosisQuestion.create!(
 )
 
 question3.diagnosis_options.create!([
-  { option_text: '自然豊かな施設を重視する', weight_value: 3, weight_category: 'facility', display_order: 1 },
-  { option_text: '医療機関が隣接している施設を重視する', weight_value: 3, weight_category: 'medical', display_order: 2 }
+  { option_text: '自然豊かな施設を重視する', weight_value: 20, weight_category: 'facility', display_order: 1 },
+  { option_text: '医療機関が隣接している施設を重視する', weight_value: 20, weight_category: 'medical', display_order: 2 }
 ])
 
 # 質問４
@@ -261,8 +261,8 @@ question4 = DiagnosisQuestion.create!(
 )
 
 question4.diagnosis_options.create!([
-  { option_text: '看護師が24時間常駐している方を重視する', weight_value: 3, weight_category: 'medical', display_order: 1 },
-  { option_text: '料金が安い方を重視する', weight_value: 3, weight_category: 'cost', display_order: 2 }
+  { option_text: '看護師が24時間常駐している方を重視する', weight_value: 20, weight_category: 'medical', display_order: 1 },
+  { option_text: '料金が安い方を重視する', weight_value: 20, weight_category: 'cost', display_order: 2 }
 ])
 
 # 質問５
@@ -274,8 +274,8 @@ question5 = DiagnosisQuestion.create!(
 )
 
 question5.diagnosis_options.create!([
-  { option_text: '娯楽施設が充実している施設を重視する', weight_value: 3, weight_category: 'facility', display_order: 1 },
-  { option_text: '看取りケアや終末期に対応している施設を重視する', weight_value: 3, weight_category: 'medical', display_order: 2 }
+  { option_text: '娯楽施設が充実している施設を重視する', weight_value: 20, weight_category: 'facility', display_order: 1 },
+  { option_text: '看取りケアや終末期に対応している施設を重視する', weight_value: 20, weight_category: 'medical', display_order: 2 }
 ])
 
 puts "診断質問データを作成しました！"

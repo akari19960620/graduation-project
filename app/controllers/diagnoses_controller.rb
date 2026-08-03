@@ -1,14 +1,24 @@
 class DiagnosesController < ApplicationController
+  rescue_from DiagnosisResultNotFoundError, with: :diagnosis_not_found
   # レコードが見つからない場合のエラーハンドリング
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
+  # 質問表示画面
   def new
     @questions = DiagnosisQuestion.includes(:diagnosis_options).order(:display_order)
   end
   # データベースに回答を保存
   def create
-    # 保存処理を実行
-    if save_responses_to_database
+    unless all_questions_answered?
+      flash[:alert] = "すべての質問に回答してください"
+      redirect_to new_diagnosis_path and return
+    end
+
+    clear_previous_diagnoses # 過去の診断結果を削除
+    # DiagnosisAnswerSaverインスタンスの生成
+    saver = DiagnosisAnswerSaver.new(current_session_id, diagnosis_params)
+    # 保存処理の実行
+    if saver.save
       redirect_to result_diagnoses_path, notice: "回答を保存しました"
     else
       flash[:alert] = "回答の保存に失敗しました"
@@ -16,55 +26,49 @@ class DiagnosesController < ApplicationController
     end
   end
 
-
+  # 診断結果の表示
   def result
-    # 現在のセッションの回答を取得
-    @answers = DiagnosisAnswer.includes(:diagnosis_option, :diagnosis_question).where(session_id: current_session_id)
-    # 回答がない場合の処理
-    return redirect_to new_diagnosis_path, alert: "診断を受けてください" if @answers.empty?
-    # スコアを計算
-    @scores = calculate_scores(@answers)
-    # 最も高いスコアのカテゴリを判定
-    @result_category = determine_category(@scores)
-    # 該当の診断結果を取得
-    @diagnosis_result = DiagnosisResult.find_by!(category: @result_category)
-    # おすすめの施設を取得
-    @recommended_facilities = @diagnosis_result.facilities.limit(3)
+    # DiagnosisResultFetcherインスタンスの生成
+    fetcher = DiagnosisResultFetcher.new(current_session_id)
+    result_data = fetcher.fetch # 診断結果データの取得
+
+    # 診断結果が見つからない場合、例外を発生させる
+    raise DiagnosisResultNotFoundError if result_data.nil?
+
+    # 正常時のみ実行される（例外が発生した場合は rescue_from で処理）
+    assign_result_data(result_data)
   end
 
 
 
   private
 
+  def all_questions_answered?
+    question_count = DiagnosisQuestion.count
+    answered_count = diagnosis_params.keys.count { |k| k.start_with?("question_") }
+    answered_count == question_count
+  end
+
+  # 診断が見つからない場合のエラーハンドリング
+  def diagnosis_not_found
+    flash[:alert] = "診断を受けてください"
+    redirect_to new_diagnosis_path
+  end
+
   def record_not_found
     flash[:alert] = "診断結果が見つかりませんでした"
-    redirect_to diagnoses_path
+    redirect_to new_diagnosis_path
   end
 
-  def calculate_scores(answers)
-    # 各カテゴリのスコアを初期化
-    scores = Hash.new(0)
-
-    # 各回答からスコアを集計
-    answers.each do |answer|
-      option = answer.diagnosis_option
-      category = option.weight_category
-      value = option.weight_value
-
-      scores[category] += value
-    end
-
-    scores
+  # 診断セッションのクリア
+  def clear_diagnosis_session
+    session.delete(:diagnosis_answers)
   end
 
-  def determine_category(scores)
-    # スコアが最も高いカテゴリを取得
-    # 同点の場合は cost> medical> facility の優先順位
-    priority_order = [ "cost", "medical", "facility" ]
-    max_score = scores.values.max
-
-    # 最大スコアを持つカテゴリを優先順位に従って選択
-    priority_order.find { |category| scores[category] == max_score }
+  # 過去の診断結果を削除（追加）
+  def clear_previous_diagnoses
+    # セッション ID に紐づく過去の診断結果を削除
+    Diagnosis.where(session_id: current_session_id).destroy_all
   end
 
   # セッション ID の取得
@@ -72,21 +76,13 @@ class DiagnosesController < ApplicationController
     session.id.private_id
   end
 
-  # 回答をデータベースに保存
-  def save_responses_to_database
-    DiagnosisAnswer.transaction do
-      diagnosis_params.each do |key, value|
-        question_id = key.split("_").last.to_i
-        option_id = value.to_i
-
-        answer = DiagnosisAnswer.find_or_initialize_by(
-          session_id: current_session_id,
-          diagnosis_question_id: question_id
-        )
-        answer.diagnosis_option_id = option_id
-        answer.save!
-      end
-    end
+  # 診断結果データをインスタンス変数に代入
+  def assign_result_data(result_data)
+    @answers = result_data[:answers]
+    @scores = result_data[:scores]
+    @result_category = result_data[:category]
+    @diagnosis_result = result_data[:result]
+    @recommended_facilities = result_data[:recommended_facilities]
   end
 
   # 診断の回答データだけを安全に取得するためのストロングパラメータ

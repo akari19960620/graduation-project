@@ -4,19 +4,19 @@
       <div class="card shadow-sm mt-5">
         <div class="card-body">
           <!-- 診断結果のタイトル -->
-          <h2 class="card-title text-center mb-4">
+          <h1 class="card-title text-center mb-4">
             診断結果
-          </h2>
+          </h1>
 
           <!-- 判定されたカテゴリの結果 -->
           <div class="alert alert-info" role="alert">
-            <h4 class="alert-heading"><%= @diagnosis_result.result_title %></h4>
+            <h2 class="alert-heading"><%= @diagnosis_result.result_title %></h2>
             <p class="mb-0"><%= @diagnosis_result.result_description %></p>
           </div>
 
           <!-- スコアの表示 -->
           <div class="mt-4">
-            <h5>各カテゴリのスコア</h5>
+            <h3>各カテゴリのスコア</h3>
             <ul class="list-group">
               <% @scores.each do |category, score| %>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -29,7 +29,7 @@
 
           <!-- おすすめ施設の表示 -->
           <div class="mt-5">
-            <h5 class="mb-3">あなたにおすすめの施設</h5>
+            <h2 class="mb-3">☆あなたにおすすめの施設☆</h2>
             <div class="row">
               <% @recommended_facilities.each do |facility| %>
                 <div class="col-md-4 mb-3">
@@ -42,7 +42,7 @@
                     <% end %>
 
                     <div class="card-body">
-                      <h5 class="card-title"><%= facility.name %></h5>
+                      <h3 class="card-title"><%= facility.name %></h3>
                       <p class="card-text text-muted small">
                         <%= truncate(facility.features, length: 150) %>
                       </p>
