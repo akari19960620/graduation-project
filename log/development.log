@@ -8316,3 +8316,621 @@ Completed 200 OK in 162ms (Views: 92.6ms | ActiveRecord: 20.8ms (7 queries, 0 ca
 
 
   [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK /*application='App'*/[0m
+Started GET "/" for 172.18.0.1 at 2026-08-03 10:40:15 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (6.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+Processing by StaticPagesController#top as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 45.5ms | GC: 0.0ms)
+Completed 200 OK in 106ms (Views: 62.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/diagnoses/new" for 172.18.0.1 at 2026-08-03 10:40:18 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  [1m[36mDiagnosisQuestion Load (2.4ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" ORDER BY "diagnosis_questions"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:4
+  [1m[36mDiagnosisOption Load (1.0ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" IN (46, 47, 48, 49, 50) /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:4
+  [1m[36mDiagnosisOption Load (1.1ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 46 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 47 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (3.0ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 48 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.8ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 49 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 50 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 232.1ms | GC: 25.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 236.6ms | GC: 25.7ms)
+Completed 200 OK in 374ms (Views: 218.6ms | ActiveRecord: 48.7ms (7 queries, 0 cached) | GC: 25.7ms)
+
+
+user: root
+GET /diagnoses/new
+AVOID eager loading detected
+  DiagnosisQuestion => [:diagnosis_options]
+  Remove from your query: .includes([:diagnosis_options])
+Call stack
+  /app/app/views/diagnoses/new.html.erb:4:in `block in _app_views_diagnoses_new_html_erb___3095633144644371059_25240'
+  /app/app/views/diagnoses/new.html.erb:3:in `_app_views_diagnoses_new_html_erb___3095633144644371059_25240'
+
+
+Started POST "/diagnoses" for 172.18.0.1 at 2026-08-03 10:47:12 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "question_46"=>"91", "question_47"=>"93", "question_48"=>"95", "question_49"=>"97", "question_50"=>"99", "commit"=>"診断結果を表示"}
+  [1m[36mDiagnosisQuestion Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "diagnosis_questions" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:47:in `all_questions_answered?'
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: DiagnosesController, action: create, request: #<ActionDispatch::Request:0x00007e0de8a4ce40>, params: {"authenticity_token"=>"[FILTERED]", "question_46"=>"91", "question_47"=>"93", "question_48"=>"95", "question_49"=>"97", "question_50"=>"99", "commit"=>"診断結果を表示", "controller"=>"diagnoses", "action"=>"create"} }[0m
+  [1m[36mDiagnosis Load (1.8ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."session_id" = '2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b' /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Load (2.9ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 10 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Destroy (2.6ms)[0m  [1m[31mDELETE FROM "diagnosis_answers" WHERE "diagnosis_answers"."id" = 43 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "diagnosis_answers" WHERE "diagnosis_answers"."id" = 44 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "diagnosis_answers" WHERE "diagnosis_answers"."id" = 45 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "diagnosis_answers" WHERE "diagnosis_answers"."id" = 46 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "diagnosis_answers" WHERE "diagnosis_answers"."id" = 47 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosis Destroy (2.0ms)[0m  [1m[31mDELETE FROM "diagnoses" WHERE "diagnoses"."id" = 10 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: DiagnosesController, action: create, request: #<ActionDispatch::Request:0x00007e0de8a4ce40>, params: {"authenticity_token"=>"[FILTERED]", "question_46"=>"91", "question_47"=>"93", "question_48"=>"95", "question_49"=>"97", "question_50"=>"99", "commit"=>"診断結果を表示", "controller"=>"diagnoses", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mDiagnosis Load (48.0ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."session_id" = '2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b' LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mDiagnosis Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnoses" WHERE "diagnoses"."session_id" = '2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b' LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mDiagnosis Create (10.5ms)[0m  [1m[32mINSERT INTO "diagnoses" ("session_id", "diagnosis_result_id", "status", "completed_at", "created_at", "updated_at") VALUES ('2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b', NULL, 0, NULL, '2026-08-03 10:47:13.277428', '2026-08-03 10:47:13.277428') RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mDiagnosisAnswer Load (0.8ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 11 AND "diagnosis_answers"."diagnosis_question_id" = 46 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:43:in `save_answer'
+  [1m[36mDiagnosis Load (0.7ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = 11 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisQuestion Load (1.8ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" = 46 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisOption Load (1.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" = 91 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_question_id" = 46 AND "diagnosis_answers"."diagnosis_id" = 11 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Create (4.0ms)[0m  [1m[32mINSERT INTO "diagnosis_answers" ("diagnosis_question_id", "diagnosis_option_id", "created_at", "updated_at", "diagnosis_id") VALUES (46, 91, '2026-08-03 10:47:13.318051', '2026-08-03 10:47:13.318051', 11) RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 11 AND "diagnosis_answers"."diagnosis_question_id" = 47 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:43:in `save_answer'
+  [1m[36mDiagnosis Load (0.5ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = 11 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisQuestion Load (0.8ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" = 47 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisOption Load (1.1ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" = 93 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_question_id" = 47 AND "diagnosis_answers"."diagnosis_id" = 11 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Create (0.7ms)[0m  [1m[32mINSERT INTO "diagnosis_answers" ("diagnosis_question_id", "diagnosis_option_id", "created_at", "updated_at", "diagnosis_id") VALUES (47, 93, '2026-08-03 10:47:13.372798', '2026-08-03 10:47:13.372798', 11) RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 11 AND "diagnosis_answers"."diagnosis_question_id" = 48 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:43:in `save_answer'
+  [1m[36mDiagnosis Load (0.6ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = 11 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisQuestion Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" = 48 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisOption Load (0.8ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" = 95 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_question_id" = 48 AND "diagnosis_answers"."diagnosis_id" = 11 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Create (1.2ms)[0m  [1m[32mINSERT INTO "diagnosis_answers" ("diagnosis_question_id", "diagnosis_option_id", "created_at", "updated_at", "diagnosis_id") VALUES (48, 95, '2026-08-03 10:47:13.409175', '2026-08-03 10:47:13.409175', 11) RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 11 AND "diagnosis_answers"."diagnosis_question_id" = 49 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:43:in `save_answer'
+  [1m[36mDiagnosis Load (1.0ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = 11 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisQuestion Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" = 49 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" = 97 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_question_id" = 49 AND "diagnosis_answers"."diagnosis_id" = 11 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "diagnosis_answers" ("diagnosis_question_id", "diagnosis_option_id", "created_at", "updated_at", "diagnosis_id") VALUES (49, 97, '2026-08-03 10:47:13.465660', '2026-08-03 10:47:13.465660', 11) RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 11 AND "diagnosis_answers"."diagnosis_question_id" = 50 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:43:in `save_answer'
+  [1m[36mDiagnosis Load (1.0ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = 11 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisQuestion Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" = 50 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisOption Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" = 99 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_question_id" = 50 AND "diagnosis_answers"."diagnosis_id" = 11 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Create (1.0ms)[0m  [1m[32mINSERT INTO "diagnosis_answers" ("diagnosis_question_id", "diagnosis_option_id", "created_at", "updated_at", "diagnosis_id") VALUES (50, 99, '2026-08-03 10:47:13.534048', '2026-08-03 10:47:13.534048', 11) RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[35mCOMMIT /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:11:in `save'
+Redirected to http://localhost:3000/diagnoses/result
+Completed 302 Found in 834ms (ActiveRecord: 150.4ms (42 queries, 0 cached) | GC: 77.5ms)
+
+
+Started GET "/diagnoses/result" for 172.18.0.1 at 2026-08-03 10:47:13 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#result as TURBO_STREAM
+  [1m[36mDiagnosis Load (1.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."session_id" = '2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b' LIMIT 1 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:23:in `fetch_answers'
+  [1m[36mDiagnosisAnswer Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 11 LIMIT 1 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:30:in `fetch_answers'
+  [1m[36mDiagnosisAnswer Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 11 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_score_calculator.rb:20:in `calculate_scores'
+  [1m[36mDiagnosisOption Load (1.1ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" IN (91, 93, 95, 97, 99) /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_score_calculator.rb:20:in `calculate_scores'
+  [1m[36mDiagnosisQuestion Load (0.9ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" IN (46, 47, 48, 49, 50) /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_score_calculator.rb:20:in `calculate_scores'
+  [1m[36mDiagnosisResult Load (1.8ms)[0m  [1m[34mSELECT "diagnosis_results".* FROM "diagnosis_results" WHERE "diagnosis_results"."category" = 'facility' LIMIT 1 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:42:in `fetch_result'
+  [1m[36mCACHE DiagnosisResult Load (0.9ms)[0m  [1m[34mSELECT "diagnosis_results".* FROM "diagnosis_results" WHERE "diagnosis_results"."category" = 'facility' LIMIT 1[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:47:in `fetch_recommended_facilities'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/result.html.erb within layouts/application
+  [1m[36mFacility Load (4.4ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" INNER JOIN "facility_matches" ON "facilities"."id" = "facility_matches"."facility_id" WHERE "facility_matches"."diagnosis_result_id" = 29 LIMIT 3 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/result.html.erb:34
+  Rendered diagnoses/result.html.erb within layouts/application (Duration: 67.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 85.6ms | GC: 0.0ms)
+Completed 200 OK in 352ms (Views: 85.5ms | ActiveRecord: 22.8ms (8 queries, 1 cached) | GC: 1.9ms)
+
+
+user: root
+GET /diagnoses/result
+AVOID eager loading detected
+  DiagnosisAnswer => [:diagnosis_question]
+  Remove from your query: .includes([:diagnosis_question])
+Call stack
+  /app/app/services/diagnosis_score_calculator.rb:20:in `calculate_scores'
+  /app/app/services/diagnosis_score_calculator.rb:9:in `calculate'
+  /app/app/services/diagnosis_result_fetcher.rb:37:in `calculate_scores_and_category'
+  /app/app/services/diagnosis_result_fetcher.rb:9:in `fetch'
+  /app/app/controllers/diagnoses_controller.rb:33:in `result'
+
+
+Started GET "/facilities/91" for 172.18.0.1 at 2026-08-03 10:55:26 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by FacilitiesController#show as HTML
+  Parameters: {"id"=>"91"}
+  [1m[36mFacility Load (2.8ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" WHERE "facilities"."id" = 91 LIMIT 1 /*action='show',application='App',controller='facilities'*/[0m
+  ↳ app/controllers/facilities_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering facilities/show.html.erb within layouts/application
+  Rendered facilities/show.html.erb within layouts/application (Duration: 5.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | GC: 0.0ms)
+Completed 200 OK in 132ms (Views: 16.4ms | ActiveRecord: 14.0ms (1 query, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/diagnoses/result" for 172.18.0.1 at 2026-08-03 10:55:32 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#result as HTML
+  [1m[36mDiagnosis Load (3.5ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."session_id" = '2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b' LIMIT 1 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:23:in `fetch_answers'
+  [1m[36mDiagnosisAnswer Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 11 LIMIT 1 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:30:in `fetch_answers'
+  [1m[36mDiagnosisAnswer Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 11 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_score_calculator.rb:20:in `calculate_scores'
+  [1m[36mDiagnosisOption Load (1.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" IN (91, 93, 95, 97, 99) /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_score_calculator.rb:20:in `calculate_scores'
+  [1m[36mDiagnosisResult Load (1.5ms)[0m  [1m[34mSELECT "diagnosis_results".* FROM "diagnosis_results" WHERE "diagnosis_results"."category" = 'facility' LIMIT 1 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:42:in `fetch_result'
+  [1m[36mCACHE DiagnosisResult Load (0.2ms)[0m  [1m[34mSELECT "diagnosis_results".* FROM "diagnosis_results" WHERE "diagnosis_results"."category" = 'facility' LIMIT 1[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:47:in `fetch_recommended_facilities'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/result.html.erb within layouts/application
+  [1m[36mFacility Load (2.3ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" INNER JOIN "facility_matches" ON "facilities"."id" = "facility_matches"."facility_id" WHERE "facility_matches"."diagnosis_result_id" = 29 LIMIT 3 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/result.html.erb:34
+  Rendered diagnoses/result.html.erb within layouts/application (Duration: 24.7ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | GC: 0.4ms)
+Completed 200 OK in 248ms (Views: 31.4ms | ActiveRecord: 12.1ms (7 queries, 1 cached) | GC: 18.1ms)
+
+
+Started GET "/facilities/93" for 172.18.0.1 at 2026-08-03 10:58:46 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by FacilitiesController#show as HTML
+  Parameters: {"id"=>"93"}
+  [1m[36mFacility Load (1.8ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" WHERE "facilities"."id" = 93 LIMIT 1 /*action='show',application='App',controller='facilities'*/[0m
+  ↳ app/controllers/facilities_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering facilities/show.html.erb within layouts/application
+  Rendered facilities/show.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | GC: 0.0ms)
+Completed 200 OK in 38ms (Views: 12.3ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/diagnoses/new" for 172.18.0.1 at 2026-08-03 10:58:46 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  [1m[36mDiagnosisQuestion Load (1.4ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" ORDER BY "diagnosis_questions"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:4
+  [1m[36mDiagnosisOption Load (0.8ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 46 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.8ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 47 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.9ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 48 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.8ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 49 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (1.8ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 50 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 110.8ms | GC: 20.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 113.2ms | GC: 20.4ms)
+Completed 200 OK in 164ms (Views: 108.7ms | ActiveRecord: 6.5ms (6 queries, 0 cached) | GC: 20.4ms)
+
+
+Started POST "/diagnoses" for 172.18.0.1 at 2026-08-03 10:59:04 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "question_46"=>"92", "question_47"=>"93", "question_48"=>"96", "question_49"=>"98", "question_50"=>"100", "commit"=>"診断結果を表示"}
+  [1m[36mDiagnosisQuestion Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "diagnosis_questions" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:47:in `all_questions_answered?'
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: DiagnosesController, action: create, request: #<ActionDispatch::Request:0x00007e0de80f74f8>, params: {"authenticity_token"=>"[FILTERED]", "question_46"=>"92", "question_47"=>"93", "question_48"=>"96", "question_49"=>"98", "question_50"=>"100", "commit"=>"診断結果を表示", "controller"=>"diagnoses", "action"=>"create"} }[0m
+  [1m[36mDiagnosis Load (0.6ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."session_id" = '2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b' /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Load (2.3ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 11 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Destroy (1.0ms)[0m  [1m[31mDELETE FROM "diagnosis_answers" WHERE "diagnosis_answers"."id" = 48 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Destroy (0.4ms)[0m  [1m[31mDELETE FROM "diagnosis_answers" WHERE "diagnosis_answers"."id" = 49 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Destroy (0.8ms)[0m  [1m[31mDELETE FROM "diagnosis_answers" WHERE "diagnosis_answers"."id" = 50 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Destroy (0.5ms)[0m  [1m[31mDELETE FROM "diagnosis_answers" WHERE "diagnosis_answers"."id" = 51 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosisAnswer Destroy (0.6ms)[0m  [1m[31mDELETE FROM "diagnosis_answers" WHERE "diagnosis_answers"."id" = 52 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mDiagnosis Destroy (1.5ms)[0m  [1m[31mDELETE FROM "diagnoses" WHERE "diagnoses"."id" = 11 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/controllers/diagnoses_controller.rb:71:in `clear_previous_diagnoses'
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: DiagnosesController, action: create, request: #<ActionDispatch::Request:0x00007e0de80f74f8>, params: {"authenticity_token"=>"[FILTERED]", "question_46"=>"92", "question_47"=>"93", "question_48"=>"96", "question_49"=>"98", "question_50"=>"100", "commit"=>"診断結果を表示", "controller"=>"diagnoses", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mDiagnosis Load (12.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."session_id" = '2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b' LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mDiagnosis Exists? (26.6ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnoses" WHERE "diagnoses"."session_id" = '2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b' LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mDiagnosis Create (2.3ms)[0m  [1m[32mINSERT INTO "diagnoses" ("session_id", "diagnosis_result_id", "status", "completed_at", "created_at", "updated_at") VALUES ('2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b', NULL, 0, NULL, '2026-08-03 10:59:04.299109', '2026-08-03 10:59:04.299109') RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:32:in `find_or_create_diagnosis'
+  [1m[36mDiagnosisAnswer Load (0.8ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 12 AND "diagnosis_answers"."diagnosis_question_id" = 46 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:43:in `save_answer'
+  [1m[36mDiagnosis Load (1.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = 12 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisQuestion Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" = 46 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" = 92 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_question_id" = 46 AND "diagnosis_answers"."diagnosis_id" = 12 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Create (1.9ms)[0m  [1m[32mINSERT INTO "diagnosis_answers" ("diagnosis_question_id", "diagnosis_option_id", "created_at", "updated_at", "diagnosis_id") VALUES (46, 92, '2026-08-03 10:59:04.421090', '2026-08-03 10:59:04.421090', 12) RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 12 AND "diagnosis_answers"."diagnosis_question_id" = 47 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:43:in `save_answer'
+  [1m[36mDiagnosis Load (0.5ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = 12 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisQuestion Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" = 47 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisOption Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" = 93 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_question_id" = 47 AND "diagnosis_answers"."diagnosis_id" = 12 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Create (0.8ms)[0m  [1m[32mINSERT INTO "diagnosis_answers" ("diagnosis_question_id", "diagnosis_option_id", "created_at", "updated_at", "diagnosis_id") VALUES (47, 93, '2026-08-03 10:59:04.455728', '2026-08-03 10:59:04.455728', 12) RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 12 AND "diagnosis_answers"."diagnosis_question_id" = 48 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:43:in `save_answer'
+  [1m[36mDiagnosis Load (0.6ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = 12 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisQuestion Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" = 48 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" = 96 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_question_id" = 48 AND "diagnosis_answers"."diagnosis_id" = 12 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Create (0.7ms)[0m  [1m[32mINSERT INTO "diagnosis_answers" ("diagnosis_question_id", "diagnosis_option_id", "created_at", "updated_at", "diagnosis_id") VALUES (48, 96, '2026-08-03 10:59:04.478305', '2026-08-03 10:59:04.478305', 12) RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 12 AND "diagnosis_answers"."diagnosis_question_id" = 49 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:43:in `save_answer'
+  [1m[36mDiagnosis Load (0.5ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = 12 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisQuestion Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" = 49 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" = 98 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_question_id" = 49 AND "diagnosis_answers"."diagnosis_id" = 12 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Create (0.7ms)[0m  [1m[32mINSERT INTO "diagnosis_answers" ("diagnosis_question_id", "diagnosis_option_id", "created_at", "updated_at", "diagnosis_id") VALUES (49, 98, '2026-08-03 10:59:04.495319', '2026-08-03 10:59:04.495319', 12) RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 12 AND "diagnosis_answers"."diagnosis_question_id" = 50 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:43:in `save_answer'
+  [1m[36mDiagnosis Load (0.5ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = 12 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisQuestion Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" WHERE "diagnosis_questions"."id" = 50 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisOption Load (0.4ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" = 100 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_question_id" = 50 AND "diagnosis_answers"."diagnosis_id" = 12 LIMIT 1 /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mDiagnosisAnswer Create (0.6ms)[0m  [1m[32mINSERT INTO "diagnosis_answers" ("diagnosis_question_id", "diagnosis_option_id", "created_at", "updated_at", "diagnosis_id") VALUES (50, 100, '2026-08-03 10:59:04.517720', '2026-08-03 10:59:04.517720', 12) RETURNING "id" /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:50:in `save_answer'
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[35mCOMMIT /*action='create',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_answer_saver.rb:11:in `save'
+Redirected to http://localhost:3000/diagnoses/result
+Completed 302 Found in 432ms (ActiveRecord: 87.6ms (42 queries, 0 cached) | GC: 152.4ms)
+
+
+Started GET "/diagnoses/result" for 172.18.0.1 at 2026-08-03 10:59:04 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#result as TURBO_STREAM
+  [1m[36mDiagnosis Load (0.9ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."session_id" = '2::76f350bd39a3d34a910b2570d1b5f51943787f72b09cb95b904ec163b2459a3b' LIMIT 1 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:23:in `fetch_answers'
+  [1m[36mDiagnosisAnswer Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 12 LIMIT 1 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:30:in `fetch_answers'
+  [1m[36mDiagnosisAnswer Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_answers".* FROM "diagnosis_answers" WHERE "diagnosis_answers"."diagnosis_id" = 12 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_score_calculator.rb:20:in `calculate_scores'
+  [1m[36mDiagnosisOption Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."id" IN (92, 93, 96, 98, 100) /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_score_calculator.rb:20:in `calculate_scores'
+  [1m[36mDiagnosisResult Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_results".* FROM "diagnosis_results" WHERE "diagnosis_results"."category" = 'cost' LIMIT 1 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:42:in `fetch_result'
+  [1m[36mCACHE DiagnosisResult Load (0.0ms)[0m  [1m[34mSELECT "diagnosis_results".* FROM "diagnosis_results" WHERE "diagnosis_results"."category" = 'cost' LIMIT 1[0m
+  ↳ app/services/diagnosis_result_fetcher.rb:47:in `fetch_recommended_facilities'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/result.html.erb within layouts/application
+  [1m[36mFacility Load (1.8ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" INNER JOIN "facility_matches" ON "facilities"."id" = "facility_matches"."facility_id" WHERE "facility_matches"."diagnosis_result_id" = 28 LIMIT 3 /*action='result',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/result.html.erb:34
+  Rendered diagnoses/result.html.erb within layouts/application (Duration: 13.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | GC: 0.0ms)
+Completed 200 OK in 85ms (Views: 17.9ms | ActiveRecord: 5.1ms (7 queries, 1 cached) | GC: 0.8ms)
+
+
+Started GET "/facilities/92" for 172.18.0.1 at 2026-08-03 10:59:07 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by FacilitiesController#show as HTML
+  Parameters: {"id"=>"92"}
+  [1m[36mFacility Load (1.3ms)[0m  [1m[34mSELECT "facilities".* FROM "facilities" WHERE "facilities"."id" = 92 LIMIT 1 /*action='show',application='App',controller='facilities'*/[0m
+  ↳ app/controllers/facilities_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering facilities/show.html.erb within layouts/application
+  Rendered facilities/show.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 8.5ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 172.18.0.1 at 2026-08-03 10:59:10 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#top as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/top.html.erb within layouts/application
+  Rendered static_pages/top.html.erb within layouts/application (Duration: 3.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 10.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/diagnoses/new" for 172.18.0.1 at 2026-08-03 10:59:12 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by DiagnosesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  [1m[36mDiagnosisQuestion Load (1.0ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" ORDER BY "diagnosis_questions"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:4
+  [1m[36mDiagnosisOption Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 46 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 47 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 48 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 49 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 50 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 37.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | GC: 0.0ms)
+Completed 200 OK in 60ms (Views: 35.8ms | ActiveRecord: 3.7ms (6 queries, 0 cached) | GC: 0.8ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[35m (156.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "myapp_test" /*application='App'*/[0m
+  [1m[35m (342.1ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode' /*application='App'*/[0m
+  [1m[35mSQL (78.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnoses" CASCADE /*application='App'*/[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" bigserial primary key, "session_id" character varying NOT NULL, "diagnosis_result_id" bigint, "status" integer DEFAULT 0 NOT NULL, "completed_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_diagnosis_result_id" ON "diagnoses" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_diagnoses_on_session_id" ON "diagnoses" ("session_id") /*application='App'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_status" ON "diagnoses" ("status") /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_answers" CASCADE /*application='App'*/[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "diagnosis_answers" ("id" bigserial primary key, "diagnosis_question_id" bigint NOT NULL, "diagnosis_option_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "diagnosis_id" bigint NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "idx_on_diagnosis_id_diagnosis_question_id" ON "diagnosis_answers" ("diagnosis_id", "diagnosis_question_id") /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_id" ON "diagnosis_answers" ("diagnosis_id") /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_option_id" ON "diagnosis_answers" ("diagnosis_option_id") /*application='App'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_answers_on_diagnosis_question_id" ON "diagnosis_answers" ("diagnosis_question_id") /*application='App'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_options" CASCADE /*application='App'*/[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "diagnosis_options" ("id" bigserial primary key, "diagnosis_question_id" bigint NOT NULL, "option_text" character varying NOT NULL, "weight_value" integer NOT NULL, "display_order" integer DEFAULT 0 NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "weight_category" character varying) /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_diagnosis_options_on_diagnosis_question_id" ON "diagnosis_options" ("diagnosis_question_id") /*application='App'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_questions" CASCADE /*application='App'*/[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "diagnosis_questions" ("id" bigserial primary key, "question_text" text NOT NULL, "question_type" integer NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "weight_category" character varying, "display_order" integer DEFAULT 0 NOT NULL) /*application='App'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnosis_results" CASCADE /*application='App'*/[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "diagnosis_results" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "category" character varying, "result_title" character varying, "result_description" text) /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "facilities" CASCADE /*application='App'*/[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "facilities" ("id" bigserial primary key, "monthly_fee_min" integer, "monthly_fee_max" integer, "capacity" integer, "room_type" character varying, "care_level" integer, "services" character varying, "features" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying, "facility_type" character varying, "address" character varying, "phone" character varying, "website_url" character varying, "cost_score" decimal, "medical_score" decimal, "facility_score" decimal, "image" character varying) /*application='App'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "facility_matches" CASCADE /*application='App'*/[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "facility_matches" ("id" bigserial primary key, "diagnosis_result_id" bigint NOT NULL, "facility_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_facility_matches_on_diagnosis_result_id_and_facility_id" ON "facility_matches" ("diagnosis_result_id", "facility_id") /*application='App'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_diagnosis_result_id" ON "facility_matches" ("diagnosis_result_id") /*application='App'*/[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE INDEX "index_facility_matches_on_facility_id" ON "facility_matches" ("facility_id") /*application='App'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_cache_entries" CASCADE /*application='App'*/[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "solid_cache_entries" ("id" bigserial primary key, "key" bytea NOT NULL, "value" bytea NOT NULL, "created_at" timestamp(6) NOT NULL, "key_hash" bigint NOT NULL, "byte_size" integer NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE INDEX "index_solid_cache_entries_on_byte_size" ON "solid_cache_entries" ("byte_size") /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE INDEX "index_solid_cache_entries_on_created_at" ON "solid_cache_entries" ("created_at") /*application='App'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_cache_entries_on_key_hash" ON "solid_cache_entries" ("key_hash") /*application='App'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_blocked_executions" CASCADE /*application='App'*/[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "solid_queue_blocked_executions" ("id" bigserial primary key, "job_id" bigint NOT NULL, "queue_name" character varying NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_on_concurrency_key" ON "solid_queue_blocked_executions" ("concurrency_key") /*application='App'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_on_job_id" ON "solid_queue_blocked_executions" ("job_id") /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_claimed_executions" CASCADE /*application='App'*/[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "solid_queue_claimed_executions" ("id" bigserial primary key, "job_id" bigint NOT NULL, "process_id" bigint, "claimed_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_claimed_executions_on_job_id" ON "solid_queue_claimed_executions" ("job_id") /*application='App'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE INDEX "idx_on_process_id_claimed_at_c7452699b3" ON "solid_queue_claimed_executions" ("process_id", "claimed_at") /*application='App'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_failed_executions" CASCADE /*application='App'*/[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "solid_queue_failed_executions" ("id" bigserial primary key, "job_id" bigint NOT NULL, "error" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_failed_executions_on_job_id" ON "solid_queue_failed_executions" ("job_id") /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_jobs" CASCADE /*application='App'*/[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "solid_queue_jobs" ("id" bigserial primary key, "queue_name" character varying NOT NULL, "class_name" character varying NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" character varying, "scheduled_at" timestamp(6), "finished_at" timestamp(6), "finished_with" character varying, "error" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_finished_at_and_finished_with" ON "solid_queue_jobs" ("finished_at", "finished_with") /*application='App'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_priority" ON "solid_queue_jobs" ("priority") /*application='App'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_queue_name" ON "solid_queue_jobs" ("queue_name") /*application='App'*/[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_scheduled_at" ON "solid_queue_jobs" ("scheduled_at") /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_pauses" CASCADE /*application='App'*/[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "solid_queue_pauses" ("id" bigserial primary key, "queue_name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_pauses_on_queue_name" ON "solid_queue_pauses" ("queue_name") /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_processes" CASCADE /*application='App'*/[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "solid_queue_processes" ("id" bigserial primary key, "kind" character varying NOT NULL, "last_heartbeat_at" timestamp(6) NOT NULL, "supervisor_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE INDEX "idx_on_last_heartbeat_at_supervisor_id_401ff53e96" ON "solid_queue_processes" ("last_heartbeat_at", "supervisor_id") /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_ready_executions" CASCADE /*application='App'*/[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "solid_queue_ready_executions" ("id" bigserial primary key, "job_id" bigint NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_ready_executions_on_job_id" ON "solid_queue_ready_executions" ("job_id") /*application='App'*/[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_ready_executions_on_priority" ON "solid_queue_ready_executions" ("priority") /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_scheduled_executions" CASCADE /*application='App'*/[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_scheduled_executions" ("id" bigserial primary key, "job_id" bigint NOT NULL, "scheduled_at" timestamp(6) NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_scheduled_executions_on_job_id" ON "solid_queue_scheduled_executions" ("job_id") /*application='App'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_scheduled_executions_on_scheduled_at" ON "solid_queue_scheduled_executions" ("scheduled_at") /*application='App'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_semaphores" CASCADE /*application='App'*/[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "solid_queue_semaphores" ("id" bigserial primary key, "key" character varying NOT NULL, "value" integer DEFAULT 1 NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_semaphores_on_key" ON "solid_queue_semaphores" ("key") /*application='App'*/[0m
+  [1m[35m (6.1ms)[0m  [1m[35mALTER TABLE "diagnoses" ADD CONSTRAINT "fk_rails_4081a9d0a2"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+ /*application='App'*/[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_74962fb2fd"
+FOREIGN KEY ("diagnosis_id")
+  REFERENCES "diagnoses" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_9f6f478df8"
+FOREIGN KEY ("diagnosis_option_id")
+  REFERENCES "diagnosis_options" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "diagnosis_answers" ADD CONSTRAINT "fk_rails_97b543f803"
+FOREIGN KEY ("diagnosis_question_id")
+  REFERENCES "diagnosis_questions" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "diagnosis_options" ADD CONSTRAINT "fk_rails_0ecab4c3e8"
+FOREIGN KEY ("diagnosis_question_id")
+  REFERENCES "diagnosis_questions" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "facility_matches" ADD CONSTRAINT "fk_rails_4d7d67f64d"
+FOREIGN KEY ("diagnosis_result_id")
+  REFERENCES "diagnosis_results" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "facility_matches" ADD CONSTRAINT "fk_rails_7673f576d8"
+FOREIGN KEY ("facility_id")
+  REFERENCES "facilities" ("id")
+ /*application='App'*/[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "solid_queue_blocked_executions" ADD CONSTRAINT "fk_rails_4cd34e2228"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "solid_queue_claimed_executions" ADD CONSTRAINT "fk_rails_9cfe4d4944"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "solid_queue_failed_executions" ADD CONSTRAINT "fk_rails_39bbc7a631"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ /*application='App'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "solid_queue_ready_executions" ADD CONSTRAINT "fk_rails_81fcbd66af"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ /*application='App'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "solid_queue_scheduled_executions" ADD CONSTRAINT "fk_rails_c4316f352d"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ /*application='App'*/[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260803072738) /*application='App'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260803071929),
+(20260803070423),
+(20260803065836),
+(20260803064933),
+(20260802132822),
+(20260802085803),
+(20260801230913),
+(20260801230843),
+(20260801225734),
+(20260801225031),
+(20260731131438),
+(20260731131334),
+(20260729182053),
+(20260728130340),
+(20260726202301),
+(20260726202300),
+(20260726202200),
+(20260722143859),
+(20260722140352),
+(20260722124210),
+(20260722115934),
+(20260719070347); /*application='App'*/[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-08-03 11:01:27.108530', '2026-08-03 11:01:27.108534') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2026-08-03 11:01:27.120693' WHERE "ar_internal_metadata"."key" = 'environment' /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='App'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '472a7112ebb00beabf8d72c9f47c49edfee67049', '2026-08-03 11:01:27.125511', '2026-08-03 11:01:27.125514') RETURNING "key" /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+Started GET "/diagnoses/new" for 127.0.0.1 at 2026-08-03 11:01:27 +0000
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='App'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+Processing by DiagnosesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  [1m[36mDiagnosisQuestion Load (1.4ms)[0m  [1m[34mSELECT "diagnosis_questions".* FROM "diagnosis_questions" ORDER BY "diagnosis_questions"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:4
+  [1m[36mDiagnosisOption Load (1.0ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 46 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (1.0ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 47 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.5ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 48 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.7ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 49 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  [1m[36mDiagnosisOption Load (0.6ms)[0m  [1m[34mSELECT "diagnosis_options".* FROM "diagnosis_options" WHERE "diagnosis_options"."diagnosis_question_id" = 50 ORDER BY "diagnosis_options"."display_order" ASC /*action='new',application='App',controller='diagnoses'*/[0m
+  ↳ app/views/diagnoses/new.html.erb:8
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 86.5ms | GC: 8.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 105.1ms | GC: 8.4ms)
+Completed 200 OK in 214ms (Views: 100.0ms | ActiveRecord: 19.9ms (6 queries, 0 cached) | GC: 48.9ms)
+
+
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK /*application='App'*/[0m
