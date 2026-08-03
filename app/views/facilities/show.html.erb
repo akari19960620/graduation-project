@@ -115,9 +115,12 @@
       </section>
     <% end %>
 
-    <!-- アクションボタン -->
-    <div class="facility-actions">
-      <%= link_to '一覧に戻る', diagnoses_path, class: 'btn btn-secondary' %>
+    <div class="navigation-buttons">
+      <% if params[:from_diagnosis] %>
+        <%= link_to "診断結果に戻る", result_diagnoses_path, class: "btn btn-secondary" %>
+      <% else %>
+        <%= link_to "トップページに戻る", root_path, class: "btn btn-secondary" %>
+      <% end %>
     </div>
   </article>
 </div>
