@@ -5,7 +5,7 @@ class DiagnosesController < ApplicationController
 
   # 質問表示画面
   def new
-    @questions = DiagnosisQuestion.includes(:diagnosis_options).order(:display_order)
+    @questions = DiagnosisQuestion.order(:display_order)
   end
   # データベースに回答を保存
   def create

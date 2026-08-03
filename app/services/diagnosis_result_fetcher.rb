@@ -25,7 +25,7 @@ class DiagnosisResultFetcher
     raise DiagnosisResultNotFoundError, "診断が見つかりません" if diagnosis.nil?
 
     # Diagnosis に紐づくdiagnosis_answersを取得
-    answers = diagnosis.diagnosis_answers.includes(:diagnosis_option, :diagnosis_question)
+    answers = diagnosis.diagnosis_answers.includes(:diagnosis_option)
     # 回答が存在しない場合は例外を投げる
     raise DiagnosisResultNotFoundError, "診断回答が見つかりません" if answers.empty?
     answers
