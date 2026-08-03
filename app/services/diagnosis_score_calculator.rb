@@ -4,23 +4,30 @@ class DiagnosisScoreCalculator
     @answers = answers
   end
 
-  # スコア計算
+  # スコア計算とカテゴリー判定を同時に行う
   def calculate
-    # スコアを格納するハッシュを作成。デフォルト値は0
+    scores = calculate_scores          # ① スコアを計算
+    category = determine_category(scores)  # ② カテゴリーを判定
+
+    { scores: scores, category: category }  # ③ ハッシュで両方を返す
+  end
+
+  private
+
+  # スコア計算ロジック
+  def calculate_scores
     scores = Hash.new(0)
-    # 全ての回答データをループ処理
     @answers.each do |answer|
       option = answer.diagnosis_option
       scores[option.weight_category] += option.weight_value
     end
-
     scores
   end
-  
+
   # カテゴリ判定
   def determine_category(scores)
     # カテゴリの優先順位を定義
-    priority_order = ["cost", "medical", "facility"]
+    priority_order = [ "cost", "medical", "facility" ]
     # 全てのスコアの中から最大値を取得
     max_score = scores.values.max
     # 優先順位に従って、最大スコアを持つカテゴリを探す

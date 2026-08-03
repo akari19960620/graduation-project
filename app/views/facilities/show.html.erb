@@ -116,11 +116,7 @@
     <% end %>
 
     <div class="navigation-buttons">
-      <% if params[:from_diagnosis] %>
-        <%= link_to "診断結果に戻る", result_diagnoses_path, class: "btn btn-secondary" %>
-      <% else %>
-        <%= link_to "トップページに戻る", root_path, class: "btn btn-secondary" %>
-      <% end %>
+      <%= link_to "診断結果に戻る", result_diagnoses_path, class: "btn btn-secondary" %>
     </div>
   </article>
 </div>

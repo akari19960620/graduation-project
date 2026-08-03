@@ -5,33 +5,56 @@ class DiagnosisResultFetcher
   end
   # 診断結果の取得
   def fetch
-    # ユーザーの回答データを読み込む
-    answers = load_answers
-    return nil if answers.empty?
+    answers = fetch_answers
+    result_data = calculate_scores_and_category(answers)  # ① スコアとカテゴリーを同時取得
+    scores = result_data[:scores] # スコアを取り出す
+    category = result_data[:category] # カテゴリーを取り出す
+    result = fetch_result(category)
+    recommended_facilities = fetch_recommended_facilities(category)
 
-    # DiagnosisScoreCalculatorインスタンスを作成し、回答データを渡す
-    calculator = DiagnosisScoreCalculator.new(answers)
-    scores = calculator.calculate # スコア計算
-    category = calculator.determine_category(scores) # もっともスコアが高いカテゴリを判定
-
-    {
-      answers: answers, # 回答データ
-      scores: scores, # スコア
-      category: category, # 判定されたカテゴリ
-      result: DiagnosisResult.find_by!(category: category), # 診断結果
-      recommended_facilities: fetch_recommended_facilities(category) # おすすめ施設
-    }
+    build_result_data(answers, scores, category, result, recommended_facilities)
   end
-  
+
   private
 
-  # 回答データの読み込み（関連データを１度に取得）、（指定されたセッションIDのみ取得）
-  def load_answers
-    DiagnosisAnswer.includes(:diagnosis_option, :diagnosis_question).where(session_id: @session_id)
+  # 診断回答の取得と検証
+  def fetch_answers
+    # まず Diagnosis を session_id で取得
+    diagnosis = Diagnosis.find_by(session_id: @session_id)
+    # Diagnosis が存在しない場合は例外を投げる
+    raise DiagnosisResultNotFoundError, "診断が見つかりません" if diagnosis.nil?
+
+    # Diagnosis に紐づくdiagnosis_answersを取得
+    answers = diagnosis.diagnosis_answers.includes(:diagnosis_option, :diagnosis_question)
+    # 回答が存在しない場合は例外を投げる
+    raise DiagnosisResultNotFoundError, "診断回答が見つかりません" if answers.empty?
+    answers
   end
 
-  # おすすめの施設の取得
-  def fetch_recommended_facilities(category) # カテゴリに対応する診断結果を取得
-    DiagnosisResult.find_by(category: category)&.facilities&.limit(3) || [] # &.（resultがnilでなければfacilitiesを呼び出す）|| []でデフォルト値を設定（左側がnilの場合、空の配列を返す）
+  # スコア計算とカテゴリー判定（1回の呼び出しで両方取得）
+  def calculate_scores_and_category(answers)
+    calculator = DiagnosisScoreCalculator.new(answers)
+    calculator.calculate  # ← { scores: ..., category: ... } が返ってくる
+  end
+
+  # 診断結果の取得
+  def fetch_result(category)
+    DiagnosisResult.find_by!(category: category)
+  end
+
+  # おすすめ施設の取得
+  def fetch_recommended_facilities(category)
+    DiagnosisResult.find_by(category: category)&.facilities&.limit(3) || []
+  end
+
+  # 結果データの構築
+  def build_result_data(answers, scores, category, result, recommended_facilities)
+    {
+      answers: answers,
+      scores: scores,
+      category: category,
+      result: result,
+      recommended_facilities: recommended_facilities
+    }
   end
 end

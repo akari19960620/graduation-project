@@ -1,0 +1,1 @@
+class DiagnosisResultNotFoundError < StandardError; end
