@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :diagnosis_option do
-    diagnosis_question { nil }
-    option_text { "MyString" }
-    weight_value { 1 }
-    display_order { 1 }
+    sequence(:option_text) { |n| "選択肢#{n}" } # 選択肢文をユニークにする
+    weight_value { 20 }
+    weight_category { [ 'cost', 'medical', 'facility' ].sample }
+    sequence(:display_order) { |n| n }
+    association :diagnosis_question # 質問と関連付け
   end
 end
