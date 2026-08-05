@@ -28,7 +28,7 @@ class DiagnosisAnswerSaver
 
   private
 
-   # 過去の診断結果を削除（追加）
+  # 過去の診断結果を削除（追加）
   def clear_previous_diagnoses
     # セッション ID に紐づく過去の診断結果を削除
     Diagnosis.where(session_id: @session_id).destroy_all
