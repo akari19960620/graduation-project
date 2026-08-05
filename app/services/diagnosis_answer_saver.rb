@@ -9,6 +9,7 @@ class DiagnosisAnswerSaver
   def save
     # トランザクションで処理を囲む（全て成功か、全て失敗）
     DiagnosisAnswer.transaction do
+      clear_previous_diagnoses # 過去の診断結果を削除
       diagnosis = find_or_create_diagnosis
       # パラメータの中身をループ処理
       @diagnosis_params.each do |key, value|
@@ -26,6 +27,12 @@ class DiagnosisAnswerSaver
   end
 
   private
+
+   # 過去の診断結果を削除（追加）
+  def clear_previous_diagnoses
+    # セッション ID に紐づく過去の診断結果を削除
+    Diagnosis.where(session_id: @session_id).destroy_all
+  end
 
   # Diagnosis レコードを取得または作成
   def find_or_create_diagnosis

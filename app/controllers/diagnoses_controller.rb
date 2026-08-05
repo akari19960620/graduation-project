@@ -14,7 +14,6 @@ class DiagnosesController < ApplicationController
       redirect_to new_diagnosis_path and return
     end
 
-    clear_previous_diagnoses # 過去の診断結果を削除
     # DiagnosisAnswerSaverインスタンスの生成
     saver = DiagnosisAnswerSaver.new(current_session_id, diagnosis_params)
     # 保存処理の実行
@@ -63,12 +62,6 @@ class DiagnosesController < ApplicationController
   # 診断セッションのクリア
   def clear_diagnosis_session
     session.delete(:diagnosis_answers)
-  end
-
-  # 過去の診断結果を削除（追加）
-  def clear_previous_diagnoses
-    # セッション ID に紐づく過去の診断結果を削除
-    Diagnosis.where(session_id: current_session_id).destroy_all
   end
 
   # セッション ID の取得
