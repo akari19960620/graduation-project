@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 root "static_pages#top"
 
 resources :diagnoses, only: [ :new, :create ] do
-  collection do
+  member do
     get :result
   end
 end
