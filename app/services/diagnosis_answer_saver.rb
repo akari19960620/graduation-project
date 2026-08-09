@@ -10,8 +10,10 @@ class DiagnosisAnswerSaver
   def save
     # トランザクションで処理を囲む（全て成功か、全て失敗）
     DiagnosisAnswer.transaction do
-      diagnosis = find_or_create_diagnosis
-      clear_previous_answers(diagnosis)
+      # ★ 修正: 先に過去の診断をすべて削除
+      delete_old_diagnoses
+      # ★ 修正: 新しい診断を作成
+      diagnosis = create_diagnosis
       # パラメータの中身をループ処理
       @diagnosis_params.each do |key, value|
         question_id = extract_question_id(key)
@@ -27,25 +29,29 @@ class DiagnosisAnswerSaver
     Rails.logger.error("DiagnosisAnswerSaver Error: #{e.message}")
     false
   rescue StandardError => e
-    @error_message = '回答の保存に失敗しました'
+    @error_message = "回答の保存に失敗しました"
     Rails.logger.error("DiagnosisAnswerSaver Error: #{e.message}")
     false
   end
 
   private
 
-  # Diagnosis レコードを取得または作成
-  def find_or_create_diagnosis
-    Diagnosis.find_or_create_by!(session_id: @session_id)
+  # ★ 新規追加: 過去の診断をすべて削除
+  def delete_old_diagnoses
+    Diagnosis.where(session_id: @session_id).destroy_all
+  end
+
+  # ★ 修正: 新しい診断を作成（find_or_create_by ではなく create!）
+  def create_diagnosis
+    Diagnosis.create!(
+      session_id: @session_id,
+      status: "in_progress"
+    )
   end
 
   # パラメータのキーから質問IDを抽出
   def extract_question_id(key)
-    key.to_s.gsub('question_', '').to_i
-  end
-
-  def clear_previous_answers(diagnosis)
-    diagnosis.diagnosis_answers.destroy_all
+    key.to_s.gsub("question_", "").to_i
   end
 
   def save_answer(diagnosis, question_id, option_id)
