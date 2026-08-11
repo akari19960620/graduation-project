@@ -22,10 +22,17 @@ RSpec.configure do |config|
 
   # システムテスト用のCapybara設定
   config.before(:each, type: :system) do
-    driven_by :remote_chrome
-    Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
-    Capybara.server_port = 4444
-    Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
+    if ENV['CI'] # GitHub Actions環境
+      driven_by :headless_chrome
+      Capybara.server_host = '0.0.0.0'
+      Capybara.server_port = 4000
+      Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
+    else # ローカルDocker環境
+      driven_by :remote_chrome
+      Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
+      Capybara.server_port = 4000
+      Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
+    end
   end
 
   # リクエストテスト用のホスト設定

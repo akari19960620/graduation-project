@@ -23,7 +23,7 @@ RSpec.describe '診断機能', type: :system do
       end
       # 次へボタンをクリック
       click_button '診断結果を表示'
-      
+
       # 診断結果ページに遷移することを確認
       expect(page).to have_current_path(/\/diagnoses\/\d+\/result/)
 
