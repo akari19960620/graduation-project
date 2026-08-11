@@ -24,13 +24,41 @@ RSpec.describe '診断機能', type: :system do
       # 診断フォームの要素が表示されるまで待機
       expect(page).to have_css('.question', wait: 10)
 
+      # デバッグ: 質問の数を確認
+      question_count = all('.question').count
+      puts "質問の数: #{question_count}"
+
       all('.question').each do |question|
+        # 各質問内の最初のラジオボタンを選択
+        puts "質問 #{index + 1} に回答中..."
         # 各質問内の最初のラジオボタンを選択
         question.first('.option input[type="radio"]').click
       end
 
+       # デバッグ: 回答した数を確認
+      answered_count = all('.option input[type="radio"]:checked').count
+      puts "回答した数: #{answered_count}"
+
+      # デバッグ: ボタンの存在確認
+      if page.has_button?('診断結果を表示')
+        puts "「診断結果を表示」ボタンが見つかりました"
+      else
+        puts "「診断結果を表示」ボタンが見つかりません"
+        puts "ページの内容: #{page.text}"
+      end
+
+      # デバッグ: フォーム送信前のパス
+      puts "フォーム送信前のパス: #{current_path}"
+
+
       # 次へボタンをクリック
       click_button '診断結果を表示'
+      
+      # フォーム送信後、少し待機
+      sleep 2
+
+      # デバッグ: フォーム送信後のパス
+      puts "フォーム送信後のパス: #{current_path}"
 
       # 診断結果ページに遷移することを確認
       expect(page).to have_current_path(/\/diagnoses\/\d+\/result/)
