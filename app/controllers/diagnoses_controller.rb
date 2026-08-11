@@ -32,7 +32,7 @@ class DiagnosesController < ApplicationController
     Rails.logger.info "question_answers: #{form.question_answers.inspect}"
     result = saver.save
     # ===== デバッグログ6: 保存結果 =====
-    Rails.logger.info "保存結果: #{result}" 
+    Rails.logger.info "保存結果: #{result}"
 
     if result
       diagnosis = Diagnosis.find_by(session_id: current_session_id)
@@ -84,8 +84,10 @@ end
   end
 
   def current_session_id
-    session.id.to_s
-  end
+  # セッションIDが存在しない場合は生成する
+  session[:session_id] ||= SecureRandom.uuid
+  session[:session_id]
+end
 
   def assign_result_data(result_data)
     @answers = result_data[:answers]

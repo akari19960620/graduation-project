@@ -33,7 +33,7 @@ RSpec.describe '診断機能', type: :system do
         question.first('.option input[type="radio"]').click
       end
 
-       # デバッグ: 回答した数を確認
+      # デバッグ: 回答した数を確認
       answered_count = all('.option input[type="radio"]:checked').count
       puts "回答した数: #{answered_count}"
 
@@ -51,7 +51,7 @@ RSpec.describe '診断機能', type: :system do
 
       # 次へボタンをクリック
       click_button '診断結果を表示'
-      
+
       # フォーム送信後、少し待機
       sleep 2
 
