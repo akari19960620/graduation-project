@@ -17,6 +17,8 @@ RSpec.describe '診断機能', type: :system do
       # 診断開始ボタンをクリック
       click_link '診断開始'
 
+      expect(page).to have_current_path(new_diagnosis_path)
+
       all('.question').each do |question|
         # 各質問内の最初のラジオボタンを選択
         question.first('.option input[type="radio"]').click
