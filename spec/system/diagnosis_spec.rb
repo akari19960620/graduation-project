@@ -58,6 +58,17 @@ RSpec.describe '診断機能', type: :system do
       # デバッグ: フォーム送信後のパス
       puts "フォーム送信後のパス: #{current_path}"
 
+      # ===== デバッグ: Railsログを出力 =====
+      puts "===== Railsログ ====="
+      if File.exist?(Rails.root.join('log', 'test.log'))
+        log_lines = File.read(Rails.root.join('log', 'test.log')).lines.last(100)
+        log_lines.each do |line|
+          puts line if line.include?("===== create") || line.include?("バリデーション") || line.include?("保存")
+        end
+      else
+        puts "test.log が見つかりません"
+      end
+
       # 診断結果ページに遷移することを確認
       expect(page).to have_current_path(/\/diagnoses\/\d+\/result/)
 
