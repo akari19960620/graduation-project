@@ -30,8 +30,6 @@ RSpec.describe '診断機能', type: :system do
 
       all('.question').each do |question|
         # 各質問内の最初のラジオボタンを選択
-        puts "質問 #{index + 1} に回答中..."
-        # 各質問内の最初のラジオボタンを選択
         question.first('.option input[type="radio"]').click
       end
 
