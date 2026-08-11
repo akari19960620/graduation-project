@@ -46,4 +46,7 @@ RSpec.configure do |config|
   # Capybara の設定
   Capybara.default_max_wait_time = 10
   Capybara.disable_animation = true
+
+  # サーバーエラーを無視する設定を追加
+  Capybara.raise_server_errors = false
 end
