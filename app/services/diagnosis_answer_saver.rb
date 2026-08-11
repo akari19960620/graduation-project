@@ -1,6 +1,6 @@
 class DiagnosisAnswerSaver
   attr_reader :error_message
-  
+
   def initialize(session_id, diagnosis_params)
     @session_id = session_id
     @diagnosis_params = diagnosis_params
