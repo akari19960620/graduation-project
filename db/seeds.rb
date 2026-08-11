@@ -24,9 +24,9 @@
     care_level: "要介護1~5（要介護1、2は特例入所要件該当者のみ）",
     services: "医療サービス、介護サービス、個別リハビリ等全般（詳細はホームページを参照ください）",
     features: "自然に恵まれた好環境、都心から近い好立地で居住エリアは10人単位のユニット。クラブ活動や季節ごとの行事の他、機能訓練や音楽・美術プログラムなど青葉ヒルズならではのアクティビティが日常生活の一部として定着している",
-    cost_score: 4,
-    medical_score: 3.5,
-    facility_score: 4,
+    cost_score: 4.6,
+    medical_score: 3,
+    facility_score: 3,
     website_url: nil
   )
 
@@ -43,8 +43,8 @@
     care_level: "入居条件：自立（介護認定を受けていないこと）",
     services: "24時間看護師常駐で健康管理のお手伝いや、施設責任者やスタッフが生活全般のご相談に対応。",
     features: "所有権分譲方式の売却もでき、相続財産にもなる個人資産。アクセスの良い立地で栄養バランスの整った温かい食事、喫茶・大浴場・麻雀室など充実の共用施設もある。（入居時費用あり）",
-    cost_score: 4,
-    medical_score: 3.5,
+    cost_score: 3,
+    medical_score: 3,
     facility_score: 4.5,
     website_url: nil
   )
@@ -63,8 +63,8 @@
     services: "医療サービス、介護サービス、個別リハビリ等全般（詳細はホームページを参照ください）",
     features: "豊かな緑に囲まれた環境と眺望を備えた居住空間で上質な暮らしを実現。また、国の基準を上回る2対1の手厚い介護体制と建物内にクリニックがあり看護師が24時間常駐している",
     cost_score: 2,
-    medical_score: 4,
-    facility_score: 4,
+    medical_score: 4.3,
+    facility_score: 3,
     website_url: nil
   )
 
@@ -83,7 +83,7 @@
     features: "当事業団が設置・運営する協力医療機関・聖隷横浜病院に隣接しており、医住近接の環境を実現。看護師24時間常駐。ご入居者の嚥下・咀嚼レベルに合わせた食事形態や治療食にも対応（入居時費用あり）",
     cost_score: 2,
     medical_score: 4.5,
-    facility_score: 4,
+    facility_score: 3.5,
     website_url: nil
   )
 
@@ -101,7 +101,7 @@
     services: "要問合せ",
     features: "2026年2月新築オープン。館内Wi-Fi完備。プライバシーに配慮した見守りセンサーや介護記録システムを導入し、安全安心を最優先に、快適な住環境を提供している（入居時費用あり）",
     cost_score: 3,
-    medical_score: nil,
+    medical_score: 3,
     facility_score: 4,
     website_url: nil
   )
@@ -138,7 +138,7 @@
     care_level: "要介護1～5（認知症診断必須）",
     services: "介護サービス（自立支援）",
     features: "地域との関わりや屋外・外出イベント等の季節に合ったイベントを開催（入居時費用あり）",
-    cost_score: 4,
+    cost_score: 4.2,
     medical_score: 2,
     facility_score: 3.5,
     website_url: nil
@@ -158,8 +158,8 @@
     services: "介護サービス、医療サービス（日中のみ看護師）、往診体制あり、保険外サービスあり",
     features: "完全個室ユニット型、２：１の手厚い介護人員配置、季節感を感じられる毎月のレクリエーションの実施（入居時費用あり）",
     cost_score: 3,
-    medical_score: 3.5,
-    facility_score: 3.5,
+    medical_score: 4.1,
+    facility_score: 3.2,
     website_url: nil
   )
 
@@ -176,7 +176,7 @@
     care_level: "自立、要支援1～2、要介護1～5",
     services: "介護サービス、医療サービス",
     features: "一人一人の状態に合った形で包括的な介護サービスの提供を受けることが出来、季節ごとの行事や同施設内の学園祭にも自由に参加できる（入居時費用あり）",
-    cost_score: 4,
+    cost_score: 4.3,
     medical_score: 3,
     facility_score: 3.5,
     website_url: nil
@@ -195,8 +195,8 @@
     care_level: "要介護3～5",
     services: "介護サービス、医療サービス",
     features: "ご利用者の立場に立ち、自立した生活を営めるよう支援することを心がけ、サービス提供に努めている",
-    cost_score: nil,
-    medical_score: 4,
+    cost_score: 3,
+    medical_score: 4.1,
     facility_score: 3,
     website_url: nil
   )
