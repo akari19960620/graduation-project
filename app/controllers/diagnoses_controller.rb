@@ -1,54 +1,53 @@
 class DiagnosesController < ApplicationController
   rescue_from DiagnosisResultNotFoundError, with: :diagnosis_not_found
-  # レコードが見つからない場合のエラーハンドリング
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-  # 質問表示画面
   def new
     @questions = DiagnosisQuestion.order(:display_order)
   end
-  # データベースに回答を保存
+
   def create
-    unless all_questions_answered?
-      flash[:alert] = "すべての質問に回答してください"
-      redirect_to new_diagnosis_path and return
+    # Form Object でバリデーション
+    form = DiagnosisForm.new(diagnosis_params)
+    unless form.valid?
+      flash[:alert] = form.errors.full_messages.join(", ")
+      redirect_to new_diagnosis_path
+      return
     end
 
-    # DiagnosisAnswerSaverインスタンスの生成
-    saver = DiagnosisAnswerSaver.new(current_session_id, diagnosis_params)
-    # 保存処理の実行
-    if saver.save
-      redirect_to result_diagnoses_path, notice: "回答を保存しました"
+    # Service Object で保存
+    saver = DiagnosisAnswerSaver.new(current_session_id, form.question_answers)
+    result = saver.save
+
+    if result
+      diagnosis = Diagnosis.find_by(session_id: current_session_id)
+      if diagnosis
+        redirect_to result_diagnosis_path(diagnosis), notice: "回答を保存しました"
+      else
+        flash[:alert] = "診断データが見つかりませんでした"
+        redirect_to new_diagnosis_path
+      end
     else
-      flash[:alert] = "回答の保存に失敗しました"
+      flash[:alert] = saver.error_message
       redirect_to new_diagnosis_path
     end
   end
 
-  # 診断結果の表示
-  def result
-    # DiagnosisResultFetcherインスタンスの生成
-    fetcher = DiagnosisResultFetcher.new(current_session_id)
-    result_data = fetcher.fetch # 診断結果データの取得
+ def result
+  # URLのIDから診断データを取得
+  @diagnosis = Diagnosis.find(params[:id])
 
-    # 診断結果が見つからない場合、例外を発生させる
-    raise DiagnosisResultNotFoundError if result_data.nil?
+  # DiagnosisResultFetcherで診断結果を取得
+  fetcher = DiagnosisResultFetcher.new(@diagnosis.id)
+  result_data = fetcher.fetch
+  # 診断結果が見つからない場合、例外を発生させる
+  raise DiagnosisResultNotFoundError if result_data.nil?
 
-    # 正常時のみ実行される（例外が発生した場合は rescue_from で処理）
-    assign_result_data(result_data)
-  end
-
-
-
+  # 診断結果データをインスタンス変数に代入
+  assign_result_data(result_data)
+end
   private
 
-  def all_questions_answered?
-    question_count = DiagnosisQuestion.count
-    answered_count = diagnosis_params.keys.count { |k| k.start_with?("question_") }
-    answered_count == question_count
-  end
-
-  # 診断が見つからない場合のエラーハンドリング
   def diagnosis_not_found
     flash[:alert] = "診断を受けてください"
     redirect_to new_diagnosis_path
@@ -59,17 +58,12 @@ class DiagnosesController < ApplicationController
     redirect_to new_diagnosis_path
   end
 
-  # 診断セッションのクリア
-  def clear_diagnosis_session
-    session.delete(:diagnosis_answers)
-  end
-
-  # セッション ID の取得
   def current_session_id
-    session.id.private_id
-  end
+  # セッションIDが存在しない場合は生成する
+  session[:session_id] ||= SecureRandom.uuid
+  session[:session_id]
+end
 
-  # 診断結果データをインスタンス変数に代入
   def assign_result_data(result_data)
     @answers = result_data[:answers]
     @scores = result_data[:scores]
@@ -78,8 +72,8 @@ class DiagnosesController < ApplicationController
     @recommended_facilities = result_data[:recommended_facilities]
   end
 
-  # 診断の回答データだけを安全に取得するためのストロングパラメータ
   def diagnosis_params
-    params.permit(params.keys.select { |key| key.start_with?("question_") })
+    question_keys = params.keys.select { |key| key.to_s.start_with?("question_") }
+    params.permit(*question_keys)
   end
 end

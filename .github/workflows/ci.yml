@@ -95,11 +95,25 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Setup ChromeDriver
+        uses: nanasess/setup-chromedriver@v2
+
+      - name: Display Chrome version
+        run: |
+          google-chrome --version
+          chromedriver --version
 
       - name: Run tests
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/myapp_test
+          CI: true
           # RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
           # REDIS_URL: redis://localhost:6379/0
         run: |

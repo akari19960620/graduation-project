@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+get "/favicon.ico", to: proc { [ 204, {}, [] ] }
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 root "static_pages#top"
 
 resources :diagnoses, only: [ :new, :create ] do
-  collection do
+  member do
     get :result
   end
 end

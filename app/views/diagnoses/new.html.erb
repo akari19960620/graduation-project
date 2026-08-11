@@ -1,6 +1,6 @@
 <h1>診断質問</h1>
 
-<%= form_with url: diagnoses_path, method: :post, local: true, id: "diagnosis-form" do |f| %>
+<%= form_with url: diagnoses_path, method: :post, data: { turbo: false }, id: "diagnosis-form" do |f| %>
   <% @questions.each do |question| %>
     <div class="question mb-4">
       <h2><%= question.question_text %></h2>
@@ -9,7 +9,7 @@
         <div class="option">
           <%= f.radio_button "question_#{question.id}", option.id, 
               id: "question_#{question.id}_option_#{option.id}",
-              required: false %>
+              required: true %>
           <%= f.label "question_#{question.id}_option_#{option.id}", option.option_text %>
         </div>
       <% end %>
@@ -18,22 +18,3 @@
 
   <%= f.submit '診断結果を表示', class: 'btn btn-primary' %>
 <% end %>
-
-<script>
-// DOMContentLoaded: ページ読み込み完了後に実行
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('diagnosis-form');
-  // querySelectorAll:チェックされたラジオボタンの数を取得
-  form.addEventListener('submit', function(event) {
-    const totalQuestions = <%= @questions.size %>;
-    const answeredQuestions = document.querySelectorAll('input[name^="question_"]:checked').length;
-    
-    // event.preventDefault(): 条件を満たさない場合、送信を中止
-    if (answeredQuestions < totalQuestions) {
-      event.preventDefault();
-      alert('すべての質問に回答してください');
-      return false;
-    }
-  });
-});
-</script>
