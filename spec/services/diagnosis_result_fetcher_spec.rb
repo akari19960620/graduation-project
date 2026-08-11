@@ -5,24 +5,36 @@ RSpec.describe DiagnosisResultFetcher do
   describe '#fetch' do
     context '正常系' do
       # 既存のデータをすべて削除
-      before do
+      before(:each) do
+        FacilityMatch.destroy_all
+        DiagnosisAnswer.destroy_all
+        DiagnosisOption.destroy_all
+        DiagnosisQuestion.destroy_all
+        DiagnosisResult.destroy_all
         Facility.destroy_all
         Diagnosis.destroy_all
-        DiagnosisAnswer.destroy_all
-        DiagnosisResult.destroy_all
-        FacilityMatch.destroy_all
-        DiagnosisQuestion.destroy_all
-        DiagnosisOption.destroy_all
       end
 
       let!(:diagnosis) { create(:diagnosis) }
-      let!(:fetcher) { described_class.new(diagnosis.id) }
-
+      # ★ 修正: 診断結果を先に作成
       let!(:diagnosis_result) { create(:diagnosis_result, category: 'cost') }
 
-      let!(:question) { create(:diagnosis_question, display_order: 1) }
-      let!(:option) { create(:diagnosis_option, diagnosis_question: question, weight_category: 'cost', weight_value: 20) }
-      let!(:answer) { create(:diagnosis_answer, diagnosis: diagnosis, diagnosis_question: question, diagnosis_option: option) }
+      # ★ 修正: 複数の質問を作成し、すべて 'cost' カテゴリーの選択肢を選ぶ
+      # 質問1: cost カテゴリー
+      let!(:question1) { create(:diagnosis_question, display_order: 1) }
+      let!(:option1) { create(:diagnosis_option, diagnosis_question: question1, weight_category: 'cost', weight_value: 20) }
+      let!(:answer1) { create(:diagnosis_answer, diagnosis: diagnosis, diagnosis_question: question1, diagnosis_option: option1) }
+
+      # 質問2: cost カテゴリー
+      let!(:question2) { create(:diagnosis_question, display_order: 2) }
+      let!(:option2) { create(:diagnosis_option, diagnosis_question: question2, weight_category: 'cost', weight_value: 20) }
+      let!(:answer2) { create(:diagnosis_answer, diagnosis: diagnosis, diagnosis_question: question2, diagnosis_option: option2) }
+
+      # 質問3: cost カテゴリー
+      let!(:question3) { create(:diagnosis_question, display_order: 3) }
+      let!(:option3) { create(:diagnosis_option, diagnosis_question: question3, weight_category: 'cost', weight_value: 20) }
+      let!(:answer3) { create(:diagnosis_answer, diagnosis: diagnosis, diagnosis_question: question3, diagnosis_option: option3) }
+
 
       let!(:facility1) { create(:facility, name: 'テスト施設1') }
       let!(:facility2) { create(:facility, name: 'テスト施設2') }
@@ -35,9 +47,12 @@ RSpec.describe DiagnosisResultFetcher do
       end
 
       it '診断結果データが正しく取得できること' do
+        fetcher = described_class.new(diagnosis.id)
         result = fetcher.fetch
 
-        # IDで比較,名前で比較
+        # 検証
+        expect(result[:category]).to eq('cost')
+        expect(result[:result].id).to eq(diagnosis_result.id)
         expect(result[:recommended_facilities].pluck(:id)).to match_array([ facility1.id, facility2.id, facility3.id ])
         expect(result[:recommended_facilities].pluck(:name)).to match_array([ 'テスト施設1', 'テスト施設2', 'テスト施設3' ])
       end
