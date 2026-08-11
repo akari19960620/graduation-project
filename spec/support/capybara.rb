@@ -11,7 +11,7 @@ Capybara.register_driver :remote_chrome do |app|
     app,
     browser: :remote,
     url: 'http://chrome:4444/wd/hub',
-    options: options
+    capabilities: options
   )
 end
 

@@ -23,14 +23,11 @@ RSpec.configure do |config|
   # システムテスト用のCapybara設定
   config.before(:each, type: :system) do
     if ENV['CI'] # GitHub Actions環境
-      driven_by :headless_chrome
-      Capybara.server_host = '0.0.0.0'
-      Capybara.server_port = 4000
-      Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
+      driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
     else # ローカルDocker環境
       driven_by :remote_chrome
       Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
-      Capybara.server_port = 4000
+      Capybara.server_port = 4444
       Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
     end
   end
@@ -45,4 +42,8 @@ RSpec.configure do |config|
 
   # バックトレースからRailsの内部を除外
   config.filter_rails_from_backtrace!
+
+  # Capybara の設定
+  Capybara.default_max_wait_time = 10
+  Capybara.disable_animation = true
 end
