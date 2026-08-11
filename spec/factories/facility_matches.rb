@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :facility_match do
-    diagnosis_result { nil }
-    facility { nil }
+    association :diagnosis_result
+    association :facility
   end
 end

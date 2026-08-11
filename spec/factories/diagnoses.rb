@@ -1,6 +1,11 @@
 FactoryBot.define do
   factory :diagnosis do
-    session_id { SecureRandom.uuid }
+    sequence(:session_id) { |n| "session_#{n}_#{SecureRandom.hex(8)}" }
     status { :in_progress }
+
+    trait :completed do
+      status { :completed }
+      association :diagnosis_result
+    end
   end
 end
