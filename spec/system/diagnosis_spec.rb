@@ -17,10 +17,10 @@ RSpec.describe '診断機能', type: :system do
 
       # ページの読み込みを待機
       expect(page).to have_content('診断開始', wait: 10)
-    
+
       # リンクをクリック
       click_link '診断開始'
-      
+
       # 診断フォームの要素が表示されるまで待機
       expect(page).to have_css('.question', wait: 10)
 
@@ -28,7 +28,7 @@ RSpec.describe '診断機能', type: :system do
         # 各質問内の最初のラジオボタンを選択
         question.first('.option input[type="radio"]').click
       end
-      
+
       # 次へボタンをクリック
       click_button '診断結果を表示'
 

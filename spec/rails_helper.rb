@@ -23,7 +23,7 @@ RSpec.configure do |config|
   # システムテスト用のCapybara設定
   config.before(:each, type: :system) do
     if ENV['CI'] # GitHub Actions環境
-      driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
+      driven_by :selenium, using: :headless_chrome, screen_size: [ 1400, 1400 ]
     else # ローカルDocker環境
       driven_by :remote_chrome
       Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
