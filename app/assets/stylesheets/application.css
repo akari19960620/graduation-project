@@ -38,7 +38,7 @@ a {
 }
 
 .top-image{
-  width: 100%;
+  width: 50%;
   height: 400px;
   display: block;
   margin: 0 auto;
@@ -48,7 +48,7 @@ a {
 .app-title {
   position: absolute;
   top: 2rem; /* 上からの距離 */
-  left: 2rem; /* 左からの距離 */
+  left: 5rem; /* 左からの距離 */
   font-size: 3rem; /* サイズはお好みで調整 */
   font-weight: bold;
   color: white; /* 白文字 */
@@ -82,7 +82,7 @@ a {
 
 /* メイン見出し（h2） */
 .hero-text-section h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #333;
   margin-bottom: 0.5rem;
   font-weight: bold;
@@ -130,7 +130,7 @@ a {
 /* 診断ページ */
 /* 診断画面全体のコンテナ */
 .diagnosis-container {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 3rem 1rem;
   background: linear-gradient(135deg, #d4f1f9 0%, #e8f5f9 100%); /* 水色→明るい水色 */
@@ -509,3 +509,219 @@ a {
   color: #7fc8e3;
 }
 
+/* 施設詳細画面 */
+/* 施設詳細ページ全体のコンテナ */
+.facility-detail-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* パンくずリスト */
+.breadcrumb {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.breadcrumb a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb .separator {
+  margin: 0 8px;
+  color: #9ca3af;
+}
+
+.breadcrumb .current {
+  color: #374151;
+  font-weight: 500;
+}
+
+/* 施設詳細記事 */
+.facility-detail {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+/* 施設ヘッダー */
+.facility-header {
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 16px;
+}
+
+.facility-name {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.facility-meta {
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.badge-primary {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+/* 施設画像 */
+.facility-main-image {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.facility-image {
+  max-width: 100%;
+  max-height: 450px; /* 高さの上限を設定 */
+  height: auto;
+  width: auto; /* 追加：アスペクト比を保持 */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* 追加：画像の収まり方を調整 */
+}
+
+/* セクション */
+.facility-section {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* 情報リスト */
+.facility-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  gap: 16px;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #374151;
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.info-value {
+  color: #111827;
+  flex: 1;
+}
+
+.info-value i {
+  margin-right: 8px;
+  color: #6b7280;
+}
+
+/* 注意書き・説明文 */
+.facility-note {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.facility-description {
+  color: #374151;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* リンク */
+.facility-link {
+  color: #2563eb; /* 濃い青に変更 */
+  text-decoration: underline;
+  text-decoration-thickness: 2px; /* 下線を太く */
+  text-underline-offset: 3px; /* 下線の位置を調整 */
+  font-weight: 600; /* 太字に */
+}
+
+.facility-link:hover {
+  color: #1e40af; /* さらに濃い青に */
+  text-decoration-thickness: 3px; /* ホバー時にさらに太く */
+}
+
+/* ボタン */
+.navigation-buttons {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.btn-secondary {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .facility-detail-page {
+    padding: 12px;
+  }
+
+  .facility-detail {
+    padding: 16px;
+  }
+
+  .facility-name {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .info-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .info-label {
+    min-width: auto;
+  }
+}
