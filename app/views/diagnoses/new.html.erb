@@ -1,20 +1,42 @@
-<h1>診断質問</h1>
+<div class="diagnosis-container">
+  <!-- ヘッダーセクション -->
+  <div class="diagnosis-header">
+    <h1>あなたにぴったりの施設を診断</h1>
+    <p>すべての質問に答えて、診断結果を確認しましょう</p>
+  </div>
 
-<%= form_with url: diagnoses_path, method: :post, data: { turbo: false }, id: "diagnosis-form" do |f| %>
-  <% @questions.each do |question| %>
-    <div class="question mb-4">
-      <h2><%= question.question_text %></h2>
+  <%= form_with url: diagnoses_path, method: :post, data: { turbo: false }, id: "diagnosis-form" do |f| %>
+    <!-- 質問リスト -->
+    <div class="questions-list">
+      <% @questions.each_with_index do |question, index| %>
+        <div class="question-card">
+          <!-- 質問番号とテキスト -->
+          <div class="question-header">
+            <span class="question-number">Q<%= index + 1 %></span>
+            <h2 class="question-text"><%= question.question_text %></h2>
+          </div>
 
-      <% question.diagnosis_options.order(:display_order).each do |option| %>
-        <div class="option">
-          <%= f.radio_button "question_#{question.id}", option.id, 
-              id: "question_#{question.id}_option_#{option.id}",
-              required: true %>
-          <%= f.label "question_#{question.id}_option_#{option.id}", option.option_text %>
+          <!-- 選択肢 -->
+          <div class="options-list">
+            <% question.diagnosis_options.order(:display_order).each do |option| %>
+              <label class="option-label" for="question_<%= question.id %>_option_<%= option.id %>">
+                <%= f.radio_button "question_#{question.id}", option.id, 
+                    id: "question_#{question.id}_option_#{option.id}",
+                    required: true,
+                    class: "option-radio" %>
+                <span class="option-content">
+                  <%= option.option_text %>
+                </span>
+              </label>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
-  <% end %>
 
-  <%= f.submit '診断結果を表示', class: 'btn btn-primary' %>
-<% end %>
+    <!-- 送信ボタン -->
+    <div class="submit-section">
+      <%= f.submit '診断結果を表示', class: 'btn-submit' %>
+    </div>
+  <% end %>
+</div>

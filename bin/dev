@@ -1,2 +1,9 @@
 #!/usr/bin/env ruby
-exec "./bin/rails", "server", *ARGV
+# foreman がインストールされていない場合はインストール
+unless system("gem list foreman -i --silent")
+  puts "Installing foreman..."
+  system("gem install foreman")
+end
+
+# Procfile.dev を使用して起動
+exec "foreman start -f Procfile.dev"

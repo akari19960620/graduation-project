@@ -1,3 +1,35 @@
+/*
+ *= require top
+ *= require diagnoses
+ *= require_self
+ */
+
+
+/* 全ページ共通のスタイル */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* トップページ */
 /* ヒーローセクション全体 */
 .hero-section {
   position: relative; /* 基準となる要素 */
@@ -94,3 +126,386 @@
   transform: translateY(-1px);
   box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
+
+/* 診断ページ */
+/* 診断画面全体のコンテナ */
+.diagnosis-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #d4f1f9 0%, #e8f5f9 100%); /* 水色→明るい水色 */
+  min-height: 100vh;
+}
+
+/* ヘッダーセクション */
+.diagnosis-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, #a8daeb 0%, #c8e6f5 100%); /* パステル水色 */
+  border-radius: 20px;
+  color: #4a5568; /* 濃いグレー */
+  box-shadow: 0 10px 30px rgba(168, 218, 235, 0.3);
+  border: 5px solid #fff;
+}
+
+.diagnosis-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* 柔らかい影 */
+}
+
+.diagnosis-header p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+/* 質問カード */
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.question-card {
+  background: white;
+  border: 5px solid #a8daeb; /* パステル水色 */
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(168, 218, 235, 0.2);
+}
+
+.question-card:hover {
+  border-color: #7fc8e3; /* 少し濃い水色 */
+  box-shadow: 0 12px 30px rgba(127, 200, 227, 0.3);
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* 質問ヘッダー */
+.question-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px solid #a8daeb;
+}
+
+.question-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 6px 15px rgba(168, 218, 235, 0.3);
+  border: 3px solid white;
+}
+
+.question-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #5fb3d1; /* 柔らかい水色 */
+  line-height: 1.6;
+  margin: 0;
+  padding-top: 0.5rem;
+}
+
+/* 選択肢リスト（縦並び） */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.option-label {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #f0f9fc 0%, #f7fcfe 100%); /* ほぼ白に近い水色 */
+  border: 3px solid #a8daeb;
+  border-radius: 15px;
+  transition: all 0.2s ease;
+}
+
+.option-label:hover {
+  background: linear-gradient(135deg, #e1f5fb 0%, #ecf9fd 100%);
+  border-color: #7fc8e3;
+  transform: translateX(10px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(127, 200, 227, 0.3);
+}
+
+.option-radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ラジオボタンが選択された時 */
+.option-radio:checked + .option-content {
+  font-weight: 700;
+  color: #5fb3d1;
+}
+
+.option-label:has(.option-radio:checked) {
+  background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%);
+  border-color: #fff;
+  box-shadow: 0 8px 25px rgba(168, 218, 235, 0.4);
+  color: white;
+}
+
+.option-label:has(.option-radio:checked) .option-content {
+  color: white;
+}
+
+.option-content {
+  display: block;
+  font-size: 1.1rem;
+  color: #5a5a5a; /* 柔らかいグレー */
+  line-height: 1.6;
+}
+
+/* 送信ボタンセクション */
+.submit-section {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 3px solid white;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1.5rem 5rem;
+  border: 5px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(168, 218, 235, 0.4);
+  text-transform: uppercase;
+}
+
+.btn-submit:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 15px 40px rgba(127, 200, 227, 0.5);
+}
+
+.btn-submit:active {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(168, 218, 235, 0.6);
+}
+
+/* 診断結果 */
+/* 診断結果ページ */
+.container {
+  background: linear-gradient(135deg, #d4f1f9 0%, #e8f5f9 100%);
+  min-height: 100vh;
+  padding: 3rem 2rem; /* 左右の余白を調整 */
+  max-width: 100%; /* 最大幅を広げる */
+}
+
+/* カードのベーススタイル */
+.card {
+  border: 5px solid #a8daeb;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(168, 218, 235, 0.3);
+  background: white;
+}
+
+.card-body {
+  padding: 3rem;
+}
+
+/* 診断結果のタイトル */
+.card-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #5fb3d1;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+/* 判定結果のアラート */
+.alert-info {
+  background: linear-gradient(135deg, #a8daeb 0%, #c8e6f5 100%);
+  border: 3px solid #7fc8e3;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(168, 218, 235, 0.2);
+}
+
+.alert-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(95, 179, 209, 0.3);
+}
+
+.alert-info p {
+  font-size: 1.2rem;
+  color: white;
+  line-height: 1.6;
+}
+
+/* スコアセクション */
+.mt-4 h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #5fb3d1;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #a8daeb;
+}
+
+/* スコアリスト */
+.list-group-item {
+  border: 2px solid #a8daeb;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(135deg, #f0f9fc 0%, #f7fcfe 100%);
+  font-size: 1.1rem;
+  color: #5a5a5a;
+  transition: all 0.2s ease;
+}
+
+.list-group-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 4px 15px rgba(168, 218, 235, 0.3);
+  border-color: #7fc8e3;
+}
+
+.badge.bg-primary {
+  background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%) !important;
+  font-size: 1.2rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  box-shadow: 0 3px 10px rgba(168, 218, 235, 0.3);
+}
+
+/* おすすめ施設セクション */
+.mt-5 h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5fb3d1;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f0f9fc 0%, #f7fcfe 100%);
+  border-radius: 15px;
+  border: 3px solid #a8daeb;
+}
+
+/* 施設カード */
+.facility-card {
+  border: 3px solid #a8daeb;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 6px 20px rgba(168, 218, 235, 0.2);
+}
+
+.facility-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(127, 200, 227, 0.4);
+  border-color: #7fc8e3;
+}
+
+.facility-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid #a8daeb;
+}
+
+.facility-card .card-body {
+  padding: 1.5rem;
+}
+
+.facility-card .card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #5fb3d1;
+  margin-bottom: 1rem;
+  text-shadow: none;
+}
+
+.facility-card .card-text {
+  font-size: 0.95rem;
+  color: #5a5a5a;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.facility-card .list-unstyled {
+  margin-bottom: 1.5rem;
+}
+
+.facility-card .list-unstyled li {
+  padding: 0.4rem 0;
+  color: #5a5a5a;
+  font-size: 0.9rem;
+}
+
+/* 施設カードを横に3つ並べる */
+.mt-5 .row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.col-md-4 {
+  max-width: 100%;
+  padding: 0;
+}
+
+/* ボタンスタイル */
+.btn-primary {
+  background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%);
+  border: 3px solid white;
+  color: white;
+  font-weight: bold;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(168, 218, 235, 0.3);
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #7fc8e3 0%, #5fb3d1 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(127, 200, 227, 0.4);
+  border-color: white;
+  color: white;
+}
+
+/* 再診断ボタン（大きめ） */
+.btn-lg {
+  font-size: 1.3rem;
+  padding: 1.2rem 4rem;
+  border-radius: 50px;
+  margin-top: 2rem;
+}
+
+/* アイコン */
+.bi {
+  margin-right: 0.5rem;
+  color: #7fc8e3;
+}
+
