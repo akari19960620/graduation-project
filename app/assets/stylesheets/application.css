@@ -1,6 +1,4 @@
 /*
- *= require top
- *= require diagnoses
  *= require_self
  */
 
@@ -29,6 +27,61 @@ a {
   padding: 2rem 1rem;
 }
 
+/* ヘッダー、フッター */
+/* ヘッダー・フッターのリセット */
+header, footer {
+  all: unset;
+  display: block;
+  box-sizing: border-box;
+}
+
+header * {
+  all: unset;
+  box-sizing: border-box;
+}
+
+footer * {
+  all: unset;
+  box-sizing: border-box;
+}
+/* ヘッダー */
+header {
+  padding: 8px 0;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+header .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+  text-align: center;
+}
+
+header a {
+  text-decoration: none;
+  color: #212529;
+}
+
+/* フッター */
+footer {
+  padding: 8px 0;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  margin-top: auto;
+}
+
+footer .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+  text-align: center;
+}
+
+footer small {
+  color: #6c757d;
+}
+
 /* トップページ */
 /* ヒーローセクション全体 */
 .hero-section {
@@ -42,22 +95,6 @@ a {
   height: 400px;
   display: block;
   margin: 0 auto;
-}
-
-/* アプリ名（左上に配置） */
-.app-title {
-  position: absolute;
-  top: 2rem; /* 上からの距離 */
-  left: 5rem; /* 左からの距離 */
-  font-size: 3rem; /* サイズはお好みで調整 */
-  font-weight: bold;
-  color: white; /* 白文字 */
-  text-shadow: 
-    -2px -2px 0 #000,  
-     2px -2px 0 #000,
-    -2px  2px 0 #000,
-     2px  2px 0 #000; /* 黒縁取り */
-  margin: 0;
 }
 
 /* ========================================
@@ -130,7 +167,7 @@ a {
 /* 診断ページ */
 /* 診断画面全体のコンテナ */
 .diagnosis-container {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 1rem;
   background: linear-gradient(135deg, #d4f1f9 0%, #e8f5f9 100%); /* 水色→明るい水色 */
@@ -314,7 +351,7 @@ a {
   background: linear-gradient(135deg, #d4f1f9 0%, #e8f5f9 100%);
   min-height: 100vh;
   padding: 3rem 2rem; /* 左右の余白を調整 */
-  max-width: 100%; /* 最大幅を広げる */
+  max-width: 85%; /* 最大幅を広げる */
 }
 
 /* カードのベーススタイル */
