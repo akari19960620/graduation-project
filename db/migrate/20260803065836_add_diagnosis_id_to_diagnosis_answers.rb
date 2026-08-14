@@ -3,8 +3,8 @@ class AddDiagnosisIdToDiagnosisAnswers < ActiveRecord::Migration[7.2]
     # まず null: true でカラムを追加
     add_reference :diagnosis_answers, :diagnosis, foreign_key: true
 
-    # 既存のユニークインデックスを削除
-    if index_exists?(:diagnosis_answers, name: "idx_on_session_id_diagnosis_question_id_2d63da7b8b")
+    # 既存のユニークインデックスを削除（存在する場合のみ）
+    if index_exists?(:diagnosis_answers, :session_id, name: "idx_on_session_id_diagnosis_question_id_2d63da7b8b")
       remove_index :diagnosis_answers, name: "idx_on_session_id_diagnosis_question_id_2d63da7b8b"
     end
 
