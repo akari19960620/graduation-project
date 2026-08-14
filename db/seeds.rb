@@ -18,7 +18,7 @@
     phone: "0037-630-21227",
     monthly_fee_min: 38700,
     monthly_fee_max: 162600,
-    image: "https://via.placeholder.com/300x200?text=Facility+A",
+    image: "https://swct.or.jp/cnc_manager/file/swct_image/fac_aoba_photo.jpg",
     capacity: "140名",
     room_type: "ユニット型個室",
     care_level: "要介護1~5（要介護1、2は特例入所要件該当者のみ）",
@@ -27,7 +27,7 @@
     cost_score: 4.6,
     medical_score: 3,
     facility_score: 3,
-    website_url: nil
+    website_url: "https://swct.or.jp/swct.html"
   )
 
   Facility.create!(
@@ -37,7 +37,7 @@
     phone: "0037-630-77625",
     monthly_fee_min: 72100,
     monthly_fee_max: 81900,
-    image: "https://via.placeholder.com/300x200?text=Facility+B",
+    image: "https://nakagin.co.jp/lc-yokohama/img/footer/gaikan.png",
     capacity: "443室",
     room_type: "個室",
     care_level: "入居条件：自立（介護認定を受けていないこと）",
@@ -46,7 +46,7 @@
     cost_score: 3,
     medical_score: 3,
     facility_score: 4.5,
-    website_url: nil
+    website_url: "https://nakagin.co.jp/lc-yokohama/"
   )
 
   Facility.create!(
@@ -56,7 +56,7 @@
     phone: "0037-630-53267",
     monthly_fee_min: 250600,
     monthly_fee_max: 394200,
-    image: "https://via.placeholder.com/300x200?text=Facility+C",
+    image: "https://sweetpea.co.jp/CMSNIF/wp-content/uploads/2023/06/d6ea7aa2c23c28ca55aeb695433e98bc-5.jpg",
     capacity: "-",
     room_type: "個室",
     care_level: "要介護1～5",
@@ -65,7 +65,7 @@
     cost_score: 2,
     medical_score: 4.3,
     facility_score: 3,
-    website_url: nil
+    website_url: "https://sweetpea.co.jp/office/%e3%81%99%e3%81%84%e3%81%a8%e3%81%b4%e3%83%bc%e6%9c%ac%e7%89%a7%e4%b8%89%e6%b8%93%e5%9c%92/"
   )
 
   Facility.create!(
@@ -75,7 +75,7 @@
     phone: "0037-630-93158",
     monthly_fee_min: 204200,
     monthly_fee_max: 575100,
-    image: "https://via.placeholder.com/300x200?text=Facility+D",
+    image: "https://www.seirei.or.jp/eden/yokohama/img/mv.jpg?0515",
     capacity: "-",
     room_type: "個室",
     care_level: "要支援1～2、要介護1～5",
@@ -84,7 +84,7 @@
     cost_score: 2,
     medical_score: 4.5,
     facility_score: 3.5,
-    website_url: nil
+    website_url: "https://www.seirei.or.jp/eden/yokohama/"
   )
 
   Facility.create!(
@@ -94,7 +94,7 @@
     phone: "0037-630-83746",
     monthly_fee_min: 215000,
     monthly_fee_max: nil,
-    image: "https://via.placeholder.com/300x200?text=Facility+E",
+    image: "https://kaigo.alsok.co.jp/files/facility_service_image/00000385_01.jpg?1769563527",
     capacity: "-",
     room_type: "個室",
     care_level: "要介護1～5",
@@ -103,7 +103,7 @@
     cost_score: 3,
     medical_score: 3,
     facility_score: 4,
-    website_url: nil
+    website_url: "https://kaigo.alsok.co.jp/facility/search/detail/394"
   )
 
   Facility.create!(
@@ -113,7 +113,7 @@
     phone: "0037-630-92331",
     monthly_fee_min: 163100,
     monthly_fee_max: nil,
-    image: "https://via.placeholder.com/300x200?text=Facility+F",
+    image: "https://kaigo.alsok.co.jp/files/facility_service_image/00000237_01.jpg?1600080676",
     capacity: "18名",
     room_type: "個室",
     care_level: "要支援2、要介護1～5（その他条件あり）",
@@ -122,7 +122,7 @@
     cost_score: 4,
     medical_score: 2.5,
     facility_score: 3,
-    website_url: nil
+    website_url: "https://kaigo.alsok.co.jp/facility/search/detail/43"
   )
 
   Facility.create!(
@@ -132,7 +132,7 @@
     phone: "0037-630-01444",
     monthly_fee_min: 158000,
     monthly_fee_max: nil,
-    image: "https://via.placeholder.com/300x200?text=Facility+G",
+    image: "https://presence-care.com/wp-content/uploads/2025/07/grouphometop2b.jpg",
     capacity: "-",
     room_type: "個室",
     care_level: "要介護1～5（認知症診断必須）",
@@ -140,8 +140,8 @@
     features: "地域との関わりや屋外・外出イベント等の季節に合ったイベントを開催（入居時費用あり）",
     cost_score: 4.2,
     medical_score: 2,
-    facility_score: 3.5,
-    website_url: nil
+    facility_score: 3,
+    website_url: "https://presence-care.com/grouphome/"
   )
 
   Facility.create!(
@@ -151,7 +151,7 @@
     phone: "0037-630-65419",
     monthly_fee_min: 175000,
     monthly_fee_max: 229700,
-    image: "https://via.placeholder.com/300x200?text=Facility+H",
+    image: "https://www.4seasons-v.jp/wp-content/themes/4seasons-v/img/common/photo/jq8h9626.jpg",
     capacity: "100名",
     room_type: "個室",
     care_level: "要介護1～5",
@@ -160,7 +160,7 @@
     cost_score: 3,
     medical_score: 4.1,
     facility_score: 3.2,
-    website_url: nil
+    website_url: "https://www.4seasons-v.jp/facilities/soyokaze/"
   )
 
   Facility.create!(
@@ -170,16 +170,16 @@
     phone: "",
     monthly_fee_min: 104700,
     monthly_fee_max: 153900,
-    image: "https://via.placeholder.com/300x200?text=Facility+I",
+    image: "https://www.shonanyuuaikai.or.jp/cms2/wp-content/uploads/2021/10/%E3%82%B1%E3%82%A2%E3%83%8F%E3%82%A6%E3%82%B9%E3%82%86%E3%81%86%E3%81%82%E3%81%84_%E7%A9%BA.jpg",
     capacity: "139名",
     room_type: "個室",
     care_level: "自立、要支援1～2、要介護1～5",
     services: "介護サービス、医療サービス",
     features: "一人一人の状態に合った形で包括的な介護サービスの提供を受けることが出来、季節ごとの行事や同施設内の学園祭にも自由に参加できる（入居時費用あり）",
     cost_score: 4.3,
-    medical_score: 3,
-    facility_score: 3.5,
-    website_url: nil
+    medical_score: 2,
+    facility_score: 3,
+    website_url: "https://www.shonanyuuaikai.or.jp/carehouseyuai.html"
   )
 
   Facility.create!(
@@ -198,7 +198,7 @@
     cost_score: 3,
     medical_score: 4.1,
     facility_score: 3,
-    website_url: nil
+    website_url: "https://www.y-kakuseikai.or.jp/yamayuri_top/yamayuri_jigyou/yamayuri_tokuyou/"
   )
 
   puts "施設データを作成しました！施設数: #{Facility.count}"

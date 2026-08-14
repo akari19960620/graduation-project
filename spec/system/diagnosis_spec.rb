@@ -18,7 +18,7 @@ RSpec.describe '診断機能', type: :system do
 
       all('.question').each do |question|
         # 各質問内の最初のラジオボタンを選択
-        question.first('.option input[type="radio"]').click
+        question.first('.option input[type="radio"]', visible: false).click
       end
 
       click_button '診断結果を表示'

@@ -1,14 +1,22 @@
-<div>
-  <!-- メインビジュアル -->
-  <h1>ケアバンク</h1>
-  <h2>施設選び、何から始めればいい？</h2>
-  <h2>5問の診断で、あなたに合った施設が見つかる</h2>
+<!-- 画像セクション（アプリ名のみ画像上に配置） -->
+<div class="hero-section">
+  <%= image_tag 'care_image.jpeg', alt: '', class: 'top-image' %>
+  <h1 class="app-title">ケアバンク</h1>
+</div>
 
-  <%= link_to "診断開始", new_diagnosis_path, class: "btn btn-primary" %>
+<!-- 画像の下のコンテンツ -->
+<div class="hero-text-section">
+  <h4>施設選び、何から始めればいいかわからない。。</h4>
+  <h2>そんな時は簡単な診断アプリを試してみよう！！</h2>
+
+  <!-- ボタンエリアを追加 -->
+  <div class="btn-wrapper">
+    <%= link_to "診断開始", new_diagnosis_path, class: "btn-diagnosis" %>
+  </div>
 
   <p>
     簡単な質問に答えるだけで、<br>
-    あなたの優先順位に合った施設をご提案します。
+    あなたの優先順位に合った施設探しを行います。
   </p>
 </div>
 

@@ -18,7 +18,7 @@
     <!-- 施設画像 -->
     <% if @facility.image.present? %>
       <div class="facility-main-image">
-        <%= image_tag @facility.image, alt: @facility.name, class: 'img-fluid' %>
+        <%= image_tag @facility.image, alt: @facility.name, class: 'facility-image' %>
       </div>
     <% end %>
 
@@ -50,6 +50,7 @@
     <% if @facility.monthly_fee_min.present? %>
       <section class="facility-section">
         <h2 class="section-title">料金情報</h2>
+
         <dl class="facility-info-list">
           <div class="info-item">
             <dt class="info-label">月額費用</dt>
@@ -61,12 +62,25 @@
             </dd>
           </div>
         </dl>
-        <p class="text-sm text-gray-600 mt-3">
+        
+        <p class="facility-note">
           ※ 別途初期費用が掛かる場合があります。
           <% if @facility.website_url.present? %>
-            詳しくは<%= link_to '公式サイト', @facility.website_url, target: '_blank', rel: 'noopener noreferrer', class: 'text-blue-500 underline' %>をご確認ください。
+            詳しくは<%= link_to '公式サイト', @facility.website_url, target: '_blank', rel: 'noopener noreferrer', class: 'facility-link' %>をご確認ください。
           <% else %>
             詳しくは施設にお問い合わせください。
+          <% end %>
+        </p>
+      </section>
+    <% else %>
+      <section class="facility-section">
+        <h2 class="section-title">料金情報</h2>
+        <p class="facility-note">
+          料金については
+          <% if @facility.website_url.present? %>
+            <%= link_to '公式サイト', @facility.website_url, target: '_blank', rel: 'noopener noreferrer', class: 'facility-link' %>または施設に直接お問い合わせください。
+          <% else %>
+            施設に直接お問い合わせください。
           <% end %>
         </p>
       </section>
