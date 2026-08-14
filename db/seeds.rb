@@ -8,7 +8,7 @@
     Facility.destroy_all  # 施設データ削除
     puts "削除完了"
   end
-  
+
   puts "施設データを作成します..."
   # 施設データの投入
   Facility.create!(
