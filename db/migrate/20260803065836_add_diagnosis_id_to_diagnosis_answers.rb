@@ -12,7 +12,7 @@ class AddDiagnosisIdToDiagnosisAnswers < ActiveRecord::Migration[7.2]
     end
 
     # 新しいユニークインデックスを追加
-    add_index :diagnosis_answers, [:diagnosis_id, :diagnosis_question_id],
+    add_index :diagnosis_answers, [ :diagnosis_id, :diagnosis_question_id ],
               unique: true,
               name: "idx_on_diagnosis_id_diagnosis_question_id"
   end
