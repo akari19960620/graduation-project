@@ -9,7 +9,7 @@
     <!-- 質問リスト -->
     <div class="questions-list">
       <% @questions.each_with_index do |question, index| %>
-        <div class="question-card">
+        <div class="question-card question">
           <!-- 質問番号とテキスト -->
           <div class="question-header">
             <span class="question-number">Q<%= index + 1 %></span>
@@ -19,7 +19,7 @@
           <!-- 選択肢 -->
           <div class="options-list">
             <% question.diagnosis_options.order(:display_order).each do |option| %>
-              <label class="option-label" for="question_<%= question.id %>_option_<%= option.id %>">
+              <label class="option-label option" for="question_<%= question.id %>_option_<%= option.id %>">
                 <%= f.radio_button "question_#{question.id}", option.id, 
                     id: "question_#{question.id}_option_#{option.id}",
                     required: true,
