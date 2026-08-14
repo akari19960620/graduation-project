@@ -5,9 +5,7 @@ class AddDiagnosisIdToDiagnosisAnswers < ActiveRecord::Migration[7.2]
 
     # 既存のユニークインデックスを削除（エラーが出ても続行）
     begin
-      if index_exists?(:diagnosis_answers, :session_id, name: "idx_on_session_id_diagnosis_question_id_2d63da7b8b")
-        remove_index :diagnosis_answers, name: "idx_on_session_id_diagnosis_question_id_2d63da7b8b"
-      end
+      remove_index :diagnosis_answers, name: "idx_on_session_id_diagnosis_question_id_2d63da7b8b"
     rescue ActiveRecord::StatementInvalid => e
       # インデックスが存在しない場合はスキップ
       Rails.logger.info "Index does not exist, skipping removal: #{e.message}"
