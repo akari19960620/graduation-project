@@ -9,8 +9,12 @@
     puts "削除完了"
   end
 
+  if Facility.exists?
+    puts "施設データは既に投入済みです"
+  else
+    puts "施設データを作成します..."
+  end
 
-  puts "施設データを作成します..."
   # 施設データの投入
   Facility.create!(
     name: "青葉ヒルズ",
@@ -206,6 +210,11 @@
 
 
   # 診断質問の初期データ投入
+  if DiagnosisQuestion.exists?
+    puts "診断質問データは既に投入済みです"
+  else
+    puts "診断質問データを作成します..."
+  end
 
   # 質問１
   question1 = DiagnosisQuestion.create!(
@@ -278,6 +287,12 @@
   puts "選択肢数: #{DiagnosisOption.count}"
 
   # 診断結果を作成
+  if DiagnosisResult.exists?
+    puts "診断結果データは既に投入済みです"
+  else
+    puts "診断結果データを作成します..."
+  end
+
   DiagnosisResult.create!([
     {
       category: 'cost',
@@ -299,6 +314,11 @@
   puts "診断結果のシードデータを作成しました！"
   puts "診断結果テンプレート数: #{DiagnosisResult.count}"
 
+  if FacilityMatch.exists?
+    puts "中間テーブルのデータは既に投入済みです"
+  else
+    puts "中間テーブルのデータを作成します..."
+  end
   # 診断結果を取得
   cost_result = DiagnosisResult.find_by!(category: 'cost')
   facility_result = DiagnosisResult.find_by!(category: 'facility')
