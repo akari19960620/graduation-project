@@ -11,8 +11,7 @@ end
 resources :facilities, only: [ :show ]
 
 namespace :admin do
-    resource :seed, only: [ :create ]
-  end
+  get 'seed', to: 'seeds#create'
 
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
