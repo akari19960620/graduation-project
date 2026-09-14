@@ -208,6 +208,39 @@
   puts "施設データを作成しました！施設数: #{Facility.count}"
   end
 
+# ここから追加: CSVから追加データを読み込む
+require 'csv'
+
+csv_path = Rails.root.join('db', 'seed_data', 'facilities_utf8.csv')
+
+if File.exist?(csv_path)
+  puts "CSVから追加施設データを読み込みます..."
+
+  CSV.foreach(csv_path, headers: true) do |row|
+    Facility.find_or_create_by!(name: row['name']) do |facility|
+      facility.facility_type     = row['facility_type']
+      facility.address           = row['address']
+      facility.phone             = row['phone']
+      facility.monthly_fee_min   = row['monthly_fee_min']&.gsub(',', '')&.to_i
+      facility.monthly_fee_max   = row['monthly_fee_max']&.gsub(',', '')&.to_i
+      facility.image             = row['image']
+      facility.capacity          = row['capacity']
+      facility.room_type         = row['room_type']
+      facility.care_level        = row['care_level']
+      facility.services          = row['services']
+      facility.features          = row['features']
+      facility.cost_score        = row['cost_score']
+      facility.medical_score     = row['medical_score']
+      facility.facility_score    = row['facility_score']
+      facility.website_url       = row['website_url']
+    end
+  end
+
+  puts "CSV追加読み込み完了!施設数: #{Facility.count}"
+else
+  puts "CSVファイルが見つかりません: #{csv_path}"
+end
+
 
   # 診断質問の初期データ投入
   if DiagnosisQuestion.exists?
