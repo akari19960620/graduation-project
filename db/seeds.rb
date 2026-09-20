@@ -248,8 +248,9 @@ end
   else
     puts "診断質問データを作成します..."
 
-  # 質問１
-  question1 = DiagnosisQuestion.create!(
+# 質問１
+
+question1 = DiagnosisQuestion.create!(
     question_text: '駅近で家族が訪問しやすいが料金が高い施設と、郊外で料金が安い施設、どちらを選びますか？',
     question_type: 'choice',
     weight_category: 'cost_vs_facility',
@@ -257,8 +258,8 @@ end
   )
 
   question1.diagnosis_options.create!([
-    { option_text: '駅近で家族が訪問しやすい方を重視する', weight_value: 20, weight_category: 'facility', display_order: 1 },
-    { option_text: '料金が安い方を重視する', weight_value: 20, weight_category: 'cost', display_order: 2 }
+    { option_text: '駅近で家族が訪問しやすい方を重視する', weight_value: 10, weight_category: 'facility', display_order: 1 },
+    { option_text: '料金が安い方を重視する', weight_value: 10, weight_category: 'cost', display_order: 2 }
   ])
 
 
@@ -271,8 +272,8 @@ end
   )
 
   question2.diagnosis_options.create!([
-    { option_text: '設備が新しい方を重視する', weight_value: 20, weight_category: 'facility', display_order: 1 },
-    { option_text: '料金が安い方を重視する', weight_value: 20, weight_category: 'cost', display_order: 2 }
+    { option_text: '設備が新しい方を重視する', weight_value: 10, weight_category: 'facility', display_order: 1 },
+    { option_text: '料金が安い方を重視する', weight_value: 10, weight_category: 'cost', display_order: 2 }
   ])
 
   # 質問３
@@ -284,8 +285,8 @@ end
   )
 
   question3.diagnosis_options.create!([
-    { option_text: '自然豊かな施設を重視する', weight_value: 20, weight_category: 'facility', display_order: 1 },
-    { option_text: '医療機関が隣接している施設を重視する', weight_value: 20, weight_category: 'medical', display_order: 2 }
+    { option_text: '自然豊かな施設を重視する', weight_value: 10, weight_category: 'facility', display_order: 1 },
+    { option_text: '医療機関が隣接している施設を重視する', weight_value: 10, weight_category: 'medical', display_order: 2 }
   ])
 
   # 質問４
@@ -297,8 +298,8 @@ end
   )
 
   question4.diagnosis_options.create!([
-    { option_text: '看護師が24時間常駐している方を重視する', weight_value: 20, weight_category: 'medical', display_order: 1 },
-    { option_text: '料金が安い方を重視する', weight_value: 20, weight_category: 'cost', display_order: 2 }
+    { option_text: '看護師が24時間常駐している方を重視する', weight_value: 10, weight_category: 'medical', display_order: 1 },
+    { option_text: '料金が安い方を重視する', weight_value: 10, weight_category: 'cost', display_order: 2 }
   ])
 
   # 質問５
@@ -310,9 +311,75 @@ end
   )
 
   question5.diagnosis_options.create!([
-    { option_text: '娯楽施設が充実している施設を重視する', weight_value: 20, weight_category: 'facility', display_order: 1 },
-    { option_text: '看取りケアや終末期に対応している施設を重視する', weight_value: 20, weight_category: 'medical', display_order: 2 }
+    { option_text: '娯楽施設が充実している施設を重視する', weight_value: 10, weight_category: 'facility', display_order: 1 },
+    { option_text: '看取りケアや終末期に対応している施設を重視する', weight_value: 10, weight_category: 'medical', display_order: 2 }
   ])
+
+  # 質問６
+  question6 = DiagnosisQuestion.create!(
+    question_text: '持病の定期検診に対応できる提携医療機関がある施設と料金が安い施設、どちらを選びますか？',
+    question_type: 'choice',
+    weight_category: 'medical_vs_cost',
+    display_order: 6
+  )
+
+  question6.diagnosis_options.create!([
+    { option_text: '提携医療機関があることを重視する', weight_value: 10, weight_category: 'medical', display_order: 1 },
+    { option_text: '料金の安さを重視する', weight_value: 10, weight_category: 'cost', display_order: 2 }
+  ])
+
+  # 質問７
+  question7 = DiagnosisQuestion.create!(
+    question_text: '個室が広くプライバシーが確保されている施設と緊急時の医療対応が手厚い施設、どちらを選びますか？',
+    question_type: 'choice',
+    weight_category: 'facility_vs_medical',
+    display_order: 7
+  )
+
+  question7.diagnosis_options.create!([
+    { option_text: '個室の広さとプライバシーを重視する', weight_value: 10, weight_category: 'facility', display_order: 1 },
+    { option_text: '緊急時の医療対応を重視する', weight_value: 10, weight_category: 'medical', display_order: 2 }
+  ])
+
+  # 質問８
+  question8 = DiagnosisQuestion.create!(
+    question_text: '全室個室でプライバシーが保たれる施設と料金が安い施設、どちらを選びますか？',
+    question_type: 'choice',
+    weight_category: 'facility_vs_cost',
+    display_order: 8
+  )
+
+  question8.diagnosis_options.create!([
+    { option_text: '個室でのプライバシーを重視する', weight_value: 10, weight_category: 'facility', display_order: 1 },
+    { option_text: '料金の安さを重視する', weight_value: 10, weight_category: 'cost', display_order: 2 }
+  ])
+
+  # 質問９
+  question9 = DiagnosisQuestion.create!(
+    question_text: '食事やイベントが充実している施設と夜間看護師が常駐している施設、どちらを選びますか？',
+    question_type: 'choice',
+    weight_category: 'facility_vs_medical',
+    display_order: 9
+  )
+
+  question9.diagnosis_options.create!([
+    { option_text: '食事やイベントの充実を重視する', weight_value: 10, weight_category: 'facility', display_order: 1 },
+    { option_text: '夜間看護師の常駐を重視する', weight_value: 10, weight_category: 'medical', display_order: 2 }
+  ])
+
+  # 質問１０
+  question10 = DiagnosisQuestion.create!(
+    question_text: '認知症専門ケアが受けられる施設と料金が安い施設、どちらを選びますか？',
+    question_type: 'choice',
+    weight_category: 'medical_vs_cost',
+    display_order: 10
+  )
+
+  question10.diagnosis_options.create!([
+    { option_text: '認知症専門ケアを重視する', weight_value: 10, weight_category: 'medical', display_order: 1 },
+    { option_text: '料金の安さを重視する', weight_value: 10, weight_category: 'cost', display_order: 2 }
+  ])
+
 
   puts "診断質問データを作成しました！"
   puts "質問数: #{DiagnosisQuestion.count}"
