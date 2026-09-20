@@ -248,8 +248,8 @@ end
   else
     puts "診断質問データを作成します..."
 
-  # 質問１
-  
+# 質問１
+
 question1 = DiagnosisQuestion.create!(
     question_text: '駅近で家族が訪問しやすいが料金が高い施設と、郊外で料金が安い施設、どちらを選びますか？',
     question_type: 'choice',
