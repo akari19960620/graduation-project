@@ -392,49 +392,29 @@ question1 = DiagnosisQuestion.create!(
   else
     puts "診断結果データを作成します..."
 
-  DiagnosisResult.create!([
-    {
-      category: 'cost',
-      result_title: 'コスト重視タイプ',
-      result_description: 'あなたは費用を重視するタイプです。経済的な負担を抑えることを優先する傾向があります。施設選びでは、まず費用面を確認し、予算内で最適な選択肢を探すことをおすすめします。'
-    },
-    {
-      category: 'facility',
-      result_title: '施設重視タイプ',
-      result_description: 'あなたは施設の充実度を重視するタイプです。快適な環境で過ごすことを優先する傾向があります。施設の設備や雰囲気、アクセスの良さなどを重視して選ぶと良いでしょう。'
-    },
-    {
-      category: 'medical',
-      result_title: '医療・ケア重視タイプ',
-      result_description: 'あなたは医療・ケアの質を重視するタイプです。専門的なサポートを受けることを優先する傾向があります。医療体制やスタッフの質、ケア内容の充実度を重視して選ぶことをおすすめします。'
-    }
-  ])
+  DiagnosisResult.find_or_create_by!(category: 'cost') do |result|
+    result.result_title       = 'コスト重視タイプ'
+    result.result_description = 'あなたは費用を重視するタイプです。経済的な負担を抑えることを優先する傾向があります。施設選びでは、まず費用面を確認し、予算内で最適な選択肢を探すことをおすすめします。'
+    result.min_score = 0
+    result.max_score = 60
+  end
+
+  DiagnosisResult.find_or_create_by!(category: 'facility') do |result|
+    result.result_title       = '施設重視タイプ'
+    result.result_description = 'あなたは施設の充実度を重視するタイプです。快適な環境で過ごすことを優先する傾向があります。施設の設備や雰囲気、アクセスの良さなどを重視して選ぶと良いでしょう。'
+    result.min_score = 0
+    result.max_score = 70
+  end
+
+  DiagnosisResult.find_or_create_by!(category: 'medical') do |result|
+    result.result_title       = '医療・ケア重視タイプ'
+    result.result_description = 'あなたは医療・ケアの質を重視するタイプです。専門的なサポートを受けることを優先する傾向があります。医療体制やスタッフの質、ケア内容の充実度を重視して選ぶことをおすすめします。'
+    result.min_score = 0
+    result.max_score = 70
+  end
 
   puts "診断結果のシードデータを作成しました！"
   puts "診断結果テンプレート数: #{DiagnosisResult.count}"
   end
 
-  if FacilityMatch.exists?
-    puts "中間テーブルのデータは既に投入済みです"
-  else
-    puts "中間テーブルのデータを作成します..."
-  # 診断結果を取得
-  cost_result = DiagnosisResult.find_by!(category: 'cost')
-  facility_result = DiagnosisResult.find_by!(category: 'facility')
-  medical_result = DiagnosisResult.find_by!(category: 'medical')
-
-  # コスト重視タイプ: cost_score が高い施設を紐付け
-  cost_facilities = Facility.where.not(cost_score: nil).order(cost_score: :desc).limit(5)
-  cost_result.facilities << cost_facilities
-
-  # 施設重視タイプ: facility_score が高い施設を紐付け
-  facility_facilities = Facility.where.not(facility_score: nil).order(facility_score: :desc).limit(5)
-  facility_result.facilities << facility_facilities
-
-  # 医療・ケア重視タイプ: medical_score が高い施設を紐付け
-  medical_facilities = Facility.where.not(medical_score: nil).order(medical_score: :desc).limit(5)
-  medical_result.facilities << medical_facilities
-
-  puts "中間テーブルのデータを作成しました！"
-  puts "紐付け数: #{FacilityMatch.count}"
-  end
+  
