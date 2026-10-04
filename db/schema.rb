@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_08_14_200925) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_04_011915) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_14_200925) do
     t.string "category"
     t.string "result_title"
     t.text "result_description"
+    t.integer "min_score"
+    t.integer "max_score"
   end
 
   create_table "facilities", force: :cascade do |t|
@@ -85,16 +87,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_14_200925) do
     t.decimal "medical_score"
     t.decimal "facility_score"
     t.string "image"
-  end
-
-  create_table "facility_matches", force: :cascade do |t|
-    t.bigint "diagnosis_result_id", null: false
-    t.bigint "facility_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["diagnosis_result_id", "facility_id"], name: "index_facility_matches_on_diagnosis_result_id_and_facility_id", unique: true
-    t.index ["diagnosis_result_id"], name: "index_facility_matches_on_diagnosis_result_id"
-    t.index ["facility_id"], name: "index_facility_matches_on_facility_id"
   end
 
   create_table "solid_cache_entries", force: :cascade do |t|
@@ -202,8 +194,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_14_200925) do
   add_foreign_key "diagnosis_answers", "diagnosis_options"
   add_foreign_key "diagnosis_answers", "diagnosis_questions"
   add_foreign_key "diagnosis_options", "diagnosis_questions"
-  add_foreign_key "facility_matches", "diagnosis_results"
-  add_foreign_key "facility_matches", "facilities"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id"
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id"
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id"
