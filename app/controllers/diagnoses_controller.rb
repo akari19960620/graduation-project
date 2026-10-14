@@ -73,14 +73,16 @@ end
 end
 
   def assign_result_data(result_data)
-    percentages = result_data[:percentages]
-    @score_percentages = CATEGORY_ORDER.index_with { |category| percentages[category] }.compact
     @answers = result_data[:answers]
     @scores = result_data[:scores]
     @result_category = result_data[:category]
     @percentages = result_data[:percentages]
     @diagnosis_result = result_data[:result]
-    @recommended_facilities = result_data[:recommended_facilities]
+    # facility_type の順序を CATEGORY_ORDER に従って固定する
+    @recommended_facilities = result_data[:recommended_facilities].sort_by do |facility|
+      CATEGORY_ORDER.index(facility.facility_type) || CATEGORY_ORDER.size
+    end
+    Rails.logger.debug "並び替え後の施設タイプ順: #{@recommended_facilities.map(&:facility_type)}"
   end
 
   def diagnosis_params
