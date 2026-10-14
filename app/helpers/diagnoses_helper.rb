@@ -12,4 +12,6 @@ module DiagnosesHelper
       category
     end
   end
+
+  
 end

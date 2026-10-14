@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_04_011915) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_14_155530) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,8 +64,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_04_011915) do
     t.string "category"
     t.string "result_title"
     t.text "result_description"
-    t.integer "min_score"
-    t.integer "max_score"
   end
 
   create_table "facilities", force: :cascade do |t|
