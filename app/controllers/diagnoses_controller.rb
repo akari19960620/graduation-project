@@ -1,4 +1,12 @@
 class DiagnosesController < ApplicationController
+  CATEGORY_ORDER = %w[
+    特別養護老人ホーム
+    有料老人ホーム
+    グループホーム
+    ケアハウス
+    高齢者向け住宅
+  ].freeze
+
   rescue_from DiagnosisResultNotFoundError, with: :diagnosis_not_found
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
@@ -65,9 +73,12 @@ end
 end
 
   def assign_result_data(result_data)
+    percentages = result_data[:percentages]
+    @score_percentages = CATEGORY_ORDER.index_with { |category| percentages[category] }.compact
     @answers = result_data[:answers]
     @scores = result_data[:scores]
     @result_category = result_data[:category]
+    @percentages = result_data[:percentages]
     @diagnosis_result = result_data[:result]
     @recommended_facilities = result_data[:recommended_facilities]
   end

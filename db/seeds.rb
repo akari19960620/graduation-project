@@ -1,7 +1,6 @@
   return if Rails.env.test?
   # 既存のデータを削除する（開発環境のみ）※削除の順番に注意！
   if Rails.env.development?
-    FacilityMatch.destroy_all  # 中間テーブル削除を追加
     DiagnosisOption.destroy_all  # 子テーブル削除
     DiagnosisQuestion.destroy_all  # 親テーブル削除
     DiagnosisResult.destroy_all # 診断結果削除
@@ -36,7 +35,7 @@
 
   Facility.create!(
     name: "中銀ライフケア横浜",
-    facility_type: "シニア向け分譲マンション",
+    facility_type: "高齢者向け住宅",
     address: "神奈川県横浜市都筑区新栄町14-1中銀ライフケア横浜（港北）",
     phone: "0037-630-77625",
     monthly_fee_min: 72100,
@@ -55,7 +54,7 @@
 
   Facility.create!(
     name: "すいとぴー本牧三渓園",
-    facility_type: "介護付き有料老人ホーム",
+    facility_type: "有料老人ホーム",
     address: "神奈川県横浜市中区本牧原1-11",
     phone: "0037-630-53267",
     monthly_fee_min: 250600,
@@ -74,7 +73,7 @@
 
   Facility.create!(
     name: "横浜エデンの園",
-    facility_type: "介護付き有料老人ホーム",
+    facility_type: "有料老人ホーム",
     address: "神奈川県横浜市保土ケ谷区岩井町207",
     phone: "0037-630-93158",
     monthly_fee_min: 204200,
@@ -93,7 +92,7 @@
 
   Facility.create!(
     name: "ALSOKケアホーム横浜港南台",
-    facility_type: "介護付き有料老人ホーム",
+    facility_type: "有料老人ホーム",
     address: "神奈川県横浜市港南区日野中央三丁目15番2号",
     phone: "0037-630-83746",
     monthly_fee_min: 215000,
