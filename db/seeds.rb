@@ -409,5 +409,3 @@ question1 = DiagnosisQuestion.create!(
   puts "診断結果のシードデータを作成しました！"
   puts "診断結果テンプレート数: #{DiagnosisResult.count}"
   end
-
-  
