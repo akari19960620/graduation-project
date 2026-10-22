@@ -41,5 +41,26 @@ FactoryBot.define do
       facility_score { 2 }
       services { "24時間看護師常駐、医療機関隣接" }
     end
+
+    # --- facility_typeを切り替えるためのtrait ---
+    trait :nursing_home do
+      facility_type { "特別養護老人ホーム" }
+    end
+
+    trait :group_home do
+      facility_type { "グループホーム" }
+    end
+
+    trait :paid_nursing_home do
+      facility_type { "介護付き有料老人ホーム" }
+    end
+
+    trait :senior_housing do
+      facility_type { "高齢者向け住宅" }
+    end
+
+    trait :care_house do
+      facility_type { "ケアハウス" }
+    end
   end
 end

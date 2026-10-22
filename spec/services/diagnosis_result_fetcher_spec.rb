@@ -6,7 +6,6 @@ RSpec.describe DiagnosisResultFetcher do
     context '正常系' do
       # 既存のデータをすべて削除
       before(:each) do
-        FacilityMatch.destroy_all
         DiagnosisAnswer.destroy_all
         DiagnosisOption.destroy_all
         DiagnosisQuestion.destroy_all
@@ -35,16 +34,13 @@ RSpec.describe DiagnosisResultFetcher do
       let!(:option3) { create(:diagnosis_option, diagnosis_question: question3, weight_category: 'cost', weight_value: 20) }
       let!(:answer3) { create(:diagnosis_answer, diagnosis: diagnosis, diagnosis_question: question3, diagnosis_option: option3) }
 
+      # facility_typeごとに上位2件に絞られることを検証するためのデータ
+      # 同じfacility_typeを3件用意し、最もcost_scoreが低い1件が除外されることを確認する
+      let!(:facility1) { create(:facility, :cost_focused, name: '施設A', facility_type: '介護付き有料老人ホーム', cost_score: 5) }
+      let!(:facility2) { create(:facility, :cost_focused, name: '施設B', facility_type: '介護付き有料老人ホーム', cost_score: 4) }
+      let!(:facility3) { create(:facility, name: '施設C', facility_type: '介護付き有料老人ホーム', cost_score: 3) }
+      let!(:facility4) { create(:facility, name: '施設D', facility_type: '特別養護老人ホーム', cost_score: 2) }
 
-      let!(:facility1) { create(:facility, name: 'テスト施設1') }
-      let!(:facility2) { create(:facility, name: 'テスト施設2') }
-      let!(:facility3) { create(:facility, name: 'テスト施設3') }
-
-      before do
-        create(:facility_match, diagnosis_result: diagnosis_result, facility: facility1)
-        create(:facility_match, diagnosis_result: diagnosis_result, facility: facility2)
-        create(:facility_match, diagnosis_result: diagnosis_result, facility: facility3)
-      end
 
       it '診断結果データが正しく取得できること' do
         fetcher = described_class.new(diagnosis.id)
@@ -53,8 +49,9 @@ RSpec.describe DiagnosisResultFetcher do
         # 検証
         expect(result[:category]).to eq('cost')
         expect(result[:result].id).to eq(diagnosis_result.id)
-        expect(result[:recommended_facilities].pluck(:id)).to match_array([ facility1.id, facility2.id, facility3.id ])
-        expect(result[:recommended_facilities].pluck(:name)).to match_array([ 'テスト施設1', 'テスト施設2', 'テスト施設3' ])
+        # 同facility_type内で上位2件(facility1, facility2)のみ残り、
+        # 3位のfacility3は除外され、別facility_typeのfacility4は残ることを確認
+        expect(result[:recommended_facilities]).to match_array([ facility1, facility2, facility4 ])
       end
     end
 

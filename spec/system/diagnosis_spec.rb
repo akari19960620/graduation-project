@@ -5,13 +5,12 @@ RSpec.describe '診断機能', type: :system do
   before do
     # 診断質問セットを作成
     create_complete_diagnosis_questions
-
     # 診断結果セットを作成(施設付き)
     create_complete_diagnosis_results_with_facilities
   end
 
   describe '診断フロー' do
-    it '診断を完了し、3件のおすすめ施設が表示される', js: true do
+    it '診断を完了し、施設タイプごとにおすすめ施設が2件ずつ表示される', js: true do
       # トップ画面にアクセス
       visit root_path
       click_link '診断開始'
@@ -25,12 +24,10 @@ RSpec.describe '診断機能', type: :system do
 
       # 診断結果ページに遷移することを確認
       expect(page).to have_current_path(/\/diagnoses\/\d+\/result/)
-
       # 診断結果のタイトルが表示されることを確認
       expect(page).to have_content(/重視タイプ/)
-
-      # おすすめ施設が3件表示されることを確認
-      expect(page).to have_css('.facility-card', count: 3)
+      # facility_type(3種類) × 2件 = 6件表示されることを確認
+      expect(page).to have_css('.facility-card', count: 6)
     end
   end
 end
