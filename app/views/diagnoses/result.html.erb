@@ -14,14 +14,14 @@
             <p class="mb-0"><%= @diagnosis_result.result_description %></p>
           </div>
 
-          <!-- スコアの表示 -->
+          <!-- 判定されたカテゴリの％表示 -->
           <div class="mt-4">
-            <h3>各カテゴリのスコア</h3>
+            <h3>各カテゴリの割合</h3>
             <ul class="list-group">
-              <% @scores.each do |category, score| %>
+              <% @percentages.each do |category, percentage| %>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <%= category_name(category) %>
-                  <span class="badge bg-primary rounded-pill"><%= score %></span>
+                  <span class="badge bg-primary rounded-pill"><%= percentage %>%</span>
                 </li>
               <% end %>
             </ul>
@@ -30,36 +30,40 @@
           <!-- おすすめ施設の表示 -->
           <div class="mt-5">
             <h2 class="mb-3">☆あなたにおすすめの施設☆</h2>
-            <div class="row">
-              <% @recommended_facilities.each do |facility| %>
-                <div class="col-md-4 mb-3">
-                  <div class="card h-100 facility-card">
-                    <!-- 施設の画像があれば表示 -->
-                    <% if facility.image.present? %>
-                      <%= image_tag facility.image, class: "card-img-top", alt: facility.name %>
-                    <% else %>
-                      <img src="https://via.placeholder.com/300x200?text=No+Image" class="card-img-top" alt="施設画像なし">
-                    <% end %>
+            
+            <% @recommended_facilities.group_by(&:facility_type).each do |type, facilities| %>
+              <h3 class="mb-3"><%= type %></h3>
+              <div class="row">
+                <% facilities.each do |facility| %>
+                  <div class="col-md-4 mb-3">
+                    <div class="card h-100 facility-card">
+                      <!-- 施設の画像があれば表示 -->
+                      <% if facility.image.present? %>
+                        <%= image_tag facility.image, class: "card-img-top", alt: facility.name %>
+                      <% else %>
+                        <img src="https://via.placeholder.com/300x200?text=No+Image" class="card-img-top" alt="施設画像なし">
+                      <% end %>
 
-                    <div class="card-body">
-                      <h3 class="card-title"><%= facility.name %></h3>
-                      <p class="card-text text-muted small">
-                        <%= truncate(facility.features, length: 150) %>
-                      </p>
+                      <div class="card-body">
+                        <h4 class="card-title"><%= facility.name %></h4>
+                        <p class="card-text text-muted small">
+                          <%= truncate(facility.features, length: 150) %>
+                        </p>
 
-                      <!-- 施設の基本情報 -->
-                      <ul class="list-unstyled small">
-                        <li><i class="bi bi-geo-alt"></i> <%= facility.address %></li>
-                        <li><i class="bi bi-currency-yen"></i> 月額: <%= number_to_currency(facility.monthly_fee_min, unit: "￥", precision: 0) %>
-                        ～ <%= number_to_currency(facility.monthly_fee_max, unit: "￥", precision: 0) %></li>
-                      </ul>
+                        <!-- 施設の基本情報 -->
+                        <ul class="list-unstyled small">
+                          <li><i class="bi bi-geo-alt"></i> <%= facility.address %></li>
+                          <li><i class="bi bi-currency-yen"></i> 月額: <%= number_to_currency(facility.monthly_fee_min, unit: "￥", precision: 0) %>
+                          ～ <%= number_to_currency(facility.monthly_fee_max, unit: "￥", precision: 0) %></li>
+                        </ul>
 
-                      <%= link_to '詳細を見る', facility_path(facility, diagnosis_id: @diagnosis.id), class: "btn btn-primary" %>
+                        <%= link_to '詳細を見る', facility_path(facility, diagnosis_id: @diagnosis.id), class: "btn btn-primary" %>
+                      </div>
                     </div>
                   </div>
-                </div>
-              <% end %>
-            </div>
+                <% end %>
+              </div>
+            <% end %>
           </div>
 
           <!-- 再診断ボタン -->

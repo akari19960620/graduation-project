@@ -51,10 +51,10 @@ module DiagnosisTestHelper
 
   # シードデータと同じ構造の診断結果セットを作成（施設付き）
   def create_complete_diagnosis_results_with_facilities
-    # 各タイプの施設を作成
-    cost_facilities = create_list(:facility, 5, :cost_focused)
-    facility_facilities = create_list(:facility, 5, :facility_focused)
-    medical_facilities = create_list(:facility, 5, :medical_focused)
+    # facility_typeごとに2件ずつ施設を作成する
+    create_list(:facility, 2, :nursing_home, :facility_focused)
+    create_list(:facility, 2, :group_home, :facility_focused)
+    create_list(:facility, 2, :paid_nursing_home, :facility_focused)
 
     # コスト重視タイプ
     cost_result = create(:diagnosis_result,
@@ -62,7 +62,6 @@ module DiagnosisTestHelper
       result_title: 'コスト重視タイプ',
       result_description: 'あなたは費用を重視するタイプです。経済的な負担を抑えることを優先する傾向があります。'
     )
-    cost_facilities.each { |facility| create(:facility_match, diagnosis_result: cost_result, facility: facility) }
 
     # 施設重視タイプ
     facility_result = create(:diagnosis_result,
@@ -70,7 +69,6 @@ module DiagnosisTestHelper
       result_title: '施設重視タイプ',
       result_description: 'あなたは施設の充実度を重視するタイプです。快適な環境で過ごすことを優先する傾向があります。'
     )
-    facility_facilities.each { |facility| create(:facility_match, diagnosis_result: facility_result, facility: facility) }
 
     # 医療重視タイプ
     medical_result = create(:diagnosis_result,
@@ -78,9 +76,6 @@ module DiagnosisTestHelper
       result_title: '医療・ケア重視タイプ',
       result_description: 'あなたは医療・ケアの質を重視するタイプです。専門的なサポートを受けることを優先する傾向があります。'
     )
-    medical_facilities.each { |facility| create(:facility_match, diagnosis_result: medical_result, facility: facility) }
-
-    [ cost_result, facility_result, medical_result ]
   end
 end
 

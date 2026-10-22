@@ -8,8 +8,9 @@ class DiagnosisScoreCalculator
   def calculate
     scores = calculate_scores          # ① スコアを計算
     category = determine_category(scores)  # ② カテゴリーを判定
+    percentages = calculate_percentages(scores)  # ③ スコアの割合を計算
 
-    { scores: scores, category: category }  # ③ ハッシュで両方を返す
+    { scores: scores, category: category, percentages: percentages }  # ④ ハッシュで両方を返す
   end
 
   private
@@ -32,5 +33,13 @@ class DiagnosisScoreCalculator
     max_score = scores.values.max
     # 優先順位に従って、最大スコアを持つカテゴリを探す
     priority_order.find { |category| scores[category] == max_score }
+  end
+
+  def calculate_percentages(scores)
+    total_score = scores.values.sum
+
+    scores.transform_values do |score|
+      total_score.zero? ? 0 : (score.to_f / total_score * 100).round(1)
+    end
   end
 end

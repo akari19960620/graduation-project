@@ -1,9 +1,10 @@
 class DiagnosisAnswerSaver
-  attr_reader :error_message
+  attr_reader :error_message, :diagnosis
 
   def initialize(session_id, diagnosis_params)
     @session_id = session_id
     @diagnosis_params = diagnosis_params
+    @diagnosis = nil
   end
 
   def save
@@ -12,7 +13,7 @@ class DiagnosisAnswerSaver
       # 先に過去の診断をすべて削除
       delete_old_diagnoses
       # 新しい診断を作成
-      diagnosis = create_diagnosis
+      @diagnosis = create_diagnosis
       # パラメータの中身をループ処理
       @diagnosis_params.each do |key, value|
         question_id = extract_question_id(key)

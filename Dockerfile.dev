@@ -1,4 +1,4 @@
-FROM ruby:3.3.7-slim
+FROM ruby:3.3.12-slim
 
 # Rails app lives here
 WORKDIR /app
@@ -9,8 +9,8 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Set development environment
-ENV RAILS_ENV="development" \
-    BUNDLE_PATH="/usr/local/bundle"
+# ENV RAILS_ENV="development" \
+ENV BUNDLE_PATH="/usr/local/bundle"
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./

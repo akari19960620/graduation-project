@@ -9,11 +9,12 @@ class DiagnosisResultFetcher
     result_data = calculate_scores_and_category(answers)  # ① スコアとカテゴリーを同時取得
     scores = result_data[:scores] # スコアを取り出す
     category = result_data[:category] # カテゴリーを取り出す
+    percentages = result_data[:percentages] # スコアの割合を取り出す
     # 診断結果を1回だけ取得
     diagnosis_result = fetch_diagnosis_result(category)
-    recommended_facilities = fetch_recommended_facilities(diagnosis_result)
+    recommended_facilities = fetch_recommended_facilities(category)
 
-    build_result_data(answers, scores, category, diagnosis_result, recommended_facilities)
+    build_result_data(answers, scores, category, percentages, diagnosis_result, recommended_facilities)
   end
 
   private
@@ -43,17 +44,18 @@ class DiagnosisResultFetcher
   end
 
   # 診断結果からおすすめ施設を取得
-  def fetch_recommended_facilities(diagnosis_result)
-    diagnosis_result.facilities.limit(3)
+  def fetch_recommended_facilities(category)
+    Facility.recommend_by_category(category)
   end
 
   # 結果データの構築
-  def build_result_data(answers, scores, category, result, recommended_facilities)
+  def build_result_data(answers, scores, category, percentages, diagnosis_result, recommended_facilities)
     {
       answers: answers,
       scores: scores,
       category: category,
-      result: result,
+      percentages: percentages,
+      result: diagnosis_result,
       recommended_facilities: recommended_facilities
     }
   end
