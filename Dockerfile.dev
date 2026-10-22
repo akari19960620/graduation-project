@@ -1,4 +1,4 @@
-FROM ruby:3.3.7-slim
+FROM ruby:3.3.12-slim
 
 # Rails app lives here
 WORKDIR /app
