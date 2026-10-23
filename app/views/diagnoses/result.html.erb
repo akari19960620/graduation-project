@@ -32,19 +32,22 @@
             <h2 class="mb-3">☆あなたにおすすめの施設☆</h2>
             
             <% @recommended_facilities.group_by(&:facility_type).each do |type, facilities| %>
-              <h3 class="mb-3"><%= type %></h3>
-              <div class="row">
+              <div class="mb-4 p-3 bg-light rounded">
+                <h3 class="mb-2"><%= type %></h3>
+                <p class="text-muted mb-0"><%= facilities.first.facility_description.presence || "説明文なし" %></p>
+              </div>
+              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-3">
                 <% facilities.each do |facility| %>
-                  <div class="col-md-4 mb-3">
+                  <div class="col">
                     <div class="card h-100 facility-card">
                       <!-- 施設の画像があれば表示 -->
                       <% if facility.image.present? %>
-                        <%= image_tag facility.image, class: "card-img-top", alt: facility.name %>
+                        <%= image_tag facility.image, class: "card-img-top", alt: facility.name, style: "height: 200px; object-fit: cover;" %>
                       <% else %>
                         <img src="https://via.placeholder.com/300x200?text=No+Image" class="card-img-top" alt="施設画像なし">
                       <% end %>
 
-                      <div class="card-body">
+                      <div class="card-body d-flex flex-column">
                         <h4 class="card-title"><%= facility.name %></h4>
                         <p class="card-text text-muted small">
                           <%= truncate(facility.features, length: 150) %>
@@ -57,7 +60,7 @@
                           ～ <%= number_to_currency(facility.monthly_fee_max, unit: "￥", precision: 0) %></li>
                         </ul>
 
-                        <%= link_to '詳細を見る', facility_path(facility, diagnosis_id: @diagnosis.id), class: "btn btn-primary" %>
+                        <%= link_to '詳細を見る', facility_path(facility, diagnosis_id: @diagnosis.id), class: "btn btn-primary mt-auto" %>
                       </div>
                     </div>
                   </div>

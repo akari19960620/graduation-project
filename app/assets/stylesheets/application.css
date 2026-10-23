@@ -498,19 +498,6 @@ footer small {
   font-size: 0.9rem;
 }
 
-/* 施設カードを横に3つ並べる */
-.mt-5 .row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin: 0;
-}
-
-.col-md-4 {
-  max-width: 100%;
-  padding: 0;
-}
-
 /* ボタンスタイル */
 .btn-primary {
   background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%);
