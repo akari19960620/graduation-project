@@ -76,4 +76,4 @@ ENTRYPOINT ["/app/bin/docker-entrypoint"]
 
 # Start server via Thruster by default, this can be overwritten at runtime
 EXPOSE 80
-CMD ["sh", "-c", "bundle exec rails db:migrate && bundle exec rails db:seed && bundle exec puma -C config/puma.rb"]
+CMD ["sh", "-c", "bundle exec rails db:migrate && bundle exec puma -C config/puma.rb"]
