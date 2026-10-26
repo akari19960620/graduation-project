@@ -8,11 +8,17 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "GET /create" do
+  describe "POST /create" do
     it "returns http success" do
-      get "/users/create"
-      expect(response).to have_http_status(:success)
+      post "/users", params: {
+        user: {
+          name: "テストユーザー",
+          email: "testtest@example.com",
+          password: "password1",
+          password_confirmation: "password1"
+        }
+      }
+      expect(response).to have_http_status(:redirect)
     end
   end
-
 end
