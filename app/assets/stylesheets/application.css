@@ -27,60 +27,6 @@ a {
   padding: 2rem 1rem;
 }
 
-/* ヘッダー、フッター */
-/* ヘッダー・フッターのリセット */
-header, footer {
-  all: unset;
-  display: block;
-  box-sizing: border-box;
-}
-
-header * {
-  all: unset;
-  box-sizing: border-box;
-}
-
-footer * {
-  all: unset;
-  box-sizing: border-box;
-}
-/* ヘッダー */
-header {
-  padding: 8px 0;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
-}
-
-header .container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 15px;
-  text-align: center;
-}
-
-header a {
-  text-decoration: none;
-  color: #212529;
-}
-
-/* フッター */
-footer {
-  padding: 8px 0;
-  background-color: #f8f9fa;
-  border-top: 1px solid #dee2e6;
-  margin-top: auto;
-}
-
-footer .container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 15px;
-  text-align: center;
-}
-
-footer small {
-  color: #6c757d;
-}
 
 /* トップページ */
 /* ヒーローセクション全体 */
@@ -142,27 +88,32 @@ footer small {
 .btn-diagnosis {
   display: inline-block;
   padding: 1.2rem 3rem;
-  background-color: #007bff;
   color: white;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 50px;              
   font-size: 1.4rem;
   font-weight: bold;
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
-  transition: all 0.3s ease;
+  letter-spacing: 0.05em;            
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow:
+    0 6px 20px rgba(56, 189, 248, 0.4),
+    0 2px 6px rgba(56, 189, 248, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);  
+  transition: all 0.3s ease;
 }
 
 .btn-diagnosis:hover {
-  background-color: #0056b3;
-  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.5);
-  transform: translateY(-3px);
+  background: linear-gradient(135deg, #a5d8f0 0%, #5bc0f8 50%, #0ea5e9 100%);
+  box-shadow:
+    0 10px 30px rgba(56, 189, 248, 0.6),
+    0 4px 10px rgba(56, 189, 248, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px) scale(1.02);  
 }
 
-.btn-diagnosis:active {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-}
 
 /* 診断ページ */
 /* 診断画面全体のコンテナ */
@@ -347,7 +298,7 @@ footer small {
 
 /* 診断結果 */
 /* 診断結果ページ */
-.container {
+.result-container {
   background: linear-gradient(135deg, #d4f1f9 0%, #e8f5f9 100%);
   min-height: 100vh;
   padding: 3rem 2rem; /* 左右の余白を調整 */

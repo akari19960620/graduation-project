@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "users/new"
+  get "users/create"
 get "/favicon.ico", to: proc { [ 204, {}, [] ] }
 # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 root "static_pages#top"
@@ -9,6 +11,7 @@ resources :diagnoses, only: [ :new, :create ] do
   end
 end
 resources :facilities, only: [ :show ]
+resources :users, only: [ :new, :create ]
 
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
