@@ -1,0 +1,187 @@
+/* 診断結果 */
+/* 診断結果ページ */
+.result-container {
+  background: linear-gradient(135deg, #d4f1f9 0%, #e8f5f9 100%);
+  min-height: 100vh;
+  padding: 3rem 2rem; /* 左右の余白を調整 */
+  max-width: 85%; /* 最大幅を広げる */
+}
+
+/* カードのベーススタイル */
+.card {
+  border: 5px solid #a8daeb;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(168, 218, 235, 0.3);
+  background: white;
+}
+
+.card-body {
+  padding: 3rem;
+}
+
+/* 診断結果のタイトル */
+.card-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #5fb3d1;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+/* 判定結果のアラート */
+.alert-info {
+  background: linear-gradient(135deg, #a8daeb 0%, #c8e6f5 100%);
+  border: 3px solid #7fc8e3;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(168, 218, 235, 0.2);
+}
+
+.alert-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(95, 179, 209, 0.3);
+}
+
+.alert-info p {
+  font-size: 1.2rem;
+  color: white;
+  line-height: 1.6;
+}
+
+/* スコアセクション */
+.mt-4 h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #5fb3d1;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #a8daeb;
+}
+
+/* スコアリスト */
+.list-group-item {
+  border: 2px solid #a8daeb;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(135deg, #f0f9fc 0%, #f7fcfe 100%);
+  font-size: 1.1rem;
+  color: #5a5a5a;
+  transition: all 0.2s ease;
+}
+
+.list-group-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 4px 15px rgba(168, 218, 235, 0.3);
+  border-color: #7fc8e3;
+}
+
+.badge.bg-primary {
+  background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%) !important;
+  font-size: 1.2rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  box-shadow: 0 3px 10px rgba(168, 218, 235, 0.3);
+}
+
+/* おすすめ施設セクション */
+.mt-5 h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5fb3d1;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f0f9fc 0%, #f7fcfe 100%);
+  border-radius: 15px;
+  border: 3px solid #a8daeb;
+}
+
+/* 施設カード */
+.facility-card {
+  border: 3px solid #a8daeb;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 6px 20px rgba(168, 218, 235, 0.2);
+}
+
+.facility-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(127, 200, 227, 0.4);
+  border-color: #7fc8e3;
+}
+
+.facility-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid #a8daeb;
+}
+
+.facility-card .card-body {
+  padding: 1.5rem;
+}
+
+.facility-card .card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #5fb3d1;
+  margin-bottom: 1rem;
+  text-shadow: none;
+}
+
+.facility-card .card-text {
+  font-size: 0.95rem;
+  color: #5a5a5a;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.facility-card .list-unstyled {
+  margin-bottom: 1.5rem;
+}
+
+.facility-card .list-unstyled li {
+  padding: 0.4rem 0;
+  color: #5a5a5a;
+  font-size: 0.9rem;
+}
+
+/* ボタンスタイル */
+.btn-primary {
+  background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%);
+  border: 3px solid white;
+  color: white;
+  font-weight: bold;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(168, 218, 235, 0.3);
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #7fc8e3 0%, #5fb3d1 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(127, 200, 227, 0.4);
+  border-color: white;
+  color: white;
+}
+
+/* 再診断ボタン（大きめ） */
+.btn-lg {
+  font-size: 1.3rem;
+  padding: 1.2rem 4rem;
+  border-radius: 50px;
+  margin-top: 2rem;
+}
+
+/* アイコン */
+.bi {
+  margin-right: 0.5rem;
+  color: #7fc8e3;
+}

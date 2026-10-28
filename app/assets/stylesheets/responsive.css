@@ -1,0 +1,244 @@
+/* レスポンシブ対応 */
+/* タブレットサイズ */
+@media (max-width: 768px) {
+  /* トップページ */
+  .top-image {
+    width: 90%;
+    height: 250px;
+  }
+
+  .hero-text-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text-section h3 {
+    font-size: 1rem;
+  }
+
+  .btn-diagnosis {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  /* 診断ページ */
+  .diagnosis-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .diagnosis-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .diagnosis-header p {
+    font-size: 1.1rem;
+  }
+
+  .question-card {
+    padding: 1.5rem;
+  }
+
+  .question-header {
+    gap: 1rem;
+  }
+
+  .question-number {
+    min-width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .question-text {
+    font-size: 1.1rem;
+  }
+
+  .option-label {
+    padding: 1rem 1.2rem;
+  }
+
+  .btn-submit {
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  /* 診断結果ページ */
+  .result-container {
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.8rem;
+  }
+
+  .alert-heading {
+    font-size: 1.5rem;
+  }
+
+  .alert-info p {
+    font-size: 1rem;
+  }
+
+  .facility-card .card-img-top {
+    height: 150px;
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  /* 施設詳細ページ */
+
+  .facility-detail-page {
+    padding: 12px;
+  }
+
+  .facility-detail {
+    padding: 16px;
+  }
+
+  .facility-name {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .info-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .info-label {
+    min-width: auto;
+  }
+}
+
+/* スマホサイズ */
+@media (max-width: 480px) {
+  /* トップページ */
+  .hero-text-section h3 {
+    font-size: 0.75rem;
+  }
+
+  .hero-text-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero-text-section p {
+    font-size: 0.75rem;
+  }
+
+  .btn-diagnosis {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  /* 診断ページ */
+  .diagnosis-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .diagnosis-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .diagnosis-header p {
+    font-size: 0.8rem;
+  }
+
+  .question-card {
+    padding: 1.5rem;
+  }
+
+  .question-header {
+    gap: 1rem;
+  }
+
+  .question-number {
+    min-width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .question-text {
+    font-size: 1rem;
+  }
+
+  .option-label {
+    padding: 1rem 1.2rem;
+  }
+
+  .option-content {
+    font-size: 0.9rem;
+  }
+
+  .btn-submit {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  /* 診断結果ページ */
+  .result-container {
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .alert-heading {
+    font-size: 1rem;
+  }
+
+  .alert-info p {
+    font-size:0.9rem;
+  }
+  
+  .facility-card .card-img-top {
+    height: 150px;
+  }
+
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+
+  /* 施設詳細ページ */
+
+  .facility-detail-page {
+    padding: 12px;
+  }
+
+  .facility-detail {
+    padding: 16px;
+  }
+
+  .facility-name {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .info-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .info-label {
+    min-width: auto;
+  }
+}
