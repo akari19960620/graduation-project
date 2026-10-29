@@ -29,7 +29,7 @@
 
           <!-- おすすめ施設の表示 -->
           <div class="mt-5">
-            <h2 class="mb-3">☆あなたにおすすめの施設☆</h2>
+            <h2 class="mb-3 fs-2">☆あなたにおすすめの施設☆</h2>
             
             <% @recommended_facilities.group_by(&:facility_type).each do |type, facilities| %>
               <div class="mb-4 p-3 bg-light rounded">

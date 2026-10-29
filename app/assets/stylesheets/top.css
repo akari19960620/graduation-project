@@ -1,0 +1,88 @@
+/* トップページ */
+/* ヒーローセクション全体 */
+.hero-section {
+  position: relative; /* 基準となる要素 */
+  width: 100%;
+  margin: 0 auto; /* 中央配置 */
+}
+
+.top-image{
+  width: 50%;
+  height: 400px;
+  object-fit: cover; /* 画像の比率を保ちながら、はみ出た部分を切り取る */
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+/* ========================================
+   画像の下のコンテンツセクション
+   ======================================== */
+.hero-text-section {
+  width: 90%;
+  max-width: 800px;
+  margin: 0.5rem auto;
+  text-align: center;
+  padding: 0.5rem 2rem;
+}
+
+/* 小見出し（h3） */
+.hero-text-section h3 {
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+  line-height: 1.6;
+}
+
+/* メイン見出し（h2） */
+.hero-text-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+/* 説明文 */
+.hero-text-section p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 1rem;
+  line-height: 1.8;
+}
+
+/* 診断開始ボタンを大きく目立たせる */
+.btn-wrapper {
+  margin: 1rem 0;
+}
+
+.btn-diagnosis {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;              
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;            
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow:
+    0 6px 20px rgba(56, 189, 248, 0.4),
+    0 2px 6px rgba(56, 189, 248, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);  
+  transition: all 0.3s ease;
+}
+
+.btn-diagnosis:hover {
+  background: linear-gradient(135deg, #a5d8f0 0%, #5bc0f8 50%, #0ea5e9 100%);
+  box-shadow:
+    0 10px 30px rgba(56, 189, 248, 0.6),
+    0 4px 10px rgba(56, 189, 248, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px) scale(1.02);  
+}

@@ -1,0 +1,180 @@
+/* 診断ページ */
+/* 診断画面全体のコンテナ */
+.diagnosis-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #d4f1f9 0%, #e8f5f9 100%); /* 水色→明るい水色 */
+  min-height: 100vh;
+}
+
+/* ヘッダーセクション */
+.diagnosis-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, #a8daeb 0%, #c8e6f5 100%); /* パステル水色 */
+  border-radius: 20px;
+  color: #4a5568; /* 濃いグレー */
+  box-shadow: 0 10px 30px rgba(168, 218, 235, 0.3);
+  border: 5px solid #fff;
+}
+
+.diagnosis-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* 柔らかい影 */
+}
+
+.diagnosis-header p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+/* 質問カード */
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.question-card {
+  background: white;
+  border: 5px solid #a8daeb; /* パステル水色 */
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(168, 218, 235, 0.2);
+}
+
+.question-card:hover {
+  border-color: #7fc8e3; /* 少し濃い水色 */
+  box-shadow: 0 12px 30px rgba(127, 200, 227, 0.3);
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* 質問ヘッダー */
+.question-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px solid #a8daeb;
+}
+
+.question-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 6px 15px rgba(168, 218, 235, 0.3);
+  border: 3px solid white;
+}
+
+.question-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #5fb3d1; /* 柔らかい水色 */
+  line-height: 1.6;
+  margin: 0;
+  padding-top: 0.5rem;
+}
+
+/* 選択肢リスト（縦並び） */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.option-label {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #f0f9fc 0%, #f7fcfe 100%); /* ほぼ白に近い水色 */
+  border: 3px solid #a8daeb;
+  border-radius: 15px;
+  transition: all 0.2s ease;
+}
+
+.option-label:hover {
+  background: linear-gradient(135deg, #e1f5fb 0%, #ecf9fd 100%);
+  border-color: #7fc8e3;
+  transform: translateX(10px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(127, 200, 227, 0.3);
+}
+
+.option-radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ラジオボタンが選択された時 */
+.option-radio:checked + .option-content {
+  font-weight: 700;
+  color: #5fb3d1;
+}
+
+.option-label:has(.option-radio:checked) {
+  background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%);
+  border-color: #fff;
+  box-shadow: 0 8px 25px rgba(168, 218, 235, 0.4);
+  color: white;
+}
+
+.option-label:has(.option-radio:checked) .option-content {
+  color: white;
+}
+
+.option-content {
+  display: block;
+  font-size: 1.1rem;
+  color: #5a5a5a; /* 柔らかいグレー */
+  line-height: 1.6;
+}
+
+/* 送信ボタンセクション */
+.submit-section {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 3px solid white;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #a8daeb 0%, #7fc8e3 100%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1.5rem 5rem;
+  border: 5px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(168, 218, 235, 0.4);
+  text-transform: uppercase;
+}
+
+.btn-submit:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 15px 40px rgba(127, 200, 227, 0.5);
+}
+
+.btn-submit:active {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(168, 218, 235, 0.6);
+}
