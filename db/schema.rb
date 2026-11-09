@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_26_064511) do
+ActiveRecord::Schema[7.2].define(version: 2026_11_09_054309) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,9 +21,11 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_26_064511) do
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["diagnosis_result_id"], name: "index_diagnoses_on_diagnosis_result_id"
     t.index ["session_id"], name: "index_diagnoses_on_session_id", unique: true
     t.index ["status"], name: "index_diagnoses_on_status"
+    t.index ["user_id"], name: "index_diagnoses_on_user_id"
   end
 
   create_table "diagnosis_answers", force: :cascade do |t|
@@ -198,6 +200,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_26_064511) do
   end
 
   add_foreign_key "diagnoses", "diagnosis_results"
+  add_foreign_key "diagnoses", "users"
   add_foreign_key "diagnosis_answers", "diagnoses"
   add_foreign_key "diagnosis_answers", "diagnosis_options"
   add_foreign_key "diagnosis_answers", "diagnosis_questions"
