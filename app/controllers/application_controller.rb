@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   # allow_browser versions: :modern unless Rails.env.test?
   # Changes to the importmap will invalidate the etag for HTML responses
-  
+
   private
 
   def require_login
     unless current_user
-      redirect_to new_login_path, danger: "ログインしてください"
+      redirect_to new_login_path, flash: { danger: "ログインしてください" }
     end
   end
 
