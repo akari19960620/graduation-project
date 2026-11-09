@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.3.12"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.3", ">= 7.2.3.2"
+gem "rails", "~> 8.0", ">= 8.0.5.2"
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
