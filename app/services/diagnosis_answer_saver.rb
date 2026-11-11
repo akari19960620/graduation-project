@@ -1,9 +1,10 @@
 class DiagnosisAnswerSaver
   attr_reader :error_message, :diagnosis
 
-  def initialize(session_id, diagnosis_params)
+  def initialize(session_id, diagnosis_params, user = nil)
     @session_id = session_id
     @diagnosis_params = diagnosis_params
+    @user = user
     @diagnosis = nil
   end
 
@@ -44,12 +45,14 @@ class DiagnosisAnswerSaver
   def create_diagnosis
     Diagnosis.create!(
       session_id: @session_id,
-      status: "in_progress"
+      status: "in_progress",
+      user: @user
     )
   end
 
   # パラメータのキーから質問IDを抽出
   def extract_question_id(key)
+    # "question_1" のようなキーから "1" を取り出して整数に変換
     key.to_s.gsub("question_", "").to_i
   end
 

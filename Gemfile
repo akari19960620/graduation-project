@@ -70,5 +70,6 @@ group :test do
   gem "selenium-webdriver"
   gem "database_cleaner-active_record"
   gem "simplecov", require: false
+  gem "rails-controller-testing"
   # gem "webdrivers"
 end

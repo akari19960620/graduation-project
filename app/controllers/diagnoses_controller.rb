@@ -1,4 +1,6 @@
 class DiagnosesController < ApplicationController
+  skip_before_action :require_login, only: %i[new create result]
+
   CATEGORY_ORDER = %w[
     特別養護老人ホーム
     有料老人ホーム
@@ -18,33 +20,34 @@ class DiagnosesController < ApplicationController
     # Form Object でバリデーション
     form = DiagnosisForm.new(diagnosis_params)
     unless form.valid?
-      flash[:alert] = form.errors.full_messages.join(", ")
+      flash[:danger] = form.errors.full_messages.join(", ")
       redirect_to new_diagnosis_path
       return
     end
 
     # Service Object で保存
-    saver = DiagnosisAnswerSaver.new(current_session_id, form.question_answers)
+    saver = DiagnosisAnswerSaver.new(current_session_id, form.question_answers, current_user)
     result = saver.save
 
     if result
       diagnosis = Diagnosis.find_by(session_id: current_session_id)
       if diagnosis
-        redirect_to result_diagnosis_path(diagnosis), notice: "回答を保存しました"
+        redirect_to result_diagnosis_path(diagnosis), success: "回答を保存しました"
       else
-        flash[:alert] = "診断データが見つかりませんでした"
+        flash[:danger] = "診断データが見つかりませんでした"
         redirect_to new_diagnosis_path
       end
     else
-      flash[:alert] = saver.error_message
+      flash[:danger] = saver.error_message
       redirect_to new_diagnosis_path
     end
   end
 
  def result
-  # URLのIDから診断データを取得
-  @diagnosis = Diagnosis.find(params[:id])
-
+  # URLのIDに加えて、session_idも一致するものだけを取得する→他人の結果を見れないように。
+  @diagnosis = Diagnosis.find_by(id: params[:id], session_id: current_session_id)
+  # find_byは該当レコードが見つからない場合nilを返すので、診断結果が見つからない場合は例外を発生させる
+  raise ActiveRecord::RecordNotFound if @diagnosis.nil?
   # DiagnosisResultFetcherで診断結果を取得
   fetcher = DiagnosisResultFetcher.new(@diagnosis.id)
   result_data = fetcher.fetch
@@ -57,12 +60,12 @@ end
   private
 
   def diagnosis_not_found
-    flash[:alert] = "診断を受けてください"
+    flash[:danger] = "診断を受けてください"
     redirect_to new_diagnosis_path
   end
 
   def record_not_found
-    flash[:alert] = "診断結果が見つかりませんでした"
+    flash[:danger] = "診断結果が見つかりませんでした"
     redirect_to new_diagnosis_path
   end
 
