@@ -32,8 +32,8 @@ RSpec.describe "Users", type: :request do
             user: {
               name: "テストユーザー",
               email: "",
-            password: "password1",
-            password_confirmation: "password1"
+              password: "password1",
+              password_confirmation: "password1"
             }
           }
         }.not_to change(User, :count)  # ユーザーが作成されていないことを検証

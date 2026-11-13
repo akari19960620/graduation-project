@@ -4,6 +4,8 @@ class User < ApplicationRecord
   attr_accessor :password_confirmation
 
   has_many :diagnoses, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :facilities, through: :favorites
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true

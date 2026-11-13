@@ -9,7 +9,21 @@
   <article class="facility-detail">
     <!-- 施設のメイン情報 -->
     <header class="facility-header">
-      <h1 class="facility-name"><%= @facility.name %></h1>
+      <div class="facility-name-wrapper">
+        <h1 class="facility-name"><%= @facility.name %></h1>
+
+        <% if current_user %>
+          <% favorite = current_user.favorites.find_by(facility_id: @facility.id) %>
+          <% if favorite %>
+            <%= button_to "♥", favorite_path(favorite), method: :delete, class: "favorite-btn favorite-btn-active" %>
+          <% else %>
+            <%= button_to "♡", facility_favorites_path(@facility), method: :post, class: "favorite-btn" %>
+          <% end %>
+        <% else %>
+          <%= link_to "♡", new_login_path(require_favorite: true), class: "favorite-btn" %>
+        <% end %>
+      </div>
+
       <div class="facility-meta">
         <span class="badge badge-primary"><%= @facility.facility_type %></span>
       </div>
