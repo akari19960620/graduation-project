@@ -15,6 +15,9 @@ class Facility < ApplicationRecord
     "ケアハウス" => "自宅での生活に不安があるものの、比較的低価格で利用したい方向けの公的・半公的な施設です。「一般型（自立向け）」と「特定施設（介護が必要な方向け）」があります。"
   }.freeze
 
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
+
   # カテゴリに応じたスコアで、施設タイプごとに上位2件を取得
   def self.recommend_by_category(category)
     score_column = SCORE_COLUMNS[category]

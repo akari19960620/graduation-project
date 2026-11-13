@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_09_083836) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_11_055018) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -87,6 +87,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_09_083836) do
     t.decimal "medical_score"
     t.decimal "facility_score"
     t.string "image"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "facility_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["facility_id"], name: "index_favorites_on_facility_id"
+    t.index ["user_id", "facility_id"], name: "index_favorites_on_user_id_and_facility_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "solid_cache_entries", force: :cascade do |t|
@@ -205,6 +215,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_11_09_083836) do
   add_foreign_key "diagnosis_answers", "diagnosis_options"
   add_foreign_key "diagnosis_answers", "diagnosis_questions"
   add_foreign_key "diagnosis_options", "diagnosis_questions"
+  add_foreign_key "favorites", "facilities"
+  add_foreign_key "favorites", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id"
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id"
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id"

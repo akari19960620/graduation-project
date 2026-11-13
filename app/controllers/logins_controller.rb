@@ -2,6 +2,7 @@ class LoginsController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
 
   def new
+    flash.now[:danger] = "お気に入り登録にはログインが必要です" if params[:require_favorite]
   end
 
   def create
