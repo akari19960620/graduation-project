@@ -11,17 +11,8 @@
     <header class="facility-header">
       <div class="facility-name-wrapper">
         <h1 class="facility-name"><%= @facility.name %></h1>
-
-        <% if current_user %>
-          <% favorite = current_user.favorites.find_by(facility_id: @facility.id) %>
-          <% if favorite %>
-            <%= button_to "♥", favorite_path(favorite), method: :delete, class: "favorite-btn favorite-btn-active" %>
-          <% else %>
-            <%= button_to "♡", facility_favorites_path(@facility), method: :post, class: "favorite-btn" %>
-          <% end %>
-        <% else %>
-          <%= link_to "♡", new_login_path(require_favorite: true), class: "favorite-btn" %>
-        <% end %>
+        
+        <%= render 'shared/favorite_button', facility: @facility %>
       </div>
 
       <div class="facility-meta">
