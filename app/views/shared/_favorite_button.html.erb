@@ -1,0 +1,15 @@
+<%# ログイン済みの場合:お気に入り登録状況に応じてボタンを出し分け %>
+<% if current_user %>
+  <%# この施設がすでにお気に入り登録されているか確認 %>
+  <% favorite = current_user.favorites.find_by(facility_id: facility.id) %>
+  <% if favorite %>
+    <%# 登録済み:♥ボタンでお気に入り解除(destroy) %>
+    <%= button_to "♥", favorite_path(favorite), method: :delete, class: "favorite-btn favorite-btn-active" %>
+  <% else %>
+    <%# 未登録: ♡ボタンでお気に入り登録(create) %>
+    <%= button_to "♡", facility_favorites_path(facility), method: :post, class: "favorite-btn" %>
+  <% end %>
+<% else %>
+  <%# 未ログインの場合: クリックでログイン画面へ遷移(require_favorite: trueでフラッシュメッセージ表示を制御) %>
+  <%= link_to "♡", new_login_path(require_favorite: true), class: "favorite-btn" %>
+<% end %>

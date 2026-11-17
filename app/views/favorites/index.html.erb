@@ -1,0 +1,31 @@
+<div class="favorites-container">
+  <h1>お気に入り一覧</h1>
+
+  <% if @favorites.present? %>
+    <div class="favorite-list">
+      <% @favorites.each do |favorite| %>
+        <div class="favorite-item" id="facility-<%= favorite.facility.id %>">
+          <%# 施設名(詳細ページへのリンク) %>
+          <h2><%= link_to favorite.facility.name, facility_path(favorite.facility) %></h2> 
+            
+          <%# お気に入り解除ボタン %>
+          <div class="actions">
+            <%= button_to "♥", favorite_path(favorite), method: :delete, class: "favorite-btn favorite-btn-active" %>
+          </div>
+
+          <%# 施設画像 %>
+          <% if favorite.facility.image.present? %>
+            <div class="facility-main-image">
+              <%= image_tag favorite.facility.image, alt: favorite.facility.name, class: 'facility-image' %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>   
+    </div>
+
+
+  <% else %>
+    <%# 0件の場合のメッセージ %>
+      <p>お気に入りに登録されている施設はありません。</p>
+  <% end %>
+</div>

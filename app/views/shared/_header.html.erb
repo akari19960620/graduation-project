@@ -5,6 +5,7 @@
     <div class="d-flex align-items-center gap-2">
       <% if logged_in? %>
         <span class="fw-bold"> ようこそ<%= current_user.name %> さん</span>
+        <%= link_to "お気に入り一覧", favorites_path, class: "btn btn-primary" %>
         <%= button_to "ログアウト", logout_path, method: :delete, class: "btn btn-outline-secondary" %>
       <% else %>
         <%= link_to "ユーザー登録", new_user_path, class: "btn btn-outline-primary" %>

@@ -49,6 +49,7 @@
 
                       <div class="card-body d-flex flex-column">
                         <h4 class="card-title"><%= facility.name %></h4>
+                        <%= render 'shared/favorite_button', facility: facility %>
                         <p class="card-text text-muted small">
                           <%= truncate(facility.features, length: 150) %>
                         </p>

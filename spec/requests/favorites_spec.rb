@@ -36,8 +36,21 @@ RSpec.describe "Favorites", type: :request do
       it "お気に入り登録を解除できる" do
         # ルーティングでshallow: trueを指定しているため、destroyは単純化される
         delete favorite_path(favorite)
-        expect(response).to redirect_to(facility_path(facility))
+
         expect(Favorite.count).to eq(0)
+      end
+
+      it "お気に入り一覧ページから解除した場合、お気に入り一覧ページにリダイレクトされる" do
+        # headers: { "HTTP_REFERER" => favorites_url } で直前に一覧ページを見ていたという情報をリクエストに含める
+        delete favorite_path(favorite), headers: { "HTTP_REFERER" => favorites_url }
+
+        expect(response).to redirect_to(favorites_path)
+      end
+
+      it "施設詳細ページから解除した場合、施設詳細ページにリダイレクトされる" do
+        delete favorite_path(favorite), headers: { "HTTP_REFERER" => facility_url(facility) }
+
+        expect(response).to redirect_to(facility_path(facility))
       end
     end
 
