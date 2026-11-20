@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :diagnoses, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :facilities, through: :favorites
+  # Userが削除されたときに、関連するreviewsレコードを削除せず、外部キー(user_id)だけをnilにする
+  has_many :reviews, dependent: :nullify
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
