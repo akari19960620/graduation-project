@@ -17,6 +17,7 @@ class Facility < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
+  has_many :reviews, dependent: :destroy
 
   # カテゴリに応じたスコアで、施設タイプごとに上位2件を取得
   def self.recommend_by_category(category)
