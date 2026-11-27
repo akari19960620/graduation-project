@@ -99,7 +99,7 @@ jobs:
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: stable
+          chrome-version: "131"
 
       - name: Setup ChromeDriver
         uses: nanasess/setup-chromedriver@v2
