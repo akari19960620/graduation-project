@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= '口コミ作成'  %></h1>
+
+      <%= form_with model: @review, url: facility_reviews_path(@facility), local: true do |f| %>
+        <% if @review.errors.any? %>
+          <div class="alert alert-danger">
+            <ul>
+              <% @review.errors.full_messages.each do |message| %>
+                <li><%= message %></%>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="mb-3">
+          <%= f.label :cost_rating, '費用' %>
+          <%= f.select :cost_rating, (1..5), { prompt: '選択してください' }, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :medical_rating, '医療・ケア' %>
+          <%= f.select :medical_rating, (1..5), { prompt: '選択してください' }, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :facility_rating, '設備・環境' %>
+          <%= f.select :facility_rating, (1..5), { prompt: '選択してください' }, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :comment, 'コメント' %>
+          <%= f.text_area :comment, class: "form-control", rows: "5" %>
+        </div>
+
+        <%= f.submit '投稿', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -33,4 +33,17 @@ class Facility < ApplicationRecord
   def facility_description
     FACILITY_DESCRIPTIONS[facility_type]
   end
+
+  # 口コミの平均スコアを計算する(&.で口コミが1件もない場合のエラーを防ぐ)
+  def average_cost_rating
+    reviews.average(:cost_rating)&.round(1)
+  end
+
+  def average_medical_rating
+    reviews.average(:medical_rating)&.round(1)
+  end
+
+  def average_medical_rating
+    reviews.average(:facility_rating)&.round(1)
+  end
 end

@@ -134,6 +134,32 @@
       </section>
     <% end %>
 
+    <!-- 口コミセクション ここに追加 -->
+    <section class="facility-section">
+      <h2 class="section-title">口コミ</h2>
+
+      <% if @facility.reviews.present? %>
+        <dl class="facility-info-list">
+          <div class="info-item">
+            <dt class="info-label">費用</dt>
+            <dd class="info-value"><%= @facility.average_cost_rating %> / 5</dd>
+          </div>
+          <div class="info-item">
+            <dt class="info-label">医療</dt>
+            <dd class="info-value"><%= @facility.average_medical_rating %> / 5</dd>
+          </div>
+          <div class="info-item">
+            <dt class="info-label">環境</dt>
+            <dd class="info-value"><%= @facility.average_environment_rating %> / 5</dd>
+          </div>
+        </dl>
+      <% else %>
+        <p class="facility-note">まだ口コミがありません。</p>
+      <% end %>
+
+      <%= link_to '口コミを投稿する', new_facility_review_path(@facility), class: "btn btn-primary" %>
+    </section>
+
     <% if @diagnosis.present? %>
       <div class="navigation-buttons">
         <%= link_to "診断結果に戻る", result_diagnosis_path(@diagnosis), class: "btn btn-secondary" %>

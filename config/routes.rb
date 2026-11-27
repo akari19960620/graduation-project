@@ -10,11 +10,13 @@ resources :diagnoses, only: [ :new, :create ] do
 end
 resources :facilities, only: [ :show ] do
   resources :favorites, only: [ :create, :destroy ], shallow: true   # shallow: trueを追加して、favoritesのルーティングを簡略化
+  resources :reviews, only: [ :new, :create ]
 end
 resources :users, only: [ :new, :create ]
 resource :login, only: [ :new, :create ]
 resource :logout, only: [ :destroy ]
 resources :favorites, only: [ :index ]
+
 
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
