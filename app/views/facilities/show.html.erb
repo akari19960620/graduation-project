@@ -139,6 +139,7 @@
       <h2 class="section-title">口コミ</h2>
 
       <% if @facility.reviews.present? %>
+        <h5>評価サマリー</h5>
         <dl class="facility-info-list">
           <div class="info-item">
             <dt class="info-label">費用</dt>
@@ -150,9 +151,22 @@
           </div>
           <div class="info-item">
             <dt class="info-label">環境</dt>
-            <dd class="info-value"><%= @facility.average_environment_rating %> / 5</dd>
+            <dd class="info-value"><%= @facility.average_facility_rating %> / 5</dd>
           </div>
         </dl>
+
+        <!-- ここから口コミ一覧を追加 -->
+        <h5>口コミ一覧</h5>
+        <% @reviews.each do |review| %>
+          <div class="review">
+            <p class="review-user"><%= review.user.name %></p>
+            <p class="review-rating">費用: <%= review.cost_rating %> / 5</p>
+            <p class="review-rating">医療: <%= review.medical_rating %> / 5</p>
+            <p class="review-rating">環境: <%= review.facility_rating %> / 5</p>
+            <p class="review-body"><%= review.comment %></p>
+          </div>
+        <% end %>
+
       <% else %>
         <p class="facility-note">まだ口コミがありません。</p>
       <% end %>
