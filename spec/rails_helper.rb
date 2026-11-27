@@ -27,10 +27,22 @@ RSpec.configure do |config|
   # システムテスト以外はトランザクションを使用
   config.use_transactional_fixtures = true
 
+  # CI用のChromeオプションを明示したドライバの追加
+  Capybara.register_driver :headless_chrome_ci do |app|
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument('--headless=new')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--window-size=1400,1400')
+
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+  end
+
   # システムテスト用のCapybara設定
   config.before(:each, type: :system) do
     if ENV['CI'] # GitHub Actions環境
-      driven_by :selenium, using: :headless_chrome, screen_size: [ 1400, 1400 ]
+      driven_by :headless_chrome_ci
     else # ローカルDocker環境
       driven_by :remote_chrome
       Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
