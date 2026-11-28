@@ -14,5 +14,3 @@ Capybara.register_driver :remote_chrome do |app|
     capabilities: options
   )
 end
-
-
