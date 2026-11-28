@@ -97,16 +97,19 @@ jobs:
           bundler-cache: true
       
       - name: Setup Chrome
+        id: setup-chrome
         uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: "131"
 
       - name: Setup ChromeDriver
         uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: "131.0.6778.264"  # Chromeと同じバージョンに固定
 
       - name: Display Chrome version
         run: |
-          google-chrome --version
+          ${{ steps.setup-chrome.outputs.chrome-path }} --version
           chromedriver --version
 
       - name: Run tests
@@ -114,6 +117,7 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/myapp_test
           CI: true
+          CHROME_BIN: ${{ steps.setup-chrome.outputs.chrome-path }}
           # RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
           # REDIS_URL: redis://localhost:6379/0
         run: |

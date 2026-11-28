@@ -30,6 +30,7 @@ RSpec.configure do |config|
   # CI用のChromeオプションを明示したドライバの追加
   Capybara.register_driver :headless_chrome_ci do |app|
     options = Selenium::WebDriver::Chrome::Options.new
+    options.binary = ENV['CHROME_BIN'] if ENV['CHROME_BIN'].present?
     options.add_argument('--headless=new')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
