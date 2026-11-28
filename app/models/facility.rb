@@ -43,7 +43,7 @@ class Facility < ApplicationRecord
     reviews.average(:medical_rating)&.round(1)
   end
 
-  def average_medical_rating
+  def average_facility_rating
     reviews.average(:facility_rating)&.round(1)
   end
 end

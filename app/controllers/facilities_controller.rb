@@ -4,5 +4,6 @@ class FacilitiesController < ApplicationController
   def show
     @facility = Facility.find(params[:id])
     @diagnosis = Diagnosis.find(params[:diagnosis_id]) if params[:diagnosis_id].present?
+    @reviews = @facility.reviews.includes(:user)
   end
 end
